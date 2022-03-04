@@ -16,7 +16,7 @@
 
 ## Table of contents
 - [Use Case](#Use-Case)
-- - [Libs](#Node-Red)
+- [Node Red](#Node-Red)
 - [Libs](#Libs)
 - [Bugs and feature requests](#bugs-and-feature-requests)
 - [Creator](#creator)
