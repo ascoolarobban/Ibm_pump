@@ -17,9 +17,15 @@ int buttonCState;
 
 void setup() {
   Serial.begin(9600);
+  //BUTTON
   pinMode(button_A, INPUT_PULLUP);
+  pinMode(ledRing, OUTPUT);
+  digitalWrite(ledRing,LOW);
+  
+  //PUMP  
   pinMode(pumpPin, OUTPUT);
   digitalWrite(pumpPin, LOW);
+  
   startMillis = millis();
   attachInterrupt(digitalPinToInterrupt(button_A), buttonAIsTriggered, RISING);
 

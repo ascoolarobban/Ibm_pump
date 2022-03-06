@@ -1,30 +1,38 @@
 #define pumpPin 10
+#define ledRing 4
 
 bool pump_state = false;
 
-void pumpcontroller(char command){
-  if(pump_state == false){
-    digitalWrite(pumpPin, HIGH);
-    pump_state = true;
-    Serial.println("PUMP:ON");
-    
+void pumpON() {
+  digitalWrite(pumpPin, HIGH);
+  digitalWrite(ledRing, HIGH);
+  pump_state = true;
+  Serial.println("PUMP:ON");
+}
+
+void pumpOFF() {
+  digitalWrite(pumpPin, LOW);
+  digitalWrite(ledRing, LOW);
+  pump_state = false;
+  Serial.println("PUMP:OFF");
+
+}
+
+void pumpcontroller(char command) {
+  if (pump_state == false) {
+    pumpON();
+
   }
-  else if(pump_state == true){
-    digitalWrite(pumpPin, LOW);
-    pump_state = false;
-    Serial.println("PUMP:OFF");
+  else if (pump_state == true) {
+    pumpOFF();
   }
-    if(command == 'A'){
-    digitalWrite(pumpPin, HIGH);
-    pump_state = true;
-    Serial.println("PUMP:ON");
-    
+  if (command == 'A') {
+    pumpON();
+
   }
-  else if(command == 'B'){
-    digitalWrite(pumpPin, LOW);
-    pump_state = false;
-    Serial.println("PUMP:OFF");
+  else if (command == 'B') {
+    pumpOFF();
   }
-  
-  
+
+
 }
