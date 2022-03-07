@@ -50,7 +50,7 @@ void loop() {
 
   tempReading();
   //Send sensor data
-  // send_json();
+
 
   //debouncing button
   debounce();

@@ -6,7 +6,8 @@ void send_json() {
   root["city"] = city;
   JsonObject pump = root.createNestedObject("Pump");
   pump["id"] = pump_id;
-  pump["temp"] = temp;
+  pump["temp"] = lastTemperature;
+  pump["hum"] = lastHumidity;
   pump["waterflow"] = flow;
   serializeJson(root, Serial);
   lastTemp = temp;

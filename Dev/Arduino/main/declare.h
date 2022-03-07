@@ -1,6 +1,13 @@
 //DHT 
 #define DHTTYPE DHT11  
 #define DHTPIN A0 
+float lastHumidity;
+float lastTemperature;
+
+float humidity;
+float temperature;
+
+
 
 //PUMP
 String city = "Stockholm";
