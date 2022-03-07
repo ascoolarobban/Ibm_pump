@@ -1,3 +1,6 @@
+//DHT 
+#define DHTTYPE DHT11  
+#define DHTPIN A0 
 
 //PUMP
 String city = "Stockholm";
