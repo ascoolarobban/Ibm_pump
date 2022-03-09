@@ -5,5 +5,5 @@ void buttonAIsTriggered() {
 }
 
 void buttonBIsTriggered() {
-    trigger2 = true;
+    trigger_B = true;
 }
