@@ -51,7 +51,7 @@ Have a bug or a feature request? Send me a message to discuss it.
     Robin Ellingsen
     Neil Sawbridge 
     David Slivo
-    Youssef 
+    Youssef Abdalahad
     Ludvig Karlason
 ## Contact
 
