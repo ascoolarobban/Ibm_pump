@@ -9,14 +9,18 @@ String transformPumpState() {
 void send_json() {
   StaticJsonDocument<256> doc;
   JsonObject root = doc.to<JsonObject>();
-  root["city"] = city;
-  JsonObject pump = root.createNestedObject("Pump");
-  pump["id"] = pump_id;
+  root["Pump"] = city;
+  JsonObject pump = root.createNestedObject("data");
   pump["temp"] = lastTemperature;
   pump["hum"] = lastHumidity;
   pump["waterflow"] = flow;
-  pump["pumpstatus"] = transformPumpState();
-  pump["valve"] = valve_state;
+  pump["pumpstate"] = transformPumpState();
+  pump["valve state"] = valve_state;
+  pump["fan state"] = fan_state;
+  pump["fan speed"] = fan_speed;
+  pump["pump_speed"] = pump_speed;
+  pump["runtime"] = runTimeBuffer;
+  pump["Serial number"] = SN;
   serializeJson(root, Serial);
   Serial.println("\n");
 }

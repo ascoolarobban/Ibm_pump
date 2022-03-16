@@ -4,6 +4,7 @@ void commandHandler(int comdata) {
 
   switch (comdata) {
 
+
     case 'A': // A Starts pump
       pumpON(); //Pumpcontroller in pumpOnOff.h
       break;
@@ -13,10 +14,18 @@ void commandHandler(int comdata) {
 
       break;
     case 'C': // Opens valve
-      valveON(); //Pumpcontroller in pumpOnOff.h
+      fanON(); //Pumpcontroller in pumpOnOff.h
       break;
 
     case 'D'://D  Closes Valve
+      fanOFF();//Pumpcontroller in pumpOnOff.h
+      break;
+    
+    case 'E'://D  Closes Valve
+      valveON();//Pumpcontroller in pumpOnOff.h
+      break;
+      
+    case 'F'://D  Closes Valve
       valveOFF();//Pumpcontroller in pumpOnOff.h
       break;
   }
