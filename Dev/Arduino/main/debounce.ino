@@ -11,9 +11,16 @@ void debounce() {
   }
   if (trigger_B == true) {
     if ((millis() - buttonBStartMillis) > debounceDelay) {
-      valveControllerButton();
+      fanControllerButton();
     }
     buttonBStartMillis = millis();
     trigger_B = false;
+  }
+  if (trigger_C == true) {
+    if ((millis() - buttonCStartMillis) > debounceDelay) {
+      valveControllerButton();
+    }
+    buttonCStartMillis = millis();
+    trigger_C = false;
   }
 }
