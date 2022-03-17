@@ -69,11 +69,13 @@ void setup() {
 void loop() {
 
 
-  
+
   //Checks what button has been pressed
   readButtons();
-
   //Idle button breath
+  if(idleState() == true){
+    ledShow();
+  }
   //ledShow();
 
   //Get the time machine has been running
