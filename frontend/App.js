@@ -1,3 +1,4 @@
+import { index } from "d3";
 import React, { Component } from "react";
 import ChildComponent from "./child";
 
@@ -6,9 +7,21 @@ class App extends Component {
       super(props);
 
       this.state = {
-          ws: null
-      };
+          ws: null,
+          pumpState: 'OFF',
+          fanState: 'OFF',
+          valveState: 'OFF',
+		  temp: null,
+          flow: null,
+          data: [
+            {
+                "group": "value",
+                "value": null
+            },
+          ]}
+       
   }
+ 
 
   // single websocket instance for the own application and constantly trying to reconnect.
 
@@ -23,8 +36,8 @@ class App extends Component {
    * This function establishes the connect with the websocket and also ensures constant reconnection if connection closes
    */
   connect = () => {
-      var ws = new WebSocket("ws://localhost:1880/ws/simple");
-      //var ws = new WebSocket("ws://localhost:1880/ws/sensors");
+      var ws = new WebSocket("ws://9.246.252.249:1880/ws/simple");
+      //var ws = new WebSocket("ws://localhost:1880/ws/simple");
       let that = this; // cache the this
       var connectInterval;
 
@@ -42,19 +55,27 @@ class App extends Component {
           that.timeout = 250; // reset timer to 250 on open of websocket connection 
           clearTimeout(connectInterval); // clear Interval on on open of websocket connection
       };
-     
-      ws.addEventListener('message', function (event) {
-          console.log('Message from server ', event.data);
-          const obj = JSON.parse(event.data);
-          
-	  //console.log('Pump :');
-          //var result = obj[1]];
 
-          console.log('PUMP: ', obj);
-      });
+      
 
+      ws.onmessage = (event) => {
+        console.log('Message from server ', event.data);
+        const sensorObject = JSON.parse(event.data);
+        var pumpState = sensorObject["Pump"]["pumpstatus"]
+        var temp = sensorObject["Pump"]["temp"]
+        var flow = sensorObject["Pump"]["flow"]
+        var fanState = sensorObject["Pump"]["fanstatus"]
+        var valveState = sensorObject["Pump"]["valvestatus"]
+        
+        this.setState({ pumpState: pumpState});
+        this.setState({ fanState: fanState});
+        this.setState({ valveState: valveState});
+        this.setState({ temp: temp});
+        this.setState({ flow: flow});
+         
+      }
 
-      // websocket onclose event listener
+      // websocket onclose 
       ws.onclose = e => {
           console.log(
               `Socket is closed. Reconnect will be attempted in ${Math.min(
@@ -89,7 +110,7 @@ class App extends Component {
   };
 
   render() {
-      return <ChildComponent websocket={this.state.ws} />;
+      return <ChildComponent websocket={this.state.ws} temp={this.state.temp} pumpState={this.state.pumpState} />;
   }
 }
 export default App;
