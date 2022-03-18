@@ -6,7 +6,7 @@ char SN[128] = "8573432363035131A052";
 String city = "Kista";
 int pump_id = 1001;
 
-
+//BUTTON DEBOUNCE TRIGGERS
 bool trigger_A = false;
 bool trigger_B = false;
 bool trigger_C = false;
@@ -26,7 +26,7 @@ float temperature;
 
 //BUTTON
 #define button_A  2 // BUTTON 1(A)
-#define button_B  3 // BUTTON 2(B)
+#define button_B  13 // BUTTON 2(B)
 #define button_C  4 // BUTTON 3(C)
 
 //SENSORS
@@ -36,13 +36,23 @@ int lastTemp;
 int lastFlow;
 
 //RPM
-int fan_speed = random(100,3000);
-int pump_speed= random(100,3000);
+int fan_speed = 0;
+int pump_speed= 0;
+
+//POTENTIOMETER VALUES
+int pot_1 = 0;
+int pot_2 = 0;
+int pot_3 = 0;
+
 
 //TIME
 unsigned long startMillis;
 unsigned long currentMillis;
 char runTimeBuffer[21];
+
+//LEDSHOW WAIT
+long timeN = 0;
+int waitPeriod = 10000;
 
 long debounceDelay = 200; 
 unsigned long buttonAStartMillis = 0;

@@ -3,7 +3,7 @@
 #include "json.h"
 DHT dht(DHTPIN, DHTTYPE);
 
-void tempReading() {
+void sensorReading() {
   temperature = dht.readTemperature();
   humidity = dht.readHumidity();
   

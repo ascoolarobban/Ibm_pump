@@ -9,6 +9,8 @@ unsigned long time_now = 0;
 
 void readButtons();
 void pumpSerial();
+bool idleState();
+void setToZero();
 
 void makeHigh(int a, int b, int c ) {
   analogWrite(buttonA_ledRing, a);  //pump led ring
@@ -24,12 +26,17 @@ void makeHighBreathe(int x) {
 }
 
 void breathingLed() {
+
   for (int i = 0; i < 3; i++) {
     for (int i = 0; i < 200; i++) {
       readButtons();
       pumpSerial();
       A++;
       makeHighBreathe(A);
+      if (idleState() != true) {
+        setToZero();
+        break;
+      }
       delay(delay_time);
     }
     for (int i = 0; i < 200; i++) {
@@ -37,17 +44,25 @@ void breathingLed() {
       pumpSerial();
       A--;
       makeHighBreathe(A);
+      if (idleState() != true) {
+        setToZero();
+        break;
+      }
       delay(delay_time);
     }
 
   }
 
 }
+void setToZero() {
+  A = 0;
+  B = 0;
+  C = 0;
+  makeHigh(0, 0, 0);
+}
 
-bool idleState();
 void ledShow() {
   while (idleState() == true) {
-    makeHigh(0,0,0);
     {
       for (int i = 0; i < 200; i++) {
         readButtons();
@@ -56,7 +71,7 @@ void ledShow() {
         makeHigh(A, B, C);
         delay(delay_time);
         if (idleState() != true) {
-          makeHigh(0,0,0);
+          setToZero();
           break;
         }
       }
@@ -67,7 +82,7 @@ void ledShow() {
         makeHigh(A, B, C);
         delay(delay_time);
         if (idleState() != true) {
-          makeHigh(0,0,0);
+          setToZero();
           break;
         }
       }
@@ -78,7 +93,7 @@ void ledShow() {
         makeHigh(A, B, C);
         delay(delay_time);
         if (idleState() != true) {
-          makeHigh(0,0,0);
+          setToZero();
           break;
         }
       }
@@ -88,7 +103,7 @@ void ledShow() {
         B--;
         makeHigh(A, B, C);
         if (idleState() != true) {
-          makeHigh(0,0,0);
+          setToZero();
           break;
         }
         delay(delay_time);
@@ -101,7 +116,7 @@ void ledShow() {
 
         delay(delay_time);
         if (idleState() != true) {
-          makeHigh(0,0,0);
+          setToZero();
           break;
         }
 
@@ -114,19 +129,20 @@ void ledShow() {
       makeHigh(A, B, C);
       delay(delay_time);
       if (idleState() != true) {
-        makeHigh(0,0,0);
+        setToZero();
         break;
       }
     }
     if (idleState() != true) {
-      makeHigh(0,0,0);
+      setToZero();
       break;
     }
 
 
-    //breathingLed();
+    breathingLed();
 
   }
+
 
 }
 
@@ -138,7 +154,7 @@ void ledShow() {
 
 
 bool idleState() {
-  if (trigger_A == false && trigger_B == false && trigger_C == false && pump_state == false && fan_state == false && valve_state == false) {
+  if (trigger_A == false && trigger_B == false && trigger_C == false && pump_state == false && fan_state == false && drain_valve_state == false) {
     return true;
   }
   else {

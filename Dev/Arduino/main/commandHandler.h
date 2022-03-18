@@ -22,11 +22,11 @@ void commandHandler(int comdata) {
       break;
     
     case 'E'://D  Closes Valve
-      valveON();//Pumpcontroller in pumpOnOff.h
+      drainValveOpen();//Pumpcontroller in pumpOnOff.h
       break;
       
     case 'F'://D  Closes Valve
-      valveOFF();//Pumpcontroller in pumpOnOff.h
+      drainValveClosed();//Pumpcontroller in pumpOnOff.h
       break;
   }
 

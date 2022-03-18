@@ -6,6 +6,8 @@
 #include "pumpSerialCommand.h"
 #include "runTime.h"
 #include "readButtons.h"
+#include "readPotentiometers.h"
+#include "welcomeBlink.h"
 #include <LiquidCrystal_I2C.h>
 #include <Wire.h>
 
@@ -55,34 +57,41 @@ void setup() {
   pinMode(fan_relay, OUTPUT);
 
   //VALVE
-  pinMode(valve_relay, OUTPUT);
+  pinMode(drain_valve, OUTPUT);
+
+  //SAFETY VALVE
+  pinMode(safety_valve_relay, OUTPUT);
 
   //DEBOUNCE AND INTERRUPT
   startMillis = millis();
+
+  //POTENTIOMETERS
+  pinMode(potPin1, INPUT_PULLUP);
+  pinMode(potPin2, INPUT_PULLUP);
+  pinMode(potPin3, INPUT_PULLUP);
 
 
   //TURN OFF PUMP JUST FOR SAFETY
   pumpOFF();
 
+  welcomeBlink();
+
 }
-
+unsigned long lastMill = 0;
 void loop() {
-
-
+  unsigned long currentMill = millis();
 
   //Checks what button has been pressed
   readButtons();
-  //Idle button breath
-  if(idleState() == true){
-    ledShow();
-  }
-  //ledShow();
 
-  //Get the time machine has been running
-  runTime();
+  //Read Potentiometer:
+  readPotentiometers();
+
+
+
 
   //Send sensor data
-  tempReading();
+  sensorReading();
 
 
 
@@ -92,6 +101,19 @@ void loop() {
 
   //check for incomming char
   pumpSerial();
+
+
+  //Get the time machine has been running
+  runTime();
+
+
+  //Idle button breath
+  if (idleState() == true) {
+    if (currentMill - lastMill  > waitPeriod) {
+      lastMill = currentMill;
+      ledShow();
+    }
+  }
 
 
 

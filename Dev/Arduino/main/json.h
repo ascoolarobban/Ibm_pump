@@ -15,7 +15,8 @@ void send_json() {
   pump["hum"] = lastHumidity;
   pump["waterflow"] = flow;
   pump["pumpstate"] = transformPumpState();
-  pump["valve state"] = valve_state;
+  pump["drain valve state"] = drain_valve_state;
+  pump["safety valve state"] = safety_valve_state;
   pump["fan state"] = fan_state;
   pump["fan speed"] = fan_speed;
   pump["pump_speed"] = pump_speed;
