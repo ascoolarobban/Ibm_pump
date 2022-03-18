@@ -14,13 +14,13 @@ bool safety_valve_state = false;
 
 void safetyValveOFF() {
   digitalWrite(safety_valve_relay, LOW);
-  Serial.println("SAFETY VALVE: CLOSED");
+  Serial.println("{SAFETY_VALVE:CLOSED}");
   safety_valve_state = false;
 }
 
 void safetyValveON() {
   digitalWrite(safety_valve_relay, HIGH);
-  Serial.println("SAFETY VALVE: OPEN");
+  Serial.println("{SAFETY_VALVE:OPEN}");
   safety_valve_state = true;
   
 
@@ -31,7 +31,7 @@ void pumpON() {
   digitalWrite(pumpPin, HIGH);
   digitalWrite(buttonA_ledRing, HIGH);
   pump_state = true;
-  Serial.println("PUMP:ON");
+  Serial.println("{PUMP:ON}");
   // send_warning(warning(1));
 
 }
@@ -40,20 +40,20 @@ void pumpOFF() {
   digitalWrite(pumpPin, LOW);
   digitalWrite(buttonA_ledRing, LOW);
   pump_state = false;
-  Serial.println("PUMP:OFF");
+  Serial.println("{PUMP:OFF}");
 
 }
 void fanON() {
   digitalWrite(fan_relay, HIGH);
   digitalWrite(buttonB_ledRing, HIGH);
   fan_state = true;
-  Serial.println("FAN ON");
+  Serial.println("{FAN:ON}");
 }
 void fanOFF() {
   digitalWrite(fan_relay, LOW);
   digitalWrite(buttonB_ledRing, LOW);
   fan_state = false;
-  Serial.println("FAN OFF");
+  Serial.println("{FAN:OFF}");
 
 }
 
@@ -65,14 +65,14 @@ void drainValveOpen() {
   analogWrite(drain_valve, 255);
   digitalWrite(buttonC_ledRing, HIGH);
   drain_valve_state = true;
-  Serial.println("DRAIN VALVE: OPEN ");
+  Serial.println("{DRAIN_VALVE:OPEN}");
 //  Serial.println(pot_1);
 }
 void drainValveClosed() {
   analogWrite(drain_valve, 0);
   digitalWrite(buttonC_ledRing, LOW);
   drain_valve_state = false;
-  Serial.println("DRAIN VALVE: CLOSED");
+  Serial.println("{DRAIN_VALVE:CLOSED}");
 }
 
 

@@ -11,8 +11,6 @@ void send_json() {
   JsonObject root = doc.to<JsonObject>();
   //root["Pump"] = "Pump1";
   JsonObject pump = root.createNestedObject("data");
-  pump["temp"] = lastTemperature;
-  pump["hum"] = lastHumidity;
   pump["waterflow"] = flow;
   pump["pumpstate"] = pump_state;
   pump["drain valve state"] = drain_valve_state;

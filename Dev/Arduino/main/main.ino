@@ -92,7 +92,7 @@ void loop() {
 
 
   //Send sensor data
-  sensorReading();
+  //sensorReading();
 
 
 
