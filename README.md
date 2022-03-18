@@ -1,6 +1,6 @@
 <p align="center">
   <a href="pdf">
-    <a href="https://ibb.co/LZ360jt"><img src="http://pngimg.com/uploads/ibm/ibm_PNG19662.png" alt="Logo" border="0" height="150px" width="250"></a>
+    <a href="https://ibb.co/LZ360jt"><img src="http://pngimg.com/uploads/ibm/ibm_PNG19662.png" alt="Logo" border="0" height="150px" width="300"></a>
   </a>
 
   <h3 align="center">IBM Pump Demo</h3>
