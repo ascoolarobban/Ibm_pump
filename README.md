@@ -64,5 +64,4 @@ Have a bug or a feature request? Send me a message to discuss it.
 
 
 ## Copyright and license
-None and free to use as you wish, cred is always cool, be cool.
-Thanks.
+
