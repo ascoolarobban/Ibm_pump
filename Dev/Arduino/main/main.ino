@@ -47,16 +47,17 @@ void setup() {
   //PUMP
   pinMode(pumpPin, OUTPUT);
   digitalWrite(pumpPin, LOW);
+  //PUMP PWM
+  pinMode(pump_pwm_pin, OUTPUT);
   //*************************
 
   //TEMP
   dht.begin();
 
-
-  //FAN
+  //FAN RELAY
   pinMode(fan_relay, OUTPUT);
 
-  //VALVE
+  //DRAIN RELAY
   pinMode(drain_valve, OUTPUT);
 
   //SAFETY VALVE
