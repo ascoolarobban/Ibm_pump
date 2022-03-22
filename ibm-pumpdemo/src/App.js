@@ -1,6 +1,8 @@
-import { index } from "d3";
 import React, { Component } from "react";
 import ChildComponent from "./child";
+
+//var ws = new WebSocket("ws://9.246.252.225:1880/ws/simple");
+var ws = new WebSocket("ws://localhost:1880/ws/simple");
 
 class App extends Component {
   constructor(props) {
@@ -8,18 +10,26 @@ class App extends Component {
 
       this.state = {
           ws: null,
-          pumpState: 'OFF',
-          fanState: 'OFF',
-          valveState: 'OFF',
-		  temp: null,
-          flow: null,
-          data: [
-            {
-                "group": "value",
-                "value": null
-            },
-          ]}
+          pumpState : false,
+          fanspeed : null,
+          fanState : false,
+          drainvalvestate : false,
+          waterflow: 4,
+          sendButtonPressed: false,
+          temp: 16
+          }
        
+  }
+
+  
+  handleCallback = (childData) =>{
+    this.setState({data: childData})
+    console.log("Message from child %s",childData );
+    if (childData === 'ButtonPressed'){
+        console.log('child data if statement')
+        this.setState({sendButtonPressed: true});
+        ws.send("ButtonPressed");
+    }
   }
  
 
@@ -36,42 +46,37 @@ class App extends Component {
    * This function establishes the connect with the websocket and also ensures constant reconnection if connection closes
    */
   connect = () => {
-      var ws = new WebSocket("ws://9.246.252.249:1880/ws/simple");
+      //var ws = new WebSocket("ws://9.246.252.225:1880/ws/simple");
       //var ws = new WebSocket("ws://localhost:1880/ws/simple");
       let that = this; // cache the this
       var connectInterval;
 
-      console.log('ws: %s', ws);
-
-
+      console.log('ws data in: %s', ws);
+      this.setState({ ws: ws });
+      
       // websocket onopen event listener
       ws.onopen = () => {
           console.log("connected websocket main component");
-
-          this.setState({ ws: ws });
-
+          ws.send("SendData");
           console.log(this.state);
-          ws.send("React Message");
           that.timeout = 250; // reset timer to 250 on open of websocket connection 
           clearTimeout(connectInterval); // clear Interval on on open of websocket connection
       };
-
-      
-
+       
       ws.onmessage = (event) => {
         console.log('Message from server ', event.data);
         const sensorObject = JSON.parse(event.data);
-        var pumpState = sensorObject["Pump"]["pumpstatus"]
-        var temp = sensorObject["Pump"]["temp"]
-        var flow = sensorObject["Pump"]["flow"]
-        var fanState = sensorObject["Pump"]["fanstatus"]
-        var valveState = sensorObject["Pump"]["valvestatus"]
-        
+        var pumpState = sensorObject["data"]["pumpstate"]
+        var fanspeed = sensorObject["data"]["fanspeed"]
+        var waterflow = sensorObject["data"]["waterflow"]
+        var fanState = sensorObject["data"]["fanstate"]
+        var drainvalvestate = sensorObject["data"]["drain valve state"]
+
         this.setState({ pumpState: pumpState});
+        this.setState({ fanspeed: fanspeed});
+        this.setState({ waterflow: waterflow});
         this.setState({ fanState: fanState});
-        this.setState({ valveState: valveState});
-        this.setState({ temp: temp});
-        this.setState({ flow: flow});
+        this.setState({ drainvalvestate: drainvalvestate});
          
       }
 
@@ -106,12 +111,18 @@ class App extends Component {
    */
   check = () => {
       const { ws } = this.state;
-      if (!ws || ws.readyState === WebSocket.CLOSED) this.connect(); //check if websocket instance is closed, if so call `connect` function.
+      if (!ws || ws.readyState === WebSocket.CLOSED) { //check if websocket instance is closed, if so call `connect` function.
+        ws = new WebSocket("ws://9.246.252.162:1880/ws/simple");
+        this.connect(); 
+
+      } 
   };
 
   render() {
-      return <ChildComponent websocket={this.state.ws} temp={this.state.temp} pumpState={this.state.pumpState} />;
+      return <ChildComponent parentCallback = {this.handleCallback} 
+      websocket={this.state.ws} drainvalvestate={this.state.drainvalvestate}
+      pumpState={this.state.pumpState} fanState={this.state.fanState}
+      waterflow={this.state.waterflow} temp={this.state.temp}/>;
   }
 }
 export default App;
-

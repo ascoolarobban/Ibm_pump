@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { GaugeChart } from "./@carbon_charts";
 import "@carbon/charts/styles.css";
 
-class FlowGauge_1 extends React.Component {
+class FlowGauge1 extends React.Component {
 	
 	state = {
 		data: [
@@ -33,7 +33,7 @@ class FlowGauge_1 extends React.Component {
 		</GaugeChart>
 	);
 }
-ReactDOM.render(<FlowGauge_1 />, document.getElementById("root"));
+ReactDOM.render(<FlowGauge1 />, document.getElementById("root"));
 
-export default FlowGauge_1;
+export default FlowGauge1;
   

@@ -1,7 +1,8 @@
+import { ToolbarOptions } from "carbon-components-react";
 import React from "react";
 import ReactDOM from "react-dom";
 import { GaugeChart } from "./@carbon_charts";
-import "@carbon/charts/styles.css";
+//import "@carbon/charts/styles.css";
 
 // Or
 // import "@carbon/charts/styles/styles.scss";
@@ -10,7 +11,10 @@ import "@carbon/charts/styles.css";
 // or consumed manually through an import
 //import "./plex-and-carbon-components.css";
 
-//const temp = ({temperature});
+//console.log("temp: ");
+//console.log(this.state.temp);
+
+var temp = 2;
 
 class TempGauge extends React.Component {
 	
@@ -19,7 +23,7 @@ class TempGauge extends React.Component {
 		data: [
 	{
 		"group": "value",
-		"value": 23
+		"value": temp
 	},
 ],
 		options: {
@@ -27,11 +31,15 @@ class TempGauge extends React.Component {
 	"resizable": false,
 	"height": "150px",
 	"width": "100%",
+	"hidden": false,
 	"gauge": {
 		"type": "semi",
 		"status": "danger",
-		showPercentageSymbol: false
-	}
+		showPercentageSymbol: false,
+		"aria-disabled": true,
+		
+	},
+	//toolbar-control bx--overflow-menu cds--overflow-menu:
 }
 	};
 	
