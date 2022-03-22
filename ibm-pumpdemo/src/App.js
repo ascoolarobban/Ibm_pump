@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import ChildComponent from "./child";
+import { useDispatch } from "react-redux";
+import { updateSensors } from "./features/Sensors";
+import { dispatch } from "d3";
 
 //var ws = new WebSocket("ws://9.246.252.225:1880/ws/simple");
 var ws = new WebSocket("ws://localhost:1880/ws/simple");
@@ -37,6 +40,8 @@ class App extends Component {
 
   componentDidMount() {
       this.connect();
+      var temp = 33;
+      dispatch(updateSensors({tempvalue: temp}));
   }
 
   timeout = 250; // Initial timeout duration as a class variable
@@ -71,13 +76,15 @@ class App extends Component {
         var waterflow = sensorObject["data"]["waterflow"]
         var fanState = sensorObject["data"]["fanstate"]
         var drainvalvestate = sensorObject["data"]["drain valve state"]
+        var temp = 33
 
         this.setState({ pumpState: pumpState});
         this.setState({ fanspeed: fanspeed});
         this.setState({ waterflow: waterflow});
         this.setState({ fanState: fanState});
         this.setState({ drainvalvestate: drainvalvestate});
-         
+        
+        dispatch(updateSensors({tempvalue: temp}));
       }
 
       // websocket onclose 

@@ -2,28 +2,18 @@ import { ToolbarOptions } from "carbon-components-react";
 import React from "react";
 import ReactDOM from "react-dom";
 import { GaugeChart } from "./@carbon_charts";
-//import "@carbon/charts/styles.css";
+import { useSelector } from "react-redux";
+import userEvent from "@testing-library/user-event";
 
-// Or
-// import "@carbon/charts/styles/styles.scss";
-
-// IBM Plex should either be imported in your project by using Carbon
-// or consumed manually through an import
-//import "./plex-and-carbon-components.css";
-
-//console.log("temp: ");
-//console.log(this.state.temp);
-
-var temp = 2;
+const sensor = useSelector((state) => state.sensor.value);
 
 class TempGauge extends React.Component {
-	
 	
 	state = {
 		data: [
 	{
 		"group": "value",
-		"value": temp
+		"value": sensor.tempvalue
 	},
 ],
 		options: {
