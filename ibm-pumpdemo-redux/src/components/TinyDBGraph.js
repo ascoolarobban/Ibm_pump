@@ -1,18 +1,21 @@
 import React from "react";
 import { LineChart } from "@carbon/charts-react";
 import "@carbon/charts/styles.css";
-
+import { useSelector } from 'react-redux';
 
 function TinyDBGraph() {
-	
+
+	const sensorValue = useSelector((state) => state.sensors.value);
+	var temp_history_value = sensorValue.temp_history_value
+
     var state = {
 		data: [
 	
 	{
 		"group": "Dataset",
 		"date": "2022-03-01T23:00:00.000Z",
-		"value": 0,
-	},
+		"value": temp_history_value
+	}],/*
 	{
 		"group": "Dataset",
 		"date": "2022-03-05T23:00:00.000Z",
@@ -37,9 +40,9 @@ function TinyDBGraph() {
 		"group": "Dataset",
 		"date": "2022-03-18T23:00:00.000Z",
 		"value": 11,
-	},
+	} */
 
-],
+
 		options: {
 	"title": "TinyDB data",
 	"axes": {
