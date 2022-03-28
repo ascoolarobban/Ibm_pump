@@ -31,7 +31,15 @@ float temperature;
 
 //SENSORS
 int temp = random(5, 32);
-int flow = random(5, 200);
+int flowSensor_1 = random(5, 200);
+int flowSensor_2 = random(5, 200);
+int flowSensor_3 = random(5, 200);
+
+int last_flowSensor_1 = 0;
+int last_flowSensor_2 = 0;
+int last_flowSensor_3 = 0;
+
+
 int lastTemp;
 int lastFlow;
 
