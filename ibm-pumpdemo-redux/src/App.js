@@ -1,6 +1,8 @@
 import './App.css';
 import './index.css';
 import 'carbon-components/css/carbon-components.min.css';
+//import { action } from '@storybook/addon-actions';
+//import { withKnobs, text, boolean, select } from '@storybook/addon-controls';
 import { Toggle } from "carbon-components-react";
 import TempGauge from './components/TempGauge';
 import FlowOne from './components/FlowOne'
@@ -11,10 +13,11 @@ import PumpSpeed from './components/Pumpspeed';
 import TempGraph from './components/TempLineGraph';
 import TinyDBGraph from './components/TinyDBGraph';
 import TempHistogram from './components/TempHistogram';
+import PumpFanValveStates from './components/PumpFanValveStates';
 import {useDispatch} from 'react-redux';
 import {newMessage} from './features/sensors'
 
-var ws = new WebSocket("ws://9.246.252.242:1880/ws/simple");
+var ws = new WebSocket("ws://192.168.1.5:1880/ws/simple");
 
 Toggle.defaultProps = {
   onToggle: () => {},
@@ -22,18 +25,15 @@ Toggle.defaultProps = {
   labelB: 'on',
 };
 
-function sendButtonPressedMessage(toggleState){
-  /* if (!ws || ws.readyState === WebSocket.CLOSED) {
-    var ws = new WebSocket("ws://9.246.252.242:1880/ws/simple");
-  } */
-  ws.send("BP:" + toggleState);
+function sendButtonPressedMessage(buttonState){
+  var newButtonState = null;
+  buttonState = "ON" ? (newButtonState = 'OFF') : (newButtonState = 'ON'); 
+  ws.send("PUMP " + newButtonState);
 } 
 
 function App() {
   const dispatch = useDispatch();
   
-  //var ws = new WebSocket("ws://localhost:1880/ws/simple");
-  //var ws = new WebSocket("ws://9.246.252.242:1880/ws/simple"); // My laptop
   var sendMessage = false;
 
   ws.onopen = () => {
@@ -48,27 +48,23 @@ function App() {
     //clearTimeout(connectInterval); // clear Interval on on open of websocket connection
   };
   
-  if (!ws || ws.readyState === WebSocket.CLOSED) { //check if websocket instance is closed, if so call `connect` function.
-    ws = new WebSocket("ws://9.246.252.242:1880/ws/simple");
-  } 
-
   ws.onmessage = (event) => {
     console.log('Message from server ', event.data);
-    
-  
     const sensorObject = JSON.parse(event.data);
-    var newPumpState = sensorObject["data"]["pumpstate"]
-    var newFanspeed = sensorObject["data"]["fanspeed"]
+    console.log('flow1 %s', newWaterflow1);
+    var pumpstate = sensorObject["data"]["pumpstate"]
+    var newFanspeed = sensorObject["data"]["fan speed"]
     var newWaterflow1 = sensorObject["data"]["flowSensor_1"]
     var newWaterflow2 = sensorObject["data"]["flowSensor_2"]
     var newWaterflow3 = sensorObject["data"]["flowSensor_3"]
+    console.log('flow1 %s', newWaterflow1);
     var newFanState = sensorObject["data"]["fanstate"]
     var newPumpspeed = sensorObject["data"]["pump_speed"]
     var newDrainvalvestate = sensorObject["data"]["drain valve state"]
     var temperature = 33
     var newHistory_date = ""
     var newHistory_value = 12
-    
+        
     dispatch(newMessage({temp: temperature, flowrateOne: newWaterflow1,
       flowrateTwo: newWaterflow2, flowrateThree: newWaterflow3, fanspeed: newFanspeed,
       pumpspeed: newPumpspeed, temp_history_date: newHistory_date,
@@ -83,7 +79,8 @@ function App() {
             labelText="Pump"
             onToggle={Toggle => sendButtonPressedMessage(Toggle)}
       />
-    <div>
+      <br></br>
+      <div>
         <div className="grid-container">
         <div className="grid-item"><TempGauge /></div>
         <div className="grid-item"><FanSpeed /></div>
@@ -92,8 +89,9 @@ function App() {
         <div className="grid-item"><FlowTwo /></div>
         <div className="grid-item"><FlowThree /></div>
         <div className="grid-item"><TempGraph /></div>
-        <div className="grid-item"><TempHistogram /></div>
         <div className="grid-item"><TinyDBGraph /></div>
+        <div className="grid-item"><TempHistogram /></div>
+
       </div>
     </div>
   </div>
@@ -101,5 +99,3 @@ function App() {
 }
  
 export default App;
-
-// <div className="grid-item"><TinyDBGraph /></div>

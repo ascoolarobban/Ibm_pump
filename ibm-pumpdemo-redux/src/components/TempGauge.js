@@ -6,8 +6,6 @@ import { useSelector } from 'react-redux';
 function TempGauge() {
 
     const sensorValue = useSelector((state) => state.sensors.value);
-    console.log("Temp: ");
-    console.log(sensorValue.temp);
     var tempvalue = sensorValue.temp
     
     var state = {
