@@ -51,22 +51,22 @@ function App() {
   ws.onmessage = (event) => {
     console.log('Message from server ', event.data);
     const sensorObject = JSON.parse(event.data);
-    console.log('flow1 %s', newWaterflow1);
-    var pumpstate = sensorObject.data.pumpState
-    var newFanspeed = sensorObject.data.fanSpeed
+    var newPumpState = sensorObject.data.pumpState
+    var newFanSpeed = sensorObject.data.fanSpeed
     var newWaterflow1 = sensorObject.data.flowSensor1
     var newWaterflow2 = sensorObject.data.flowSensor2
     var newWaterflow3 = sensorObject.data.flowSensor3
     var newFanState = sensorObject.data.fanState
-    var newPumpspeed = sensorObject.data.pumpSpeed
-    var newDrainvalvestate = sensorObject.data.drainValveState
-    var temperature = 18
+    var newPumpSpeed = sensorObject.data.pumpSpeed
+    var newdrainValveState = sensorObject.data.drainValveState
+    var newsafetyValeState = sensorObject.data.safetyValeState
+    var temperature = sensorObject.data.temp
     var newHistory_date = ""
     var newHistory_value = 12
         
     dispatch(newMessage({temp: temperature, flowrateOne: newWaterflow1,
-      flowrateTwo: newWaterflow2, flowrateThree: newWaterflow3, fanspeed: newFanspeed,
-      pumpspeed: newPumpspeed, temp_history_date: newHistory_date,
+      flowrateTwo: newWaterflow2, flowrateThree: newWaterflow3, fanspeed: newFanSpeed,
+      pumpspeed: newPumpSpeed, temp_history_date: newHistory_date,
       temp_history_value: newHistory_value}))
   }
 
