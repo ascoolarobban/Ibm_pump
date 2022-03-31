@@ -52,16 +52,15 @@ function App() {
     console.log('Message from server ', event.data);
     const sensorObject = JSON.parse(event.data);
     console.log('flow1 %s', newWaterflow1);
-    var pumpstate = sensorObject["data"]["pumpstate"]
-    var newFanspeed = sensorObject["data"]["fan speed"]
-    var newWaterflow1 = sensorObject["data"]["flowSensor_1"]
-    var newWaterflow2 = sensorObject["data"]["flowSensor_2"]
-    var newWaterflow3 = sensorObject["data"]["flowSensor_3"]
-    console.log('flow1 %s', newWaterflow1);
-    var newFanState = sensorObject["data"]["fanstate"]
-    var newPumpspeed = sensorObject["data"]["pump_speed"]
-    var newDrainvalvestate = sensorObject["data"]["drain valve state"]
-    var temperature = 33
+    var pumpstate = sensorObject.data.pumpState
+    var newFanspeed = sensorObject.data.fanSpeed
+    var newWaterflow1 = sensorObject.data.flowSensor1
+    var newWaterflow2 = sensorObject.data.flowSensor2
+    var newWaterflow3 = sensorObject.data.flowSensor3
+    var newFanState = sensorObject.data.fanState
+    var newPumpspeed = sensorObject.data.pumpSpeed
+    var newDrainvalvestate = sensorObject.data.drainValveState
+    var temperature = 18
     var newHistory_date = ""
     var newHistory_value = 12
         
