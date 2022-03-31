@@ -4,6 +4,14 @@ bool detect_change_pot() {
     pot_1_change = false;
     return true;
   }
+  if (pot_2_change == true) {
+    pot_2_change = false;
+    return true;
+  }
+  if (pot_3_change == true) {
+    pot_3_change = false;
+    return true;
+  }
 
   else {
     return false;
@@ -16,11 +24,11 @@ bool detect_change_sensors() {
     last_flowSensor_1 = flowSensor_1;
     return true;
   }
-  else if (last_flowSensor_2 = flowSensor_2) {
+  else if (last_flowSensor_2 != flowSensor_2) {
     last_flowSensor_2 = flowSensor_2;
     return true;
   }
-  else if (last_flowSensor_3 = flowSensor_3) {
+  else if (last_flowSensor_3 != flowSensor_3) {
     last_flowSensor_3 = flowSensor_3;
     return true;
   }
