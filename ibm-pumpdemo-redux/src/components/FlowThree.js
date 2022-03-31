@@ -15,7 +15,7 @@ function FlowThree() {
 	    },
     ],
 		options: {
-	    "title": "Flow meter #3 litres/h",
+	    "title": "Drain litres/h",
 	    "resizable": true,
 	    "height": "200px",
 	    "gauge": {

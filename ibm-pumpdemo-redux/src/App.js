@@ -11,6 +11,7 @@ import PumpSpeed from './components/Pumpspeed';
 import TempGraph from './components/TempLineGraph';
 import TinyDBGraph from './components/TinyDBGraph';
 import TempHistogram from './components/TempHistogram';
+import PumpFanValveStates from './components/PumpFanValveStates';
 import {useDispatch} from 'react-redux';
 import {newMessage} from './features/sensors'
 import React, {useState} from 'react'
@@ -52,30 +53,30 @@ function App() {
     const sensorObject = JSON.parse(event.data);
     var newPumpState = sensorObject.data.pumpState
     var newFanSpeed = sensorObject.data.fanSpeed
-    console.log("fan speed %s", newFanSpeed);
     var newWaterflow1 = sensorObject.data.flowSensor1
     var newWaterflow2 = sensorObject.data.flowSensor2
     var newWaterflow3 = sensorObject.data.flowSensor3
     var newFanState = sensorObject.data.fanState
     var newPumpSpeed = sensorObject.data.pumpSpeed
-    var newdrainValveState = sensorObject.data.drainValveState
-    var newsafetyValeState = sensorObject.data.safetyValeState
+    var newDrainValveState = sensorObject.data.drainValveState
+    var newSafetyValveState = sensorObject.data.safetyValveState
     var temperature = sensorObject.data.temp
-    var location = sensorObject.data.location
-    var id = sensorObject.data.id
+    var newLocation = sensorObject.data.location
+    var newId = sensorObject.data.id
     var newHistory_date = sensorObject.data.timestamp
     var newHistory_value = 12
-  
+    
     
     dispatch(newMessage({temp: temperature, flowrateOne: newWaterflow1,
       flowrateTwo: newWaterflow2, flowrateThree: newWaterflow3, fanspeed: newFanSpeed,
-      pumpspeed: newPumpSpeed, temp_history_date: newHistory_date,
-      temp_history_value: newHistory_value}))
+      fanState: newFanState, pumpspeed: newPumpSpeed, temp_history_date: newHistory_date,
+      temp_history_value: newHistory_value, location: newLocation,
+      id: newId, drainStateValve: newDrainValveState, safetyStateValve: newSafetyValveState}))
   }
 
   return (
     <div className="App"><h2>Pump Demo</h2>
-    
+      <PumpFanValveStates />
       <Toggle 
             aria-label="toggle button"
             id="toggle-1"

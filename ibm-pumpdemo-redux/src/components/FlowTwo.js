@@ -15,7 +15,7 @@ function FlowTwo() {
 	    },
     ],
 		options: {
-	    "title": "Flow meter #2 litres/h",
+	    "title": "Out Flow litres/h",
 	    "resizable": true,
 	    "height": "200px",
 	    "gauge": {
