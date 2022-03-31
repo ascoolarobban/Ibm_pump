@@ -1,33 +1,59 @@
 
 //Recieve command from serial, check what it should do:
-void commandHandler(int comdata) {
+void setPWM(char x, int PWM);
 
-  switch (comdata) {
-
+void commandHandler(char* comdata) {
+  Serial.println("*******************");
+  Serial.print("in commandHandler: ");
+  Serial.println(comdata);
+  Serial.println("*******************");
+  switch (*comdata) {
 
     case 'A': // A Starts pump
-      pumpON(); //Pumpcontroller in pumpOnOff.h
+      pumpON();
       break;
 
-    case 'B'://B stops pump
-      pumpOFF();//Pumpcontroller in pumpOnOff.h
-
-      break;
-    case 'C': // Opens valve
-      fanON(); //Pumpcontroller in pumpOnOff.h
+    case 'B':
+      pumpOFF();
       break;
 
-    case 'D'://D  Closes Valve
-      fanOFF();//Pumpcontroller in pumpOnOff.h
+    case 'C':
+      fanON();
       break;
-    
-    case 'E'://D  Closes Valve
-      drainValveOpen();//Pumpcontroller in pumpOnOff.h
+
+    case 'D':
+      fanOFF();
       break;
-      
-    case 'F'://D  Closes Valve
-      drainValveClosed();//Pumpcontroller in pumpOnOff.h
+
+    case 'E':
+      drainValveOpen();
       break;
+
+    case 'F':
+      drainValveClosed();
+      break;
+  }
+}
+
+void setPot(String potVal) {
+  if (potVal.startsWith("POTA")) {
+    int input = potVal.substring(4).toInt();
+    if (input >= 1 && input < 256) {
+      setPWM('A',input);
+    }
+
+  }
+  else if (potVal.startsWith("POTB")) {
+    int input = potVal.substring(4).toInt();
+    if (input >= 1 && input < 256) {
+      setPWM('B',input);
+    }
+  }
+  else if (potVal.startsWith("POTC")) {
+    int input = potVal.substring(4).toInt();
+    if (input >= 1 && input < 256) {
+      setPWM('C',input);
+    }
   }
 
 }

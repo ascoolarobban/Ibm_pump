@@ -46,6 +46,9 @@ int lastFlow;
 //RPM
 int fan_speed = 0;
 int pump_speed= 0;
+int old_pump_speed = 0;
+int old_fan_speed = 0;
+int valve_level = 0;
 
 //POTENTIOMETER VALUES
 int pot_1 = 0;
@@ -66,3 +69,7 @@ long debounceDelay = 200;
 unsigned long buttonAStartMillis = 0;
 unsigned long buttonBStartMillis = 0;
 unsigned long buttonCStartMillis = 0;
+
+
+
+String startup = "The time traveling is just too dangerous. Better that I devote myself to study the other great mystery of the universe: women.";

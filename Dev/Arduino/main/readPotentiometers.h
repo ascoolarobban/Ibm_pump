@@ -6,6 +6,10 @@ int new_pot_1 = 0;
 int new_pot_2 = 0;
 int new_pot_3 = 0;
 
+bool pot_1_change = false;
+bool pot_2_change = false;
+bool pot_3_change = false;
+
 int readPotentiometers() {
   new_pot_1 = map(analogRead(potPin1), 200, 1000, 0, 255);
   new_pot_1 = constrain(new_pot_1, 0, 255);
@@ -16,23 +20,24 @@ int readPotentiometers() {
   new_pot_3 = map(analogRead(potPin3), 150, 1000, 0, 255);
   new_pot_3 = constrain(new_pot_3, 0, 255);
 
-  if (pump_state == true) {
-    //analogWrite(drain_valve, new_pot_3);
+  if (new_pot_1 < (pot_1 - 5) || new_pot_1 > (pot_1 + 5)) {
     setPWM('A', new_pot_1);
     pot_1 = new_pot_1;
+    pot_1_change = true;
+
   }
 
-
-  if (fan_state == true) {
-    //analogWrite(drain_valve, new_pot_3);
+  if (new_pot_2 < (pot_2 - 5) || new_pot_2 > (pot_2 + 5)) {
     setPWM('B', new_pot_2);
     pot_2 = new_pot_2;
+    pot_2_change = true;
   }
 
-  if (drain_valve_state == true) {
-    //analogWrite(drain_valve, new_pot_3);
+  else if (new_pot_3 < (pot_3 - 5) || new_pot_3 > (pot_3 + 5)) {
     setPWM('C', new_pot_3);
     pot_3 = new_pot_3;
+    pot_3_change = true;
+
   }
 
 }

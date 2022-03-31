@@ -3,7 +3,7 @@
 #define buttonB_ledRing 6 //fan led ring
 #define buttonC_ledRing 9 //Valve led ring
 #define fan_relay 12
-#define drain_valve 11
+#define drain_valve_pwm_pin 11
 #define safety_valve_relay 8
 #include "warnings.h"
 
@@ -11,6 +11,10 @@ bool pump_state = false;
 bool fan_state = false;
 bool drain_valve_state = false;
 bool safety_valve_state = false;
+
+bool last_pump_state = false;
+bool last_fan_state = false;
+bool last_drain_valve_state = false;
 
 void safetyValveOFF() {
   digitalWrite(safety_valve_relay, LOW);
@@ -62,14 +66,14 @@ void fanOFF() {
 
 
 void drainValveOpen() {
-  analogWrite(drain_valve, 255);
+  analogWrite(drain_valve_pwm_pin, 255);
   digitalWrite(buttonC_ledRing, HIGH);
   drain_valve_state = true;
   Serial.println("{DRAIN_VALVE:OPEN}");
 //  Serial.println(pot_1);
 }
 void drainValveClosed() {
-  analogWrite(drain_valve, 0);
+  analogWrite(drain_valve_pwm_pin, 0);
   digitalWrite(buttonC_ledRing, LOW);
   drain_valve_state = false;
   Serial.println("{DRAIN_VALVE:CLOSED}");

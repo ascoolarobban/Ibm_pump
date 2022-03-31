@@ -8,6 +8,7 @@
 #include "readButtons.h"
 #include "readPotentiometers.h"
 #include "welcomeBlink.h"
+#include "detect_change.h"
 #include <LiquidCrystal_I2C.h>
 #include <Wire.h>
 
@@ -58,7 +59,7 @@ void setup() {
   pinMode(fan_relay, OUTPUT);
 
   //DRAIN RELAY
-  pinMode(drain_valve, OUTPUT);
+  pinMode(drain_valve_pwm_pin, OUTPUT);
 
   //SAFETY VALVE
   pinMode(safety_valve_relay, OUTPUT);
@@ -76,6 +77,7 @@ void setup() {
   pumpOFF();
 
   welcomeBlink();
+  Serial.println(startup);
 
 }
 unsigned long lastMill = 0;
@@ -92,7 +94,7 @@ void loop() {
 
 
   //Send sensor data
-  sensorReading();
+  //sensorReading();
 
 
 
@@ -106,6 +108,12 @@ void loop() {
 
   //Get the time machine has been running
   runTime();
+
+   if(detect_change_pot() == true || detect_change_onoff() == true){
+    Serial.println("Change detected");
+    
+    send_json();
+  }
 
 
   //Idle button breath
