@@ -20,14 +20,16 @@ var ws = new WebSocket("ws://192.168.1.5:1880/ws/simple");
 
 Toggle.defaultProps = {
   onToggle: () => {},
-  labelA: 'off',
-  labelB: 'on',
+  labelA: 'OFF',
+  labelB: 'ON',
 };
 
-function sendButtonPressedMessage(buttonState){
-  var newButtonState = null;
-  buttonState = "ON" ? (newButtonState = 'OFF') : (newButtonState = 'ON'); 
-  ws.send("PUMP " + newButtonState);
+function sendTogglePumpState(pumpToggleState){
+  console.log(pumpToggleState);
+  //var newTogglePumpState = null;
+  let newState = pumpToggleState != false ? false : true; 
+  ws.send("PUMP " + newState);
+  console.log('ToggleState: ', newState);
 } 
 
 function App() {
@@ -50,6 +52,7 @@ function App() {
   
   ws.onmessage = (event) => {
     console.log('Message from server ', event.data);
+    
     const sensorObject = JSON.parse(event.data);
     var newPumpState = sensorObject.data.pumpState
     var newFanSpeed = sensorObject.data.fanSpeed
@@ -81,7 +84,7 @@ function App() {
             aria-label="toggle button"
             id="toggle-1"
             labelText="Pump"
-            onToggle={Toggle => sendButtonPressedMessage(Toggle)}
+            onToggle={Toggle => sendTogglePumpState(Toggle)}
       />
       <br></br>
       <div>
