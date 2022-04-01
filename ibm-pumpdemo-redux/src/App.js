@@ -24,17 +24,9 @@ Toggle.defaultProps = {
   labelB: 'ON',
 };
 
-function sendTogglePumpState(pumpToggleState){
-  console.log(pumpToggleState);
-  //var newTogglePumpState = null;
-  let newState = pumpToggleState != false ? false : true; 
-  ws.send("PUMP " + newState);
-  console.log('ToggleState: ', newState);
-} 
-
 function App() {
-  const [pumpLocation, setpumpLocation] = useState('');
-  const [pumpID, setpumpID] = useState('');
+  //const [pumpLocation, setpumpLocation] = useState('');
+  //const [pumpID, setpumpID] = useState('');
   const dispatch = useDispatch();
   var sendMessage = false;
 
@@ -72,20 +64,14 @@ function App() {
     
     dispatch(newMessage({temp: temperature, flowrateOne: newWaterflow1,
       flowrateTwo: newWaterflow2, flowrateThree: newWaterflow3, fanspeed: newFanSpeed,
-      fanState: newFanState, pumpspeed: newPumpSpeed, temp_history_date: newHistory_date,
-      temp_history_value: newHistory_value, location: newLocation,
+      fanState: newFanState, pumpSpeed: newPumpSpeed, pumpState: newPumpState, 
+      temp_history_date: newHistory_date, temp_history_value: newHistory_value, location: newLocation,
       id: newId, drainStateValve: newDrainValveState, safetyStateValve: newSafetyValveState}))
   }
 
   return (
     <div className="App"><h2>Pump Demo</h2>
       <PumpFanValveStates />
-      <Toggle 
-            aria-label="toggle button"
-            id="toggle-1"
-            labelText="Pump"
-            onToggle={Toggle => sendTogglePumpState(Toggle)}
-      />
       <br></br>
       <div>
         <div className="grid-container">
