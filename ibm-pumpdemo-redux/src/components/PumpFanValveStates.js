@@ -14,8 +14,8 @@ let safetyStateText;
 let drainStateText;
 
 fanStateText = fanState = true ? 'ON' : 'OFF';
-drainStateText = fanState = true ? 'ON' : 'OFF';
-safetyStateText = fanState = true ? 'ON' : 'OFF';
+drainStateText = drainState = true ? 'ON' : 'OFF';
+safetyStateText = safetyState = true ? 'ON' : 'OFF';
 
 return(
     <p><h3>Location:&nbsp;{location}&nbsp;&nbsp;&nbsp;Id&nbsp;:&nbsp;{id}&nbsp;&nbsp;
