@@ -9,12 +9,17 @@ var id = sensorValue.id
 var fanState = sensorValue.fanState
 var drainState = sensorValue.drainStateValve
 var safetyState = sensorValue.safetyStateValve
+let fanStateText;
+let safetyStateText;
+let drainStateText;
 
-//console.log('location %s id %s drain %s safety %s fan %s', location, id, drainValveState, safetyValveState, fanState );
+fanStateText = fanState = true ? 'ON' : 'OFF';
+drainStateText = fanState = true ? 'ON' : 'OFF';
+safetyStateText = fanState = true ? 'ON' : 'OFF';
 
 return(
     <p><h3>Location:&nbsp;{location}&nbsp;&nbsp;&nbsp;Id&nbsp;:&nbsp;{id}&nbsp;&nbsp;
-    Fan State: &nbsp;{fanState}&nbsp;&nbsp;Drain valve:&nbsp;{drainState}&nbsp;&nbsp;Safety valve:&nbsp;{safetyState}</h3></p>
+    Fan State: &nbsp;{fanStateText}&nbsp;&nbsp;Drain valve:&nbsp;{drainStateText}&nbsp;&nbsp;Safety valve:&nbsp;{safetyStateText}</h3></p>
 )};
 
 export default PumpFanValveStates;
