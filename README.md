@@ -16,7 +16,7 @@
 
 ## Table of contents
 - [Use Case](#Use-Case)
-- [Node Red](#Node-Red)
+- [Included](#Included)
 - [Libs](#Libs)
 - [Bugs and feature requests](#bugs-and-feature-requests)
 - [Creator](#creator)
@@ -32,27 +32,67 @@
 
 
 ---
-## Node Red
-
+## INCLUDED
+###Arduino:
+│   ├── .gitignore <br>
+│   ├── Arduino_Cpp.iml <br> 
+│   ├── discord.xml <br>
+│   ├── misc.xml <br>
+│   ├── modules.xml <br>
+│   ├── serialmonitor_settings.xml <br>
+│   └── vcs.xml <br>
+├── CMakeLists.txt <br>
+├── include<br>
+│   └── README <br>
+├── lib<br>
+│   └── README <br>
+├── platformio.ini <br>
+├── src<br>
+│   ├── breatheButton.cpp <br>
+│   ├── breatheButton.h <br>
+│   ├── buttonIsTriggered.cpp <br>
+│   ├── buttonIsTriggered.h <br>
+│   ├── commandHandler.cpp <br>
+│   ├── commandHandler.h <br>
+│   ├── debounce.cpp <br>
+│   ├── debounce.h <br>
+│   ├── declare.h <br>
+│   ├── detect_change.cpp <br>
+│   ├── detect_change.h <br>
+│   ├── main.cpp <br>
+│   ├── pumpControl.cpp <br>
+│   ├── pumpControl.h <br>
+│   ├── pumpSerialCommand.cpp <br>
+│   ├── pumpSerialCommand.h <br>
+│   ├── readButtons.cpp <br>
+│   ├── readButtons.h <br>
+│   ├── readPotentiometers.cpp <br>
+│   ├── readPotentiometers.h <br>
+│   ├── runTime.cpp <br>
+│   ├── runTime.h <br>
+│   ├── sendJson.cpp <br>
+│   ├── sendJson.h <br>
+│   ├── sensorReadings.cpp <br>
+│   ├── sensorReadings.h <br>
+│   ├── setPWM.cpp <br>
+│   ├── setPWM.h <br>
+│   ├── welcomeBlink.cpp <br>
+│   └── welcomeBlink.h <br> 
 ---
-## Libs
-- 
 
-
-
----
 ## Bugs and feature requests
 
 Have a bug or a feature request? Send me a message to discuss it.
 
 
 ## Creator
-    
+    Code:
     Robin Ellingsen
-    Neil Sawbridge 
+    Neil Sawbridge
+
+    Documentation:
     David Slivo
     Youssef Abdalahad
-    Ludvig Karlason
 ## Contact
 
 
