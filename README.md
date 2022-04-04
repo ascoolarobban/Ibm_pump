@@ -16,9 +16,9 @@
 
 ## Table of contents
 - [Use Case](#Use-Case)
-- [Libs](#Libs)
+- [Included](#Included)
 - [Bugs and feature requests](#bugs-and-feature-requests)
-- [Creator](#creator)
+- [Creators](#creators)
 - [Contact](#contact)
 - [Thanks](#thanks)
 - [Copyright and license](#copyright-and-license)
@@ -31,27 +31,54 @@ TBA
 
 
 ---
-## Libs
-- fillPdf
-- tkinter
-- requests
-- subprocess
 
-
-
+## Included 
+Cmake<br>
+├── src<br>
+   ├── breatheButton.cpp<br>
+   ├── breatheButton.h <br>
+   ├── buttonIsTriggered.cpp<br> 
+   ├── buttonIsTriggered.h <br>
+   ├── commandHandler.cpp <br>
+   ├── commandHandler.h <br>
+   ├── debounce.cpp <br>
+   ├── debounce.h <br>
+   ├── declare.h <br>
+   ├── detect_change.cpp<br> 
+   ├── detect_change.h <br>
+   ├── main.cpp <br>
+   ├── pumpControl.cpp<br> 
+   ├── pumpControl.h <br>
+   ├── pumpSerialCommand.cpp<br> 
+   ├── pumpSerialCommand.h <br>
+   ├── readButtons.cpp <br>
+   ├── readButtons.h <br>
+   ├── readPotentiometers.cpp<br> 
+   ├── readPotentiometers.h <br>
+   ├── runTime.cpp <br>
+   ├── runTime.h <br>
+   ├── sendJson.cpp <br>
+   ├── sendJson.h <br>
+   ├── sensorReadings.cpp<br> 
+   ├── sensorReadings.h <br>
+   ├── setPWM.cpp <br>
+   ├── setPWM.h <br>
+   ├── welcomeBlink.cpp<br> 
+   └── welcomeBlink.h <br>
 ---
 ## Bugs and feature requests
 
 Have a bug or a feature request? Send me a message to discuss it.
 
 
-## Creator
-    
-    Robin Ellingsen
-    Neil Sawbridge 
+## Creators
+    Code:
+    Robin Ellingsen / Backend
+    Neil Sawbridge / Frontend
+
+    Documentation:
     David Slivo
-    Youssef 
-    Ludvig Karlason
+    Youssef
 ## Contact
 
 
@@ -59,8 +86,8 @@ Have a bug or a feature request? Send me a message to discuss it.
 - <a href="https://github.com/ascoolarobban">GitHub</a>
 - [Email]("robin@fauxdelorean.com")
 ---
-
+## Thanks
+- David Skärgård
 
 ## Copyright and license
-None and free to use as you wish, cred is always cool, be cool.
-Thanks.
+IBM Copyright.

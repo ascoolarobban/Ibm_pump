@@ -9,6 +9,7 @@
 #include "readPotentiometers.h"
 #include "welcomeBlink.h"
 #include "detect_change.h"
+#include "ArduinoJson.h"
 #include <LiquidCrystal_I2C.h>
 #include <Wire.h>
 
