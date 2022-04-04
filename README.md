@@ -102,7 +102,7 @@ Full pump system with fysical attributes to demonstrate a light version of an In
 ---
 
 ##Thanks to:
-* [David Skärgård]('https://github.com/inputdejv') Electrical engineerin consultant.
+[David Skärgård]('https://github.com/inputdejv')
 ---
 
 ### Copyright and license
