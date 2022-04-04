@@ -33,8 +33,10 @@
 
 ---
 ## INCLUDED
-###Arduino:
-│   ├── .gitignore <br>
+
+**Arduino:**<br>
+
+>│   ├── .gitignore <br>
 │   ├── Arduino_Cpp.iml <br> 
 │   ├── discord.xml <br>
 │   ├── misc.xml <br>
