@@ -88,6 +88,9 @@ Full pump system with fysical attributes to demonstrate a light version of an In
     Code:
     Robin Ellingsen - Backend
     Neil Sawbridge - Frontend
+    
+    Electrical engineering:
+    Robin Ellingsen
 
     Documentation:
     David Slivo
