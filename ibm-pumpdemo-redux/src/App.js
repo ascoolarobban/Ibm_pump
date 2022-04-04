@@ -24,12 +24,19 @@ Toggle.defaultProps = {
   labelB: 'ON',
 };
 
+function togglePumpState(pumpToggleState){
+  console.log(pumpToggleState);
+  let newState = pumpToggleState !== false ? 'ON' : 'OFF';
+  let newToggleStateMessage = "PUMP:" + newState;
+  const newStateMessage = JSON.stringify(newToggleStateMessage);
+  ws.send(newStateMessage);
+} 
+
 function App() {
-  //const [pumpLocation, setpumpLocation] = useState('');
-  //const [pumpID, setpumpID] = useState('');
+  const [pumpdata, setpumpdata] = useState('');
   const dispatch = useDispatch();
   var sendMessage = false;
-
+  
   ws.onopen = () => {
     console.log("connected websocket main component");
     
@@ -45,8 +52,12 @@ function App() {
   ws.onmessage = (event) => {
     console.log('Message from server ', event.data);
     
+    /*const updatePumpState = (newPumpState) => {
+      setpumpdata(newPumpState);
+    } */
     const sensorObject = JSON.parse(event.data);
     var newPumpState = sensorObject.data.pumpState
+    setpumpdata(sensorObject.data.pumpState)
     var newFanSpeed = sensorObject.data.fanSpeed
     var newWaterflow1 = sensorObject.data.flowSensor1
     var newWaterflow2 = sensorObject.data.flowSensor2
@@ -60,18 +71,26 @@ function App() {
     var newId = sensorObject.data.id
     var newHistory_date = sensorObject.data.timestamp
     var newHistory_value = 12
-    
+    setpumpdata(newPumpState);
     
     dispatch(newMessage({temp: temperature, flowrateOne: newWaterflow1,
-      flowrateTwo: newWaterflow2, flowrateThree: newWaterflow3, fanspeed: newFanSpeed,
-      fanState: newFanState, pumpSpeed: newPumpSpeed, pumpState: newPumpState, 
-      temp_history_date: newHistory_date, temp_history_value: newHistory_value, location: newLocation,
-      id: newId, drainStateValve: newDrainValveState, safetyStateValve: newSafetyValveState}))
+      flowrateTwo: newWaterflow2, flowrateThree: newWaterflow3, 
+      fanspeed: newFanSpeed, fanState: newFanState, 
+      pumpSpeed: newPumpSpeed, pumpState: newPumpState, 
+      temp_history_date: newHistory_date, temp_history_value: newHistory_value,
+      location: newLocation, id: newId, drainStateValve: newDrainValveState,
+      safetyStateValve: newSafetyValveState}))
   }
 
   return (
     <div className="App"><h2>Pump Demo</h2>
       <PumpFanValveStates />
+      <Toggle
+            aria-label="toggle button"
+            id="toggle-1"
+            labelText="Pump"
+            toggled={pumpdata}
+            onToggle={Toggle => togglePumpState(Toggle)} />
       <br></br>
       <div>
         <div className="grid-container">
@@ -84,7 +103,6 @@ function App() {
         <div className="grid-item"><TempGraph /></div>
         <div className="grid-item"><TinyDBGraph /></div>
         <div className="grid-item"><TempHistogram /></div>
-
       </div>
     </div>
   </div>

@@ -9,6 +9,7 @@ import newMessage from './features/sensors'
 const store = configureStore({
   reducer: {
     sensors: newMessage,
+    togglePumpState: newPumpState,
   }
 })
 

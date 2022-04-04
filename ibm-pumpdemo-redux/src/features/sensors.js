@@ -13,6 +13,13 @@ export const sensorSlice = createSlice({
             state.value = action.payload;
         },
     },
+    name: "togglePumpState",
+    initialState: { value: {pumpState: ""}},
+    reducers: {
+        newPumpState:(state, action) => {
+            state.value = action.payload;
+        },
+    },
 });
 
 export const {newMessage} = sensorSlice.actions;
