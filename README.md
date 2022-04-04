@@ -84,19 +84,15 @@ Full pump system with fysical attributes to demonstrate a light version of an In
 ```
 ---
 
-## Bugs and feature requests
-
-Have a bug or a feature request? Send me a message to discuss it.
-
-
-## Creator
+## Creators
     Code:
-    Robin Ellingsen
-    Neil Sawbridge
+    Robin Ellingsen - Backend
+    Neil Sawbridge - Frontend
 
     Documentation:
     David Slivo
     Youssef Abdalahad
+---
 ## Contact
 
 
@@ -105,6 +101,9 @@ Have a bug or a feature request? Send me a message to discuss it.
 - [Email]("robin@fauxdelorean.com")
 ---
 
+##Thanks to:
+* [David Skärgård]('https://github.com/inputdejv') Electrical engineerin consultant.
+---
 
-## Copyright and license
+### Copyright and license
 IBM Copyright.
