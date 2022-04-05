@@ -12,6 +12,7 @@ float Convert::convertToLitres(float inflow){
     this->TIME = X + Y;
     this->FREQUENCY = 1000000/this->TIME;
     this->WATER = this->FREQUENCY/7.5;
-   this->LS = this->WATER/60;
-    return this->TOTAL + this->LS;
+    this->LS = this->WATER/60;
+    this->TOTAL = this->TOTAL + this->LS;
+    return this-> TOTAL;
 }
