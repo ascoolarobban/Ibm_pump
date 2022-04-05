@@ -252,6 +252,12 @@
 		<Unit filename="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/pumpdemo/Dev/Arduino_Cpp/src/readPotentiometers.h">
 			<Option target="Z_DUMMY_TARGET"/>
 		</Unit>
+		<Unit filename="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/pumpdemo/Dev/Arduino_Cpp/src/readSensors.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/pumpdemo/Dev/Arduino_Cpp/src/readSensors.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
 		<Unit filename="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/pumpdemo/Dev/Arduino_Cpp/src/runTime.cpp">
 			<Option target="Z_DUMMY_TARGET"/>
 		</Unit>
@@ -264,10 +270,10 @@
 		<Unit filename="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/pumpdemo/Dev/Arduino_Cpp/src/sendJson.h">
 			<Option target="Z_DUMMY_TARGET"/>
 		</Unit>
-		<Unit filename="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/pumpdemo/Dev/Arduino_Cpp/src/sensorReadings.cpp">
+		<Unit filename="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/pumpdemo/Dev/Arduino_Cpp/src/sensors.cpp">
 			<Option target="Z_DUMMY_TARGET"/>
 		</Unit>
-		<Unit filename="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/pumpdemo/Dev/Arduino_Cpp/src/sensorReadings.h">
+		<Unit filename="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/pumpdemo/Dev/Arduino_Cpp/src/sensors.h">
 			<Option target="Z_DUMMY_TARGET"/>
 		</Unit>
 		<Unit filename="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/pumpdemo/Dev/Arduino_Cpp/src/setPWM.cpp">

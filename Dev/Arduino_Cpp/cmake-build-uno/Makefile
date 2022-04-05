@@ -443,6 +443,30 @@ src/readPotentiometers.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/readPotentiometers.cpp.s
 .PHONY : src/readPotentiometers.cpp.s
 
+src/readSensors.obj: src/readSensors.cpp.obj
+.PHONY : src/readSensors.obj
+
+# target to build an object file
+src/readSensors.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/readSensors.cpp.obj
+.PHONY : src/readSensors.cpp.obj
+
+src/readSensors.i: src/readSensors.cpp.i
+.PHONY : src/readSensors.i
+
+# target to preprocess a source file
+src/readSensors.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/readSensors.cpp.i
+.PHONY : src/readSensors.cpp.i
+
+src/readSensors.s: src/readSensors.cpp.s
+.PHONY : src/readSensors.s
+
+# target to generate assembly for a file
+src/readSensors.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/readSensors.cpp.s
+.PHONY : src/readSensors.cpp.s
+
 src/runTime.obj: src/runTime.cpp.obj
 .PHONY : src/runTime.obj
 
@@ -491,29 +515,29 @@ src/sendJson.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/sendJson.cpp.s
 .PHONY : src/sendJson.cpp.s
 
-src/sensorReadings.obj: src/sensorReadings.cpp.obj
-.PHONY : src/sensorReadings.obj
+src/sensors.obj: src/sensors.cpp.obj
+.PHONY : src/sensors.obj
 
 # target to build an object file
-src/sensorReadings.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/sensorReadings.cpp.obj
-.PHONY : src/sensorReadings.cpp.obj
+src/sensors.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/sensors.cpp.obj
+.PHONY : src/sensors.cpp.obj
 
-src/sensorReadings.i: src/sensorReadings.cpp.i
-.PHONY : src/sensorReadings.i
+src/sensors.i: src/sensors.cpp.i
+.PHONY : src/sensors.i
 
 # target to preprocess a source file
-src/sensorReadings.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/sensorReadings.cpp.i
-.PHONY : src/sensorReadings.cpp.i
+src/sensors.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/sensors.cpp.i
+.PHONY : src/sensors.cpp.i
 
-src/sensorReadings.s: src/sensorReadings.cpp.s
-.PHONY : src/sensorReadings.s
+src/sensors.s: src/sensors.cpp.s
+.PHONY : src/sensors.s
 
 # target to generate assembly for a file
-src/sensorReadings.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/sensorReadings.cpp.s
-.PHONY : src/sensorReadings.cpp.s
+src/sensors.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/sensors.cpp.s
+.PHONY : src/sensors.cpp.s
 
 src/setPWM.obj: src/setPWM.cpp.obj
 .PHONY : src/setPWM.obj
@@ -610,15 +634,18 @@ help:
 	@echo "... src/readPotentiometers.obj"
 	@echo "... src/readPotentiometers.i"
 	@echo "... src/readPotentiometers.s"
+	@echo "... src/readSensors.obj"
+	@echo "... src/readSensors.i"
+	@echo "... src/readSensors.s"
 	@echo "... src/runTime.obj"
 	@echo "... src/runTime.i"
 	@echo "... src/runTime.s"
 	@echo "... src/sendJson.obj"
 	@echo "... src/sendJson.i"
 	@echo "... src/sendJson.s"
-	@echo "... src/sensorReadings.obj"
-	@echo "... src/sensorReadings.i"
-	@echo "... src/sensorReadings.s"
+	@echo "... src/sensors.obj"
+	@echo "... src/sensors.i"
+	@echo "... src/sensors.s"
 	@echo "... src/setPWM.obj"
 	@echo "... src/setPWM.i"
 	@echo "... src/setPWM.s"
