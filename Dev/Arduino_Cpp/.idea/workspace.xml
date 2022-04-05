@@ -20,6 +20,8 @@
       <change afterPath="$PROJECT_DIR$/src/buttonIsTriggered.h" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/commandHandler.cpp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/commandHandler.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/convertToLitres.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/convertToLitres.h" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/debounce.cpp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/debounce.h" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/declare.h" afterDir="false" />
@@ -86,7 +88,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="RunManager" selected="PlatformIO.PlatformIO Upload">
+  <component name="RunManager" selected="PlatformIO.PlatformIO Debug">
     <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
@@ -128,7 +130,7 @@
       <updated>1649057440663</updated>
       <workItem from="1649057442593" duration="10475000" />
       <workItem from="1649069197256" duration="6361000" />
-      <workItem from="1649144231340" duration="10072000" />
+      <workItem from="1649144231340" duration="13085000" />
     </task>
     <servers />
   </component>

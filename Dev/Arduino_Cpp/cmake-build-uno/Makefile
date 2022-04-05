@@ -275,6 +275,30 @@ src/commandHandler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/commandHandler.cpp.s
 .PHONY : src/commandHandler.cpp.s
 
+src/convertToLitres.obj: src/convertToLitres.cpp.obj
+.PHONY : src/convertToLitres.obj
+
+# target to build an object file
+src/convertToLitres.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/convertToLitres.cpp.obj
+.PHONY : src/convertToLitres.cpp.obj
+
+src/convertToLitres.i: src/convertToLitres.cpp.i
+.PHONY : src/convertToLitres.i
+
+# target to preprocess a source file
+src/convertToLitres.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/convertToLitres.cpp.i
+.PHONY : src/convertToLitres.cpp.i
+
+src/convertToLitres.s: src/convertToLitres.cpp.s
+.PHONY : src/convertToLitres.s
+
+# target to generate assembly for a file
+src/convertToLitres.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/convertToLitres.cpp.s
+.PHONY : src/convertToLitres.cpp.s
+
 src/debounce.obj: src/debounce.cpp.obj
 .PHONY : src/debounce.obj
 
@@ -613,6 +637,9 @@ help:
 	@echo "... src/commandHandler.obj"
 	@echo "... src/commandHandler.i"
 	@echo "... src/commandHandler.s"
+	@echo "... src/convertToLitres.obj"
+	@echo "... src/convertToLitres.i"
+	@echo "... src/convertToLitres.s"
 	@echo "... src/debounce.obj"
 	@echo "... src/debounce.i"
 	@echo "... src/debounce.s"
