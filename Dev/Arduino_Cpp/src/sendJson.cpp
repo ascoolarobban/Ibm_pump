@@ -6,7 +6,8 @@
 #include <ArduinoJson.h>
 #include "pumpControl.h"
 #include "runTime.h"
-#include "sensorReadings.h"
+#include "sensors.h"
+#include "readSensors.h"
 
 //SERIAL NUMBER ARDUINO:
 String SN = "8573432363035131A052";
@@ -19,7 +20,7 @@ int valve_level = 0;
 
 
 
-void send_json() {
+void send_json(Sensor flowSensor1) {
     StaticJsonDocument<256> doc;
     JsonObject root = doc.to<JsonObject>();
     //root["Pump"] = "Pump1";
@@ -31,9 +32,9 @@ void send_json() {
     pump["fanSpeed"] = fan_speed;
     pump["pumpSpeed"] = pump_speed;
     pump["drainValveLevel"] = valve_level;
-    pump["flowSensor1"] = flowSensor_1;
-    pump["flowSensor2"] = flowSensor_2;
-    pump["flowSensor3"] = flowSensor_3;
+    pump["flowSensor1"] = flowSensor1.getFlowSensorValue();
+/*    pump["flowSensor2"] = flowSensor2.getFlowSensorValue();
+    pump["flowSensor3"] = flowSensor3.getFlowSensorValue();*/
     pump["runtime"] = runTimeBuffer;
     pump["serialNumber"] = SN;
     serializeJson(root, Serial);

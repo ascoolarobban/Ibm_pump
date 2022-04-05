@@ -3,9 +3,10 @@
 //
 
 #include "detect_change.h"
-#include "sensorReadings.h"
+#include "sensors.h"
 #include "readPotentiometers.h"
 #include "pumpControl.h"
+#include "readSensors.h"
 
 bool detect_change_pot() {
     if (pot_1_change == true) {

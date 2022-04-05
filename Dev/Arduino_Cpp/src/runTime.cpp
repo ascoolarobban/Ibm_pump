@@ -17,5 +17,5 @@ unsigned long runTime() {
 
 
     sprintf(reinterpret_cast<char *>(runTimeBuffer), "%02d:%02d:%02d", runHours, runMinutes, runSeconds);
-
+    return 0;
 }

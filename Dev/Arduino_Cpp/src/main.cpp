@@ -2,7 +2,7 @@
 #include <ArduinoJson.h>
 #include "pumpControl.h"
 #include "declare.h"
-#include "sensorReadings.h"
+#include "sensors.h"
 #include "pumpSerialCommand.h"
 #include "runTime.h"
 #include "readButtons.h"
@@ -14,6 +14,8 @@
 #include "debounce.h"
 #include "setPWM.h"
 #include <Wire.h>
+#include "readSensors.h"
+
 
 //Global button states:
 int buttonAState;
@@ -68,6 +70,13 @@ void setup() {
     pinMode(potPin2, INPUT_PULLUP);
     pinMode(potPin3, INPUT_PULLUP);
 
+    //FLOW SENSORS
+    pinMode(flowSensor1_pin, INPUT);
+    pinMode(flowSensor2_pin, INPUT);
+    pinMode(flowSensor3_pin, INPUT);
+
+
+
 
     //TURN OFF PUMP JUST FOR SAFETY
     pumpOFF();
@@ -78,10 +87,17 @@ void setup() {
 }
 unsigned long lastMill = 0;
 void loop() {
+    Sensor flowSensor1;
+    Sensor flowSensor2;
+    Sensor flowSensor3;
+
     unsigned long currentMill = millis();
 
     //Checks what button has been pressed
     readButtons();
+
+    //Read waterflowSensors
+    readSensors(flowSensor1,flowSensor2,flowSensor3);
 
     //Read Potentiometer:
     readPotentiometers();
@@ -105,11 +121,14 @@ void loop() {
     //Get the time machine has been running
     runTime();
 
+
     if(detect_change_pot() == true || detect_change_onoff() == true){
         Serial.println("Change detected");
 
-        send_json();
+        send_json(flowSensor1);
     }
+/*    Serial.println(flowSensor1.getFlowSensorValue());
+    delay(1000);*/
 
 
     //Idle button breath
