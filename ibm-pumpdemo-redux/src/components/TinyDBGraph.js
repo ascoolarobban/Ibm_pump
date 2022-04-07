@@ -7,13 +7,14 @@ function TinyDBGraph() {
 
 	const sensorValue = useSelector((state) => state.sensors.value);
 	var temp_history_value = sensorValue.temp_history_value
+	var temp_history_date = sensorValue.temp_history_date
 
     var state = {
 		data: [
 	
 	{
 		"group": "Dataset",
-		"date": "2022-03-01T23:00:00.000Z",
+		"date": temp_history_date,
 		"value": temp_history_value
 	}],/*
 	{
