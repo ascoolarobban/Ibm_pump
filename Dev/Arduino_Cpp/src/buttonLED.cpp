@@ -12,7 +12,7 @@ int A = 0;
 int B = 0;
 int C = 0;
 int period = 500;
-int delay_time = 5;
+int delay_time = 3;
 unsigned long time_now = 0;
 
 void readButtons();
@@ -24,6 +24,7 @@ bool idleState();
 void setLedsToZero();
 
 void makeHigh(int a, int b, int c) {
+
     analogWrite(buttonA_ledRing, a);  //pump led ring
     analogWrite(buttonB_ledRing, b);//fan led ring
     analogWrite(buttonC_ledRing, c); //Valve led ring
@@ -37,19 +38,6 @@ void makeHighBreathe(int x) {
 
 }
 
-/*
-void makeHighIbm(int buttonAin,
-                 int buttonAdelay,
-                 int buttonBin,
-                 int buttonBdelay,
-                 int buttonCin,
-                 int buttonCdelay) {
-    analogWrite(buttonA_ledRing, x);  //pump led ring
-    analogWrite(buttonB_ledRing, x);//fan led ring
-    analogWrite(buttonC_ledRing, x); //Valve led ring
-
-}
-*/
 void ibmLed_A();
 void ibmLed_B();
 void ibmLed_M();
@@ -106,7 +94,7 @@ void long_B(){
             readSerialInput();
             delay(delay_time);
         }
-        for (int x = 0; x < 1000; x++) {
+        for (int x = 0; x < 500; x++) {
             makeHigh(A, 200, C);
             if (idleState() != true) {
                 setLedsToZero();
@@ -180,7 +168,7 @@ void long_M(){
             readSerialInput();
             delay(delay_time);
         }
-        for (int x = 0; x < 1000; x++) {
+        for (int x = 0; x < 500; x++) {
             makeHigh(A, B, 200);
             if (idleState() != true) {
                 setLedsToZero();

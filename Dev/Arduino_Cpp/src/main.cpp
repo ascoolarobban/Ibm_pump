@@ -82,13 +82,14 @@ void setup() {
     pinMode(flowSensor3_pin, INPUT);
 
 
-
-
     //TURN OFF PUMP JUST FOR SAFETY
     pumpOFF();
 
+
     welcomeBlink();
     Serial.println(startup);
+
+
 
 }
 
