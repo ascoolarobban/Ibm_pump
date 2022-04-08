@@ -7,12 +7,12 @@
 #include <Arduino.h>
 
 float Convert::convertToLitres(float inflow){
-    this ->X = pulseIn(inflow, HIGH);
-    this ->Y = pulseIn(inflow, LOW);
-    this->TIME = X + Y;
-    this->FREQUENCY = 1000000/this->TIME;
-    this->WATER = this->FREQUENCY/7.5;
-    this->LS = this->WATER/60;
-    this->TOTAL = this->TOTAL + this->LS;
-    return this-> TOTAL;
+    X = pulseIn(analogRead(0), HIGH);
+    Y = pulseIn(analogRead(0), LOW);
+    TIME = X + Y;
+    FREQUENCY = 1000000/TIME;
+    WATER = FREQUENCY/7.5;
+    LS = WATER/60;
+    TOTAL = TOTAL + LS;
+    return TOTAL;
 }

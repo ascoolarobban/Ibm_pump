@@ -1,16 +1,18 @@
+
 //
 // Created by Robin Ellingsen on 2022-04-04.
 //
 
-#ifndef ARDUINO_CPP_BREATHEBUTTON_H
-#define ARDUINO_CPP_BREATHEBUTTON_H
+#ifndef ARDUINO_CPP_BUTTONLED_H
+#define ARDUINO_CPP_BUTTONLED_H
 void readButtons();
-void pumpSerial();
+void readSerialInput();
 bool idleState();
-void setToZero();
+void setLedsToZero();
 void makeHigh(int a, int b, int c );
 void makeHighBreathe(int x);
 void breathingLed();
 void ledShow();
 bool idleState();
-#endif //ARDUINO_CPP_BREATHEBUTTON_H
+void killallLights();
+#endif //ARDUINO_CPP_BUTTONLED_H

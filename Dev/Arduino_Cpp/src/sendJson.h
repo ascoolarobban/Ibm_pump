@@ -13,6 +13,6 @@ extern int old_pump_speed;
 extern int old_fan_speed;
 extern int valve_level;
 
-void send_json(Sensor flowSensor1);
+void send_json(Sensor flowSensor1,Sensor flowSensor2,Sensor flowSensor3);
 
 #endif //ARDUINO_CPP_SENDJSON_H

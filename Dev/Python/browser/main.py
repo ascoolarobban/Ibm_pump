@@ -8,7 +8,7 @@ from PyQt5.QtPrintSupport import *
 import os
 import sys
 
-url = "http://www.google.com"
+url = "http://192.168.1.5:3000"
 
 # creating main window class
 class MainWindow(QMainWindow):
@@ -21,7 +21,7 @@ class MainWindow(QMainWindow):
         self.browser = QWebEngineView()
 
         # setting default browser url as google
-        self.browser.setUrl(QUrl("http://google.com"))
+        self.browser.setUrl(QUrl(url))
 
         # adding action when url get changed
 
@@ -105,6 +105,7 @@ class MainWindow(QMainWindow):
 
         # showing all the components
         self.show()
+        self.showMaximized()
 
     # method for updating the title of the window
     def update_title(self):
@@ -136,10 +137,11 @@ class MainWindow(QMainWindow):
 app = QApplication(sys.argv)
 
 # setting name to the application
-app.setApplicationName("Geek Browser")
+app.setApplicationName("IBM Pump Browser")
 
 # creating a main window object
 window = MainWindow()
+
 
 # loop
 app.exec_()

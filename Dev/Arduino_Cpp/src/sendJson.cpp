@@ -20,7 +20,8 @@ int valve_level = 0;
 
 
 
-void send_json(Sensor flowSensor1) {
+void send_json(Sensor flowSensor1,Sensor flowSensor2,Sensor flowSensor3) {
+
     StaticJsonDocument<256> doc;
     JsonObject root = doc.to<JsonObject>();
     //root["Pump"] = "Pump1";
@@ -33,9 +34,11 @@ void send_json(Sensor flowSensor1) {
     pump["pumpSpeed"] = pump_speed;
     pump["drainValveLevel"] = valve_level;
     pump["flowSensor1"] = flowSensor1.getFlowSensorValue();
-/*    pump["flowSensor2"] = flowSensor2.getFlowSensorValue();
-    pump["flowSensor3"] = flowSensor3.getFlowSensorValue();*/
+    pump["flowSensor2"] = flowSensor2.getFlowSensorValue();
+    pump["flowSensor3"] = flowSensor3.getFlowSensorValue();
     pump["runtime"] = runTimeBuffer;
     pump["serialNumber"] = SN;
     serializeJson(root, Serial);
+
+
 }
