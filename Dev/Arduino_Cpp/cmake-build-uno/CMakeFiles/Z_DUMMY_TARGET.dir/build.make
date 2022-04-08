@@ -66,22 +66,9 @@ include CMakeFiles/Z_DUMMY_TARGET.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
 
-CMakeFiles/Z_DUMMY_TARGET.dir/src/breatheButton.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
-CMakeFiles/Z_DUMMY_TARGET.dir/src/breatheButton.cpp.obj: ../src/breatheButton.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/breatheButton.cpp.obj"
-	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Z_DUMMY_TARGET.dir/src/breatheButton.cpp.obj -c "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/breatheButton.cpp"
-
-CMakeFiles/Z_DUMMY_TARGET.dir/src/breatheButton.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Z_DUMMY_TARGET.dir/src/breatheButton.cpp.i"
-	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/breatheButton.cpp" > CMakeFiles/Z_DUMMY_TARGET.dir/src/breatheButton.cpp.i
-
-CMakeFiles/Z_DUMMY_TARGET.dir/src/breatheButton.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Z_DUMMY_TARGET.dir/src/breatheButton.cpp.s"
-	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/breatheButton.cpp" -o CMakeFiles/Z_DUMMY_TARGET.dir/src/breatheButton.cpp.s
-
 CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonIsTriggered.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
 CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonIsTriggered.cpp.obj: ../src/buttonIsTriggered.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonIsTriggered.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonIsTriggered.cpp.obj"
 	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonIsTriggered.cpp.obj -c "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/buttonIsTriggered.cpp"
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonIsTriggered.cpp.i: cmake_force
@@ -92,9 +79,35 @@ CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonIsTriggered.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonIsTriggered.cpp.s"
 	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/buttonIsTriggered.cpp" -o CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonIsTriggered.cpp.s
 
+CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonLED.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
+CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonLED.cpp.obj: ../src/buttonLED.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonLED.cpp.obj"
+	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonLED.cpp.obj -c "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/buttonLED.cpp"
+
+CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonLED.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonLED.cpp.i"
+	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/buttonLED.cpp" > CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonLED.cpp.i
+
+CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonLED.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonLED.cpp.s"
+	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/buttonLED.cpp" -o CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonLED.cpp.s
+
+CMakeFiles/Z_DUMMY_TARGET.dir/src/checkHardwareStateChange.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
+CMakeFiles/Z_DUMMY_TARGET.dir/src/checkHardwareStateChange.cpp.obj: ../src/checkHardwareStateChange.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/checkHardwareStateChange.cpp.obj"
+	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Z_DUMMY_TARGET.dir/src/checkHardwareStateChange.cpp.obj -c "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/checkHardwareStateChange.cpp"
+
+CMakeFiles/Z_DUMMY_TARGET.dir/src/checkHardwareStateChange.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Z_DUMMY_TARGET.dir/src/checkHardwareStateChange.cpp.i"
+	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/checkHardwareStateChange.cpp" > CMakeFiles/Z_DUMMY_TARGET.dir/src/checkHardwareStateChange.cpp.i
+
+CMakeFiles/Z_DUMMY_TARGET.dir/src/checkHardwareStateChange.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Z_DUMMY_TARGET.dir/src/checkHardwareStateChange.cpp.s"
+	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/checkHardwareStateChange.cpp" -o CMakeFiles/Z_DUMMY_TARGET.dir/src/checkHardwareStateChange.cpp.s
+
 CMakeFiles/Z_DUMMY_TARGET.dir/src/commandHandler.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
 CMakeFiles/Z_DUMMY_TARGET.dir/src/commandHandler.cpp.obj: ../src/commandHandler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/commandHandler.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/commandHandler.cpp.obj"
 	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Z_DUMMY_TARGET.dir/src/commandHandler.cpp.obj -c "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/commandHandler.cpp"
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/commandHandler.cpp.i: cmake_force
@@ -107,7 +120,7 @@ CMakeFiles/Z_DUMMY_TARGET.dir/src/commandHandler.cpp.s: cmake_force
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/convertToLitres.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
 CMakeFiles/Z_DUMMY_TARGET.dir/src/convertToLitres.cpp.obj: ../src/convertToLitres.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/convertToLitres.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/convertToLitres.cpp.obj"
 	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Z_DUMMY_TARGET.dir/src/convertToLitres.cpp.obj -c "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/convertToLitres.cpp"
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/convertToLitres.cpp.i: cmake_force
@@ -120,7 +133,7 @@ CMakeFiles/Z_DUMMY_TARGET.dir/src/convertToLitres.cpp.s: cmake_force
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/debounce.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
 CMakeFiles/Z_DUMMY_TARGET.dir/src/debounce.cpp.obj: ../src/debounce.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/debounce.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/debounce.cpp.obj"
 	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Z_DUMMY_TARGET.dir/src/debounce.cpp.obj -c "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/debounce.cpp"
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/debounce.cpp.i: cmake_force
@@ -133,7 +146,7 @@ CMakeFiles/Z_DUMMY_TARGET.dir/src/debounce.cpp.s: cmake_force
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/detect_change.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
 CMakeFiles/Z_DUMMY_TARGET.dir/src/detect_change.cpp.obj: ../src/detect_change.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/detect_change.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/detect_change.cpp.obj"
 	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Z_DUMMY_TARGET.dir/src/detect_change.cpp.obj -c "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/detect_change.cpp"
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/detect_change.cpp.i: cmake_force
@@ -144,9 +157,22 @@ CMakeFiles/Z_DUMMY_TARGET.dir/src/detect_change.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Z_DUMMY_TARGET.dir/src/detect_change.cpp.s"
 	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/detect_change.cpp" -o CMakeFiles/Z_DUMMY_TARGET.dir/src/detect_change.cpp.s
 
+CMakeFiles/Z_DUMMY_TARGET.dir/src/idleState.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
+CMakeFiles/Z_DUMMY_TARGET.dir/src/idleState.cpp.obj: ../src/idleState.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/idleState.cpp.obj"
+	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Z_DUMMY_TARGET.dir/src/idleState.cpp.obj -c "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/idleState.cpp"
+
+CMakeFiles/Z_DUMMY_TARGET.dir/src/idleState.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Z_DUMMY_TARGET.dir/src/idleState.cpp.i"
+	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/idleState.cpp" > CMakeFiles/Z_DUMMY_TARGET.dir/src/idleState.cpp.i
+
+CMakeFiles/Z_DUMMY_TARGET.dir/src/idleState.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Z_DUMMY_TARGET.dir/src/idleState.cpp.s"
+	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/idleState.cpp" -o CMakeFiles/Z_DUMMY_TARGET.dir/src/idleState.cpp.s
+
 CMakeFiles/Z_DUMMY_TARGET.dir/src/main.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
 CMakeFiles/Z_DUMMY_TARGET.dir/src/main.cpp.obj: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/main.cpp.obj"
 	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Z_DUMMY_TARGET.dir/src/main.cpp.obj -c "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/main.cpp"
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/main.cpp.i: cmake_force
@@ -159,7 +185,7 @@ CMakeFiles/Z_DUMMY_TARGET.dir/src/main.cpp.s: cmake_force
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/pumpControl.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
 CMakeFiles/Z_DUMMY_TARGET.dir/src/pumpControl.cpp.obj: ../src/pumpControl.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/pumpControl.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/pumpControl.cpp.obj"
 	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Z_DUMMY_TARGET.dir/src/pumpControl.cpp.obj -c "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/pumpControl.cpp"
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/pumpControl.cpp.i: cmake_force
@@ -172,7 +198,7 @@ CMakeFiles/Z_DUMMY_TARGET.dir/src/pumpControl.cpp.s: cmake_force
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/readButtons.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
 CMakeFiles/Z_DUMMY_TARGET.dir/src/readButtons.cpp.obj: ../src/readButtons.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/readButtons.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/readButtons.cpp.obj"
 	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Z_DUMMY_TARGET.dir/src/readButtons.cpp.obj -c "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/readButtons.cpp"
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/readButtons.cpp.i: cmake_force
@@ -185,7 +211,7 @@ CMakeFiles/Z_DUMMY_TARGET.dir/src/readButtons.cpp.s: cmake_force
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/readPotentiometers.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
 CMakeFiles/Z_DUMMY_TARGET.dir/src/readPotentiometers.cpp.obj: ../src/readPotentiometers.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/readPotentiometers.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/readPotentiometers.cpp.obj"
 	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Z_DUMMY_TARGET.dir/src/readPotentiometers.cpp.obj -c "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/readPotentiometers.cpp"
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/readPotentiometers.cpp.i: cmake_force
@@ -198,7 +224,7 @@ CMakeFiles/Z_DUMMY_TARGET.dir/src/readPotentiometers.cpp.s: cmake_force
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/readSensors.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
 CMakeFiles/Z_DUMMY_TARGET.dir/src/readSensors.cpp.obj: ../src/readSensors.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/readSensors.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/readSensors.cpp.obj"
 	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Z_DUMMY_TARGET.dir/src/readSensors.cpp.obj -c "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/readSensors.cpp"
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/readSensors.cpp.i: cmake_force
@@ -211,7 +237,7 @@ CMakeFiles/Z_DUMMY_TARGET.dir/src/readSensors.cpp.s: cmake_force
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/readSerial.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
 CMakeFiles/Z_DUMMY_TARGET.dir/src/readSerial.cpp.obj: ../src/readSerial.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/readSerial.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/readSerial.cpp.obj"
 	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Z_DUMMY_TARGET.dir/src/readSerial.cpp.obj -c "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/readSerial.cpp"
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/readSerial.cpp.i: cmake_force
@@ -224,7 +250,7 @@ CMakeFiles/Z_DUMMY_TARGET.dir/src/readSerial.cpp.s: cmake_force
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/runTime.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
 CMakeFiles/Z_DUMMY_TARGET.dir/src/runTime.cpp.obj: ../src/runTime.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/runTime.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/runTime.cpp.obj"
 	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Z_DUMMY_TARGET.dir/src/runTime.cpp.obj -c "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/runTime.cpp"
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/runTime.cpp.i: cmake_force
@@ -237,7 +263,7 @@ CMakeFiles/Z_DUMMY_TARGET.dir/src/runTime.cpp.s: cmake_force
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/sendJson.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
 CMakeFiles/Z_DUMMY_TARGET.dir/src/sendJson.cpp.obj: ../src/sendJson.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/sendJson.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/sendJson.cpp.obj"
 	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Z_DUMMY_TARGET.dir/src/sendJson.cpp.obj -c "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/sendJson.cpp"
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/sendJson.cpp.i: cmake_force
@@ -250,7 +276,7 @@ CMakeFiles/Z_DUMMY_TARGET.dir/src/sendJson.cpp.s: cmake_force
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/sensors.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
 CMakeFiles/Z_DUMMY_TARGET.dir/src/sensors.cpp.obj: ../src/sensors.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/sensors.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/sensors.cpp.obj"
 	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Z_DUMMY_TARGET.dir/src/sensors.cpp.obj -c "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/sensors.cpp"
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/sensors.cpp.i: cmake_force
@@ -261,22 +287,9 @@ CMakeFiles/Z_DUMMY_TARGET.dir/src/sensors.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Z_DUMMY_TARGET.dir/src/sensors.cpp.s"
 	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/sensors.cpp" -o CMakeFiles/Z_DUMMY_TARGET.dir/src/sensors.cpp.s
 
-CMakeFiles/Z_DUMMY_TARGET.dir/src/setHardwareStateChange.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
-CMakeFiles/Z_DUMMY_TARGET.dir/src/setHardwareStateChange.cpp.obj: ../src/setHardwareStateChange.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/setHardwareStateChange.cpp.obj"
-	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Z_DUMMY_TARGET.dir/src/setHardwareStateChange.cpp.obj -c "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/setHardwareStateChange.cpp"
-
-CMakeFiles/Z_DUMMY_TARGET.dir/src/setHardwareStateChange.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Z_DUMMY_TARGET.dir/src/setHardwareStateChange.cpp.i"
-	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/setHardwareStateChange.cpp" > CMakeFiles/Z_DUMMY_TARGET.dir/src/setHardwareStateChange.cpp.i
-
-CMakeFiles/Z_DUMMY_TARGET.dir/src/setHardwareStateChange.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Z_DUMMY_TARGET.dir/src/setHardwareStateChange.cpp.s"
-	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/setHardwareStateChange.cpp" -o CMakeFiles/Z_DUMMY_TARGET.dir/src/setHardwareStateChange.cpp.s
-
 CMakeFiles/Z_DUMMY_TARGET.dir/src/setPWM.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
 CMakeFiles/Z_DUMMY_TARGET.dir/src/setPWM.cpp.obj: ../src/setPWM.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/setPWM.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/setPWM.cpp.obj"
 	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Z_DUMMY_TARGET.dir/src/setPWM.cpp.obj -c "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/setPWM.cpp"
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/setPWM.cpp.i: cmake_force
@@ -289,7 +302,7 @@ CMakeFiles/Z_DUMMY_TARGET.dir/src/setPWM.cpp.s: cmake_force
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/welcomeBlink.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
 CMakeFiles/Z_DUMMY_TARGET.dir/src/welcomeBlink.cpp.obj: ../src/welcomeBlink.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/welcomeBlink.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/src/welcomeBlink.cpp.obj"
 	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Z_DUMMY_TARGET.dir/src/welcomeBlink.cpp.obj -c "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/src/welcomeBlink.cpp"
 
 CMakeFiles/Z_DUMMY_TARGET.dir/src/welcomeBlink.cpp.i: cmake_force
@@ -302,7 +315,7 @@ CMakeFiles/Z_DUMMY_TARGET.dir/src/welcomeBlink.cpp.s: cmake_force
 
 CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/uno/Adafruit_Unified_Sensor/Adafruit_Sensor.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
 CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/uno/Adafruit_Unified_Sensor/Adafruit_Sensor.cpp.obj: ../.pio/libdeps/uno/Adafruit\ Unified\ Sensor/Adafruit_Sensor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/uno/Adafruit_Unified_Sensor/Adafruit_Sensor.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/uno/Adafruit_Unified_Sensor/Adafruit_Sensor.cpp.obj"
 	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/uno/Adafruit_Unified_Sensor/Adafruit_Sensor.cpp.obj -c "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/.pio/libdeps/uno/Adafruit Unified Sensor/Adafruit_Sensor.cpp"
 
 CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/uno/Adafruit_Unified_Sensor/Adafruit_Sensor.cpp.i: cmake_force
@@ -315,7 +328,7 @@ CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/uno/Adafruit_Unified_Sensor/Adafruit_
 
 CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/uno/DHT/DHT.cpp.obj: CMakeFiles/Z_DUMMY_TARGET.dir/flags.make
 CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/uno/DHT/DHT.cpp.obj: ../.pio/libdeps/uno/DHT/DHT.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/uno/DHT/DHT.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/uno/DHT/DHT.cpp.obj"
 	/Users/robin/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/uno/DHT/DHT.cpp.obj -c "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/.pio/libdeps/uno/DHT/DHT.cpp"
 
 CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/uno/DHT/DHT.cpp.i: cmake_force
@@ -328,12 +341,14 @@ CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/uno/DHT/DHT.cpp.s: cmake_force
 
 # Object files for target Z_DUMMY_TARGET
 Z_DUMMY_TARGET_OBJECTS = \
-"CMakeFiles/Z_DUMMY_TARGET.dir/src/breatheButton.cpp.obj" \
 "CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonIsTriggered.cpp.obj" \
+"CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonLED.cpp.obj" \
+"CMakeFiles/Z_DUMMY_TARGET.dir/src/checkHardwareStateChange.cpp.obj" \
 "CMakeFiles/Z_DUMMY_TARGET.dir/src/commandHandler.cpp.obj" \
 "CMakeFiles/Z_DUMMY_TARGET.dir/src/convertToLitres.cpp.obj" \
 "CMakeFiles/Z_DUMMY_TARGET.dir/src/debounce.cpp.obj" \
 "CMakeFiles/Z_DUMMY_TARGET.dir/src/detect_change.cpp.obj" \
+"CMakeFiles/Z_DUMMY_TARGET.dir/src/idleState.cpp.obj" \
 "CMakeFiles/Z_DUMMY_TARGET.dir/src/main.cpp.obj" \
 "CMakeFiles/Z_DUMMY_TARGET.dir/src/pumpControl.cpp.obj" \
 "CMakeFiles/Z_DUMMY_TARGET.dir/src/readButtons.cpp.obj" \
@@ -343,7 +358,6 @@ Z_DUMMY_TARGET_OBJECTS = \
 "CMakeFiles/Z_DUMMY_TARGET.dir/src/runTime.cpp.obj" \
 "CMakeFiles/Z_DUMMY_TARGET.dir/src/sendJson.cpp.obj" \
 "CMakeFiles/Z_DUMMY_TARGET.dir/src/sensors.cpp.obj" \
-"CMakeFiles/Z_DUMMY_TARGET.dir/src/setHardwareStateChange.cpp.obj" \
 "CMakeFiles/Z_DUMMY_TARGET.dir/src/setPWM.cpp.obj" \
 "CMakeFiles/Z_DUMMY_TARGET.dir/src/welcomeBlink.cpp.obj" \
 "CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/uno/Adafruit_Unified_Sensor/Adafruit_Sensor.cpp.obj" \
@@ -352,12 +366,14 @@ Z_DUMMY_TARGET_OBJECTS = \
 # External object files for target Z_DUMMY_TARGET
 Z_DUMMY_TARGET_EXTERNAL_OBJECTS =
 
-Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/src/breatheButton.cpp.obj
 Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonIsTriggered.cpp.obj
+Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonLED.cpp.obj
+Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/src/checkHardwareStateChange.cpp.obj
 Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/src/commandHandler.cpp.obj
 Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/src/convertToLitres.cpp.obj
 Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/src/debounce.cpp.obj
 Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/src/detect_change.cpp.obj
+Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/src/idleState.cpp.obj
 Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/src/main.cpp.obj
 Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/src/pumpControl.cpp.obj
 Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/src/readButtons.cpp.obj
@@ -367,14 +383,13 @@ Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/src/readSerial.cpp.obj
 Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/src/runTime.cpp.obj
 Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/src/sendJson.cpp.obj
 Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/src/sensors.cpp.obj
-Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/src/setHardwareStateChange.cpp.obj
 Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/src/setPWM.cpp.obj
 Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/src/welcomeBlink.cpp.obj
 Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/uno/Adafruit_Unified_Sensor/Adafruit_Sensor.cpp.obj
 Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/uno/DHT/DHT.cpp.obj
 Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/build.make
 Z_DUMMY_TARGET: CMakeFiles/Z_DUMMY_TARGET.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_21) "Linking CXX executable Z_DUMMY_TARGET"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_22) "Linking CXX executable Z_DUMMY_TARGET"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Z_DUMMY_TARGET.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

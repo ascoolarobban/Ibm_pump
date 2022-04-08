@@ -19,7 +19,6 @@ void ibmLightShow();
 void makeHighBreathe(int x);
 void breathingLed();
 void ledShow();
-bool idleState();
 void flush_blink();
 void killallLights();
 #endif //ARDUINO_CPP_BUTTONLED_H

@@ -14,7 +14,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84157455-88e8-4aab-9df4-f36bf660231a" name="Changes" comment="Fixed ledRing on/off issue with state-checks!">
+      <change afterPath="$PROJECT_DIR$/src/idleState.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/idleState.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/project.checksum" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/project.checksum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.pio/build/uno/.sconsign39.dblite" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/.sconsign39.dblite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/CDC.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/CDC.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/HardwareSerial.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/HardwareSerial.cpp.o" afterDir="false" />
@@ -58,10 +61,21 @@
       <change beforePath="$PROJECT_DIR$/.pio/build/uno/src/sendJson.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/src/sendJson.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.pio/build/uno/src/setPWM.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/src/setPWM.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.pio/build/uno/src/welcomeBlink.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/src/welcomeBlink.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-uno/Arduino_Cpp.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-uno/Arduino_Cpp.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-uno/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-uno/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-uno/CMakeFiles/Z_DUMMY_TARGET.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-uno/CMakeFiles/Z_DUMMY_TARGET.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-uno/CMakeFiles/Z_DUMMY_TARGET.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-uno/CMakeFiles/Z_DUMMY_TARGET.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-uno/CMakeFiles/Z_DUMMY_TARGET.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-uno/CMakeFiles/Z_DUMMY_TARGET.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-uno/CMakeFiles/Z_DUMMY_TARGET.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-uno/CMakeFiles/Z_DUMMY_TARGET.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-uno/CMakeFiles/Z_DUMMY_TARGET.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-uno/CMakeFiles/Z_DUMMY_TARGET.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-uno/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-uno/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-uno/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-uno/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-uno/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-uno/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/buttonLED.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/buttonLED.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/buttonLED.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/buttonLED.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/debounce.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/debounce.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/readPotentiometers.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/readPotentiometers.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +168,7 @@
       <workItem from="1649233852933" duration="8145000" />
       <workItem from="1649315325794" duration="2510000" />
       <workItem from="1649317860907" duration="13664000" />
-      <workItem from="1649338853297" duration="22603000" />
+      <workItem from="1649338853297" duration="23511000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed ledRing on/off issue with state-checks!">
       <created>1649418402882</created>

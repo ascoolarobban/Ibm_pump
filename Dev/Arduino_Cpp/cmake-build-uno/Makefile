@@ -203,30 +203,6 @@ Production/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/uno/DHT/DHT.cpp.s
 .PHONY : .pio/libdeps/uno/DHT/DHT.cpp.s
 
-src/breatheButton.obj: src/breatheButton.cpp.obj
-.PHONY : src/breatheButton.obj
-
-# target to build an object file
-src/breatheButton.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/breatheButton.cpp.obj
-.PHONY : src/breatheButton.cpp.obj
-
-src/breatheButton.i: src/breatheButton.cpp.i
-.PHONY : src/breatheButton.i
-
-# target to preprocess a source file
-src/breatheButton.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/breatheButton.cpp.i
-.PHONY : src/breatheButton.cpp.i
-
-src/breatheButton.s: src/breatheButton.cpp.s
-.PHONY : src/breatheButton.s
-
-# target to generate assembly for a file
-src/breatheButton.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/breatheButton.cpp.s
-.PHONY : src/breatheButton.cpp.s
-
 src/buttonIsTriggered.obj: src/buttonIsTriggered.cpp.obj
 .PHONY : src/buttonIsTriggered.obj
 
@@ -250,6 +226,54 @@ src/buttonIsTriggered.s: src/buttonIsTriggered.cpp.s
 src/buttonIsTriggered.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonIsTriggered.cpp.s
 .PHONY : src/buttonIsTriggered.cpp.s
+
+src/buttonLED.obj: src/buttonLED.cpp.obj
+.PHONY : src/buttonLED.obj
+
+# target to build an object file
+src/buttonLED.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonLED.cpp.obj
+.PHONY : src/buttonLED.cpp.obj
+
+src/buttonLED.i: src/buttonLED.cpp.i
+.PHONY : src/buttonLED.i
+
+# target to preprocess a source file
+src/buttonLED.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonLED.cpp.i
+.PHONY : src/buttonLED.cpp.i
+
+src/buttonLED.s: src/buttonLED.cpp.s
+.PHONY : src/buttonLED.s
+
+# target to generate assembly for a file
+src/buttonLED.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonLED.cpp.s
+.PHONY : src/buttonLED.cpp.s
+
+src/checkHardwareStateChange.obj: src/checkHardwareStateChange.cpp.obj
+.PHONY : src/checkHardwareStateChange.obj
+
+# target to build an object file
+src/checkHardwareStateChange.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/checkHardwareStateChange.cpp.obj
+.PHONY : src/checkHardwareStateChange.cpp.obj
+
+src/checkHardwareStateChange.i: src/checkHardwareStateChange.cpp.i
+.PHONY : src/checkHardwareStateChange.i
+
+# target to preprocess a source file
+src/checkHardwareStateChange.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/checkHardwareStateChange.cpp.i
+.PHONY : src/checkHardwareStateChange.cpp.i
+
+src/checkHardwareStateChange.s: src/checkHardwareStateChange.cpp.s
+.PHONY : src/checkHardwareStateChange.s
+
+# target to generate assembly for a file
+src/checkHardwareStateChange.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/checkHardwareStateChange.cpp.s
+.PHONY : src/checkHardwareStateChange.cpp.s
 
 src/commandHandler.obj: src/commandHandler.cpp.obj
 .PHONY : src/commandHandler.obj
@@ -346,6 +370,30 @@ src/detect_change.s: src/detect_change.cpp.s
 src/detect_change.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/detect_change.cpp.s
 .PHONY : src/detect_change.cpp.s
+
+src/idleState.obj: src/idleState.cpp.obj
+.PHONY : src/idleState.obj
+
+# target to build an object file
+src/idleState.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/idleState.cpp.obj
+.PHONY : src/idleState.cpp.obj
+
+src/idleState.i: src/idleState.cpp.i
+.PHONY : src/idleState.i
+
+# target to preprocess a source file
+src/idleState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/idleState.cpp.i
+.PHONY : src/idleState.cpp.i
+
+src/idleState.s: src/idleState.cpp.s
+.PHONY : src/idleState.s
+
+# target to generate assembly for a file
+src/idleState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/idleState.cpp.s
+.PHONY : src/idleState.cpp.s
 
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
@@ -563,30 +611,6 @@ src/sensors.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/sensors.cpp.s
 .PHONY : src/sensors.cpp.s
 
-src/setHardwareStateChange.obj: src/setHardwareStateChange.cpp.obj
-.PHONY : src/setHardwareStateChange.obj
-
-# target to build an object file
-src/setHardwareStateChange.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/setHardwareStateChange.cpp.obj
-.PHONY : src/setHardwareStateChange.cpp.obj
-
-src/setHardwareStateChange.i: src/setHardwareStateChange.cpp.i
-.PHONY : src/setHardwareStateChange.i
-
-# target to preprocess a source file
-src/setHardwareStateChange.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/setHardwareStateChange.cpp.i
-.PHONY : src/setHardwareStateChange.cpp.i
-
-src/setHardwareStateChange.s: src/setHardwareStateChange.cpp.s
-.PHONY : src/setHardwareStateChange.s
-
-# target to generate assembly for a file
-src/setHardwareStateChange.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/setHardwareStateChange.cpp.s
-.PHONY : src/setHardwareStateChange.cpp.s
-
 src/setPWM.obj: src/setPWM.cpp.obj
 .PHONY : src/setPWM.obj
 
@@ -652,12 +676,15 @@ help:
 	@echo "... .pio/libdeps/uno/DHT/DHT.obj"
 	@echo "... .pio/libdeps/uno/DHT/DHT.i"
 	@echo "... .pio/libdeps/uno/DHT/DHT.s"
-	@echo "... src/breatheButton.obj"
-	@echo "... src/breatheButton.i"
-	@echo "... src/breatheButton.s"
 	@echo "... src/buttonIsTriggered.obj"
 	@echo "... src/buttonIsTriggered.i"
 	@echo "... src/buttonIsTriggered.s"
+	@echo "... src/buttonLED.obj"
+	@echo "... src/buttonLED.i"
+	@echo "... src/buttonLED.s"
+	@echo "... src/checkHardwareStateChange.obj"
+	@echo "... src/checkHardwareStateChange.i"
+	@echo "... src/checkHardwareStateChange.s"
 	@echo "... src/commandHandler.obj"
 	@echo "... src/commandHandler.i"
 	@echo "... src/commandHandler.s"
@@ -670,6 +697,9 @@ help:
 	@echo "... src/detect_change.obj"
 	@echo "... src/detect_change.i"
 	@echo "... src/detect_change.s"
+	@echo "... src/idleState.obj"
+	@echo "... src/idleState.i"
+	@echo "... src/idleState.s"
 	@echo "... src/main.obj"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
@@ -697,9 +727,6 @@ help:
 	@echo "... src/sensors.obj"
 	@echo "... src/sensors.i"
 	@echo "... src/sensors.s"
-	@echo "... src/setHardwareStateChange.obj"
-	@echo "... src/setHardwareStateChange.i"
-	@echo "... src/setHardwareStateChange.s"
 	@echo "... src/setPWM.obj"
 	@echo "... src/setPWM.i"
 	@echo "... src/setPWM.s"

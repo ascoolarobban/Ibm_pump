@@ -5,6 +5,7 @@
 #include "buttonLED.h"
 #include <Arduino.h>
 #include "pumpControl.h"
+#include "idleState.h"
 #include "buttonIsTriggered.h"
 
 
@@ -309,15 +310,4 @@ void killallLights() {
 }
 
 
-bool idleState() {
-    if (trigger_A == false &&
-        trigger_B == false &&
-        trigger_C == false &&
-        pump_state == false &&
-        fan_state == false &&
-        drain_valve_state == false) {
-        return true;
-    } else {
-        return false;
-    }
-}
+
