@@ -5,6 +5,11 @@
 
 #ifndef ARDUINO_CPP_BUTTONLED_H
 #define ARDUINO_CPP_BUTTONLED_H
+
+extern unsigned long delayTime;
+extern unsigned long timeNow;
+extern unsigned long previousMillis;
+
 void readButtons();
 void readSerialInput();
 bool idleState();

@@ -23,8 +23,9 @@ char linkedin[50] = "linkedin.com/in/iotrobban/";
 
 
 //Main loop millis
+unsigned long nowTime;
 unsigned long delayTime = 10000;
-unsigned long timeNow;
+unsigned long previousMillis;
 
 
 
@@ -69,6 +70,7 @@ void setup() {
     //DEBOUNCE AND INTERRUPT
     startMillis = millis();
 
+
     //POTENTIOMETERS
     pinMode(potPin1, INPUT_PULLUP);
     pinMode(potPin2, INPUT_PULLUP);
@@ -94,6 +96,8 @@ void loop() {
     Sensor flowSensor1;
     Sensor flowSensor2;
     Sensor flowSensor3;
+
+
 
 
     //Checks what button has been pressed
@@ -133,36 +137,12 @@ void loop() {
 
 
 
-
     if(idleState()){
-        if(millis() > timeNow + delayTime){
-            timeNow = millis();
+        if(millis() - nowTime >= delayTime){
+            nowTime = millis();
             ledShow();
         }
     }
-/*    Serial.println(flowSensor1.getFlowSensorValue());
-    delay(1000);*/
-/*
-
-    Serial.print("Påväg in i cp-loopen");
-    if(idleState()){
-        idleTriggerSwitch(true);
-    }
-    else{
-        idleTriggerSwitch(false);
-        Serial.print("false");
-    }//checks if state is idle
-
-    //Idle button breath
-    if (idleStateCheck()) {
-        if (timeNow - lastMill  > delayTime) {
-            lastMill = timeNow;
-            ledShow();
-        }
-
-    }
-*/
-
-
+    
 
 }
