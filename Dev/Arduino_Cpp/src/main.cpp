@@ -140,9 +140,10 @@ void loop() {
     if(idleState()){
         if(millis() - nowTime >= delayTime){
             nowTime = millis();
-            ledShow();
+            //ledShow();
+            ibmLightShow();
         }
     }
-    
+
 
 }

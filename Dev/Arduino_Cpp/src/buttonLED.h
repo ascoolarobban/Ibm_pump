@@ -15,6 +15,7 @@ void readSerialInput();
 bool idleState();
 void setLedsToZero();
 void makeHigh(int a, int b, int c );
+void ibmLightShow();
 void makeHighBreathe(int x);
 void breathingLed();
 void ledShow();

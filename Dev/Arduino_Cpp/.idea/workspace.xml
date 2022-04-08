@@ -14,6 +14,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84157455-88e8-4aab-9df4-f36bf660231a" name="Changes" comment="Fixed ledRing on/off issue with state-checks!">
+      <change afterPath="$PROJECT_DIR$/.idea/saveactions_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.pio/build/uno/.sconsign39.dblite" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/.sconsign39.dblite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/CDC.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/CDC.cpp.o" afterDir="false" />
@@ -94,6 +95,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.advertisement.text.has.clang-format" value="true" />
     <property name="cf.first.check.clang-format" value="false" />
@@ -152,7 +154,7 @@
       <workItem from="1649233852933" duration="8145000" />
       <workItem from="1649315325794" duration="2510000" />
       <workItem from="1649317860907" duration="13664000" />
-      <workItem from="1649338853297" duration="16971000" />
+      <workItem from="1649338853297" duration="20459000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed ledRing on/off issue with state-checks!">
       <created>1649418402882</created>
