@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
-import  newMessage  from './features/sensors';
-import  historicData from './features/historicData';
+import { newMessage } from './features/sensors';
+import { historicData } from './features/historicData';
 
-
-export default combineReducers({
+const rootreducer = combineReducers({
     newMessage,
     historicData
-});
+})
+
+export default rootreducer;

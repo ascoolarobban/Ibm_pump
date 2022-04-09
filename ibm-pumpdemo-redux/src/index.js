@@ -2,11 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { configureStore} from '@reduxjs/toolkit';
+import { createStore } from 'redux'
 import { Provider } from 'react-redux';
-import rootReducer from './features/rootReducer';
+import { newMessage } from './features/sensors';
+import { newHistoricData } from './features/historicData';
+import { combineReducers } from 'redux';
 
-const store = configureStore(rootReducer);
+const rootReducer = combineReducers({
+  sensor: newMessage,
+  historicData: newHistoricData
+})
+
+const store = createStore(rootReducer);
 
 ReactDOM.render(
   <React.StrictMode>
