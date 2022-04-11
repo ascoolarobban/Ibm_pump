@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export const PumpStateSlice = createSlice({
-    name: "pumpStateToggle",
-    initialState: { value: {pumpState: ""}},
+    name: "pumpToggleState",
+    initialState: { value: {pumpStateValue: ""}},
     reducers: {
-        PumpStateToggle:(state, action) => {
+        PumpToggleState:(state, action) => {
             state.value = action.payload;
         },
     },
 });
 
-export const {PumpStateToggle} = PumpStateSlice.actions;
+export const {PumpToggleState} = PumpStateSlice.actions;

@@ -13,11 +13,10 @@ import TinyDBGraph from './components/TinyDBGraph';
 import TempHistogram from './components/TempHistogram';
 import PumpFanValveStates from './components/PumpFanValveStates';
 import {useDispatch} from 'react-redux';
-import {newMessage} from './features/sensors'
+import {SensorMessage} from './features/sensors'
 import historicData from './features/historicData';
-import { PumpStateToggle } from './features/pumpStateToggle';
+import { pumpStateToggle, PumpToggleState } from './features/pumpStateToggle';
 import { useSelector } from 'react-redux';
-//import React, {useState} from 'react'
 
 var ws = new WebSocket("ws://10.135.5.141:1880/ws/data");
 
@@ -75,19 +74,19 @@ function App() {
       var Id = sensorObject.data.id
     }
     
-    dispatch(newMessage({temp: temperature, flowrateOne: Waterflow1,
+    dispatch(SensorMessage({temp: temperature, flowrateOne: Waterflow1,
       flowrateTwo: Waterflow2, flowrateThree: Waterflow3, fanspeed: FanSpeed,
       fanState: FanState, pumpspeed: PumpSpeed, pumpState: PumpState, 
       location: Location, id: Id, drainStateValve: DrainValveState, 
       safetyStateValve: SafetyValveState}))
 
-    dispatch(PumpStateToggle({
-      pumpState: PumpState}))
+    dispatch(PumpToggleState({
+      pumpStateValue: PumpState}))
   }
   
-  const pumpValue = useSelector((state) => state.pumpState);
-    var pumpState = pumpValue.pumpState
-
+  const pumpValue = useSelector((state) => state.pumpStateValue);
+  var pumpState = pumpValue.pumpState
+  
   return (
     <div className="App"><h2>Pump Demo</h2>
       <PumpFanValveStates />
@@ -95,7 +94,7 @@ function App() {
             aria-label="toggle button"
             id="toggle-1"
             labelText="Pump"
-            toggled={pumpState}
+            toggled={pumpState}          
             onToggle={Toggle => sendButtonPressedMessage(Toggle)}
       />
       <br></br>

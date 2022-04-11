@@ -11,6 +11,6 @@ export const historicSlice = createSlice({
     },
 });
 
-export const {historicData} = historicSlice.actions;
+export const {HistoricData} = historicSlice.actions;
 
 export default historicSlice.reducer;

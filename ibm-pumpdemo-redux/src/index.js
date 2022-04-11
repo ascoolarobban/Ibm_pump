@@ -6,13 +6,13 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux';
 import { SensorMessage } from './features/sensors';
 import { HistoricData } from './features/historicData';
-import { PumpStateToggle } from './features/pumpStateToggle';
+import { PumpToggleState } from './features/pumpStateToggle';
 import { combineReducers } from 'redux';
 
 const rootReducer = combineReducers({
   sensors: SensorMessage,
   historicData: HistoricData,
-  pumpStateToggle: PumpStateToggle
+  pumpToggleState: PumpToggleState
 })
 
 const store = createStore(rootReducer);
