@@ -14,10 +14,12 @@ import TempHistogram from './components/TempHistogram';
 import PumpFanValveStates from './components/PumpFanValveStates';
 import {useDispatch} from 'react-redux';
 import {newMessage} from './features/sensors'
+import historicData from './features/historicData';
+import { PumpStateToggle } from './features/pumpStateToggle';
+import { useSelector } from 'react-redux';
 //import React, {useState} from 'react'
 
-var ws = new WebSocket("ws://192.168.1.5:1880/ws/data");
-// change to /ws/data in Node RED !
+var ws = new WebSocket("ws://10.135.5.141:1880/ws/data");
 
 Toggle.defaultProps = {
   onToggle: () => {},
@@ -33,13 +35,9 @@ function sendButtonPressedMessage(buttonState){
 
 
 function App() {
-  //const [pumpLocation, setpumpLocation] = useState('');
-  //const [pumpID, setpumpID] = useState('');
   const dispatch = useDispatch();
   var sendMessage = false;
-  //var sensorValue;
-  //var sensorTimeStamp;
-  
+    
   ws.onopen = () => {
     console.log("connected websocket main component");
     
@@ -47,8 +45,6 @@ function App() {
       ws.send("SendData");
       sendMessage = true;
     }
-
-    //var timeout = 250; 
   };
   
   ws.onmessage = (event) => {
@@ -56,33 +52,42 @@ function App() {
     const sensorObject = JSON.parse(event.data);
 
     if (sensorObject.data.value in sensorObject) {
-      //var temp_history_date = sensorObject.data.timestamp
-      //var temp_history_value = sensorObject.data.value
-      // add dispatcher for graph data.
+      var temp_history_date = sensorObject.data.timestamp
+      var temp_history_value = sensorObject.data.value
+      
+      dispatch(historicData({historyDate: temp_history_date, 
+        historyValue: temp_history_value}))
+
     }
 
     if (sensorObject.data.location in sensorObject) {
-      var newPumpState = sensorObject.data.pumpState
-      var newFanSpeed = sensorObject.data.fanSpeed
-      var newWaterflow1 = sensorObject.data.flowSensor1
-      var newWaterflow2 = sensorObject.data.flowSensor2
-      var newWaterflow3 = sensorObject.data.flowSensor3
-      var newFanState = sensorObject.data.fanState
-      var newPumpSpeed = sensorObject.data.pumpSpeed
-      var newDrainValveState = sensorObject.data.drainValveState
-      var newSafetyValveState = sensorObject.data.safetyValveState
+      var PumpState = sensorObject.data.pumpState
+      var FanSpeed = sensorObject.data.fanSpeed
+      var Waterflow1 = sensorObject.data.flowSensor1
+      var Waterflow2 = sensorObject.data.flowSensor2
+      var Waterflow3 = sensorObject.data.flowSensor3
+      var FanState = sensorObject.data.fanState
+      var PumpSpeed = sensorObject.data.pumpSpeed
+      var DrainValveState = sensorObject.data.drainValveState
+      var SafetyValveState = sensorObject.data.safetyValveState
       var temperature = sensorObject.data.temp
-      var newLocation = sensorObject.data.location
-      var newId = sensorObject.data.id
+      var Location = sensorObject.data.location
+      var Id = sensorObject.data.id
     }
     
-    dispatch(newMessage({temp: temperature, flowrateOne: newWaterflow1,
-      flowrateTwo: newWaterflow2, flowrateThree: newWaterflow3, fanspeed: newFanSpeed,
-      fanState: newFanState, pumpspeed: newPumpSpeed, pumpState: newPumpState, 
-      location: newLocation, id: newId, drainStateValve: newDrainValveState, 
-      safetyStateValve: newSafetyValveState}))
+    dispatch(newMessage({temp: temperature, flowrateOne: Waterflow1,
+      flowrateTwo: Waterflow2, flowrateThree: Waterflow3, fanspeed: FanSpeed,
+      fanState: FanState, pumpspeed: PumpSpeed, pumpState: PumpState, 
+      location: Location, id: Id, drainStateValve: DrainValveState, 
+      safetyStateValve: SafetyValveState}))
+
+    dispatch(PumpStateToggle({
+      pumpState: PumpState}))
   }
   
+  const pumpValue = useSelector((state) => state.pumpState);
+    var pumpState = pumpValue.pumpState
+
   return (
     <div className="App"><h2>Pump Demo</h2>
       <PumpFanValveStates />
@@ -90,6 +95,7 @@ function App() {
             aria-label="toggle button"
             id="toggle-1"
             labelText="Pump"
+            toggled={pumpState}
             onToggle={Toggle => sendButtonPressedMessage(Toggle)}
       />
       <br></br>

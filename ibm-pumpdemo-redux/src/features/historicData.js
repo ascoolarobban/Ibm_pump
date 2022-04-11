@@ -2,15 +2,15 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const historicSlice = createSlice({
     name: "historicData",
-    initialState: { value: {history_date: "",
-        history_value: 0}},
+    initialState: { value: {historyDate: "",
+        historyValue: 0}},
     reducers: {
-        newHistoricData:(state, action) => {
+        HistoricData:(state, action) => {
             state.value = action.payload;
         },
     },
 });
 
-export const {newHistoricData} = historicSlice.actions;
+export const {historicData} = historicSlice.actions;
 
 export default historicSlice.reducer;

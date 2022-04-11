@@ -4,13 +4,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux';
-import { newMessage } from './features/sensors';
-import { newHistoricData } from './features/historicData';
+import { SensorMessage } from './features/sensors';
+import { HistoricData } from './features/historicData';
+import { PumpStateToggle } from './features/pumpStateToggle';
 import { combineReducers } from 'redux';
 
 const rootReducer = combineReducers({
-  sensor: newMessage,
-  historicData: newHistoricData
+  sensors: SensorMessage,
+  historicData: HistoricData,
+  pumpStateToggle: PumpStateToggle
 })
 
 const store = createStore(rootReducer);
