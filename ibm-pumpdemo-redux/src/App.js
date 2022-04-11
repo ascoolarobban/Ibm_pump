@@ -15,8 +15,7 @@ import PumpFanValveStates from './components/PumpFanValveStates';
 import {useDispatch} from 'react-redux';
 import {SensorMessage} from './features/sensors'
 import historicData from './features/historicData';
-import { pumpStateToggle, PumpToggleState } from './features/pumpStateToggle';
-import { useSelector } from 'react-redux';
+import { PumpToggleState } from './features/pumpStateToggle';
 
 var ws = new WebSocket("ws://10.135.5.141:1880/ws/data");
 
@@ -26,20 +25,12 @@ Toggle.defaultProps = {
   labelB: 'on',
 };
 
-function sendButtonPressedMessage(buttonState){
-  var newButtonState = null;
-  buttonState = "ON" ? (newButtonState = 'OFF') : (newButtonState = 'ON'); 
-  ws.send("PUMP " + newButtonState);
-} 
-
-
 function App() {
   const dispatch = useDispatch();
   var sendMessage = false;
     
   ws.onopen = () => {
-    console.log("connected websocket main component");
-    
+        
     if (sendMessage === false) {
       ws.send("SendData");
       sendMessage = true;
@@ -50,16 +41,16 @@ function App() {
     console.log('Message from server ', event.data);
     const sensorObject = JSON.parse(event.data);
 
-    if (sensorObject.data.value in sensorObject) {
-      var temp_history_date = sensorObject.data.timestamp
-      var temp_history_value = sensorObject.data.value
+    if (sensorObject.hasOwnProperty('ts')) {
+      var temp_history_date = sensorObject.data.ts
+      var temp_history_value = sensorObject.data.sv
       
       dispatch(historicData({historyDate: temp_history_date, 
         historyValue: temp_history_value}))
 
     }
 
-    if (sensorObject.data.location in sensorObject) {
+    if (sensorObject.hasOwnProperty('location')) {
       var PumpState = sensorObject.data.pumpState
       var FanSpeed = sensorObject.data.fanSpeed
       var Waterflow1 = sensorObject.data.flowSensor1
@@ -72,31 +63,22 @@ function App() {
       var temperature = sensorObject.data.temp
       var Location = sensorObject.data.location
       var Id = sensorObject.data.id
-    }
-    
-    dispatch(SensorMessage({temp: temperature, flowrateOne: Waterflow1,
-      flowrateTwo: Waterflow2, flowrateThree: Waterflow3, fanspeed: FanSpeed,
-      fanState: FanState, pumpspeed: PumpSpeed, pumpState: PumpState, 
-      location: Location, id: Id, drainStateValve: DrainValveState, 
-      safetyStateValve: SafetyValveState}))
 
-    dispatch(PumpToggleState({
-      pumpStateValue: PumpState}))
-  }
+      dispatch(SensorMessage({temp: temperature, flowrateOne: Waterflow1,
+        flowrateTwo: Waterflow2, flowrateThree: Waterflow3, fanspeed: FanSpeed,
+        fanState: FanState, pumpspeed: PumpSpeed, pumpState: PumpState, 
+        location: Location, id: Id, drainStateValve: DrainValveState, 
+        safetyStateValve: SafetyValveState}))
   
-  const pumpValue = useSelector((state) => state.pumpStateValue);
-  var pumpState = pumpValue.pumpState
+      dispatch(PumpToggleState({
+        pumpStateValue: PumpState}))
+    }
+      
+  }
   
   return (
     <div className="App"><h2>Pump Demo</h2>
-      <PumpFanValveStates />
-      <Toggle 
-            aria-label="toggle button"
-            id="toggle-1"
-            labelText="Pump"
-            toggled={pumpState}          
-            onToggle={Toggle => sendButtonPressedMessage(Toggle)}
-      />
+      <PumpFanValveStates />    
       <br></br>
       <div>
         <div className="grid-container">
