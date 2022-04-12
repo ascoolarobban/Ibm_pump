@@ -3,26 +3,32 @@
 #include "pumpControl.h"
 #include "declare.h"
 #include "sensors.h"
-#include "pumpSerialCommand.h"
+#include "readSerial.h"
 #include "runTime.h"
 #include "readButtons.h"
 #include "readPotentiometers.h"
 #include "welcomeBlink.h"
 #include "detect_change.h"
-#include "breatheButton.h"
+#include "buttonLED.h"
 #include "sendJson.h"
 #include "debounce.h"
 #include "setPWM.h"
 #include <Wire.h>
 #include "readSensors.h"
+#include "convertToLitres.h"
+#include "checkHardwareStateChange.h"
+#include "idleState.h"
+
+//FOR CODE QUESTIONS
+char linkedin[50] = "linkedin.com/in/iotrobban/";
 
 
-//Global button states:
-int buttonAState;
-int buttonBState;
-int buttonCState;
-
+//Main loop millis
+unsigned long nowTime;
 unsigned long delayTime = 10000;
+unsigned long previousMillis;
+
+
 
 void setup() {
     Serial.begin(9600);
@@ -65,6 +71,7 @@ void setup() {
     //DEBOUNCE AND INTERRUPT
     startMillis = millis();
 
+
     //POTENTIOMETERS
     pinMode(potPin1, INPUT_PULLUP);
     pinMode(potPin2, INPUT_PULLUP);
@@ -76,22 +83,24 @@ void setup() {
     pinMode(flowSensor3_pin, INPUT);
 
 
-
-
     //TURN OFF PUMP JUST FOR SAFETY
     pumpOFF();
+
 
     welcomeBlink();
     Serial.println(startup);
 
+
+
 }
-unsigned long lastMill = 0;
+
 void loop() {
     Sensor flowSensor1;
     Sensor flowSensor2;
     Sensor flowSensor3;
 
-    unsigned long currentMill = millis();
+
+
 
     //Checks what button has been pressed
     readButtons();
@@ -101,8 +110,6 @@ void loop() {
 
     //Read Potentiometer:
     readPotentiometers();
-
-
 
 
     //Send sensor data
@@ -115,30 +122,30 @@ void loop() {
 
 
     //check for incomming char
-    pumpSerial();
+    readSerialInput();
 
+
+    checkHardwareStateChange();
 
     //Get the time machine has been running
     runTime();
 
 
-    if(detect_change_pot() == true || detect_change_onoff() == true){
+    if(detect_change_pot() || detect_change_onoff()){
         Serial.println("Change detected");
 
-        send_json(flowSensor1);
+        send_json(flowSensor1,flowSensor2,flowSensor3);
     }
-/*    Serial.println(flowSensor1.getFlowSensorValue());
-    delay(1000);*/
 
 
-    //Idle button breath
-    if (idleState() == true) {
-        if (currentMill - lastMill  > delayTime) {
-            lastMill = currentMill;
-            ledShow();
+
+    if(idleState()){
+        if(millis() - nowTime >= delayTime){
+            nowTime = millis();
+            //ledShow();
+            ibmLightShow();
         }
     }
-
 
 
 }

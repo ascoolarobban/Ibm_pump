@@ -5,6 +5,7 @@
 #include "commandHandler.h"
 #include "pumpControl.h"
 #include "Arduino.h"
+#include "buttonLED.h"
 //Recieve command from serial, check what it should do:
 void setPWM(char x, int PWM);
 
@@ -16,27 +17,33 @@ void commandHandler(char* comdata) {
     switch (*comdata) {
 
         case 'A': // A Starts pump
-            pumpON();
+                pump_state = true;
+            //pumpControllerButton();
             break;
 
         case 'B':
-            pumpOFF();
+                pump_state = false;
+            //pumpControllerButton();
             break;
 
         case 'C':
-            fanON();
+                fan_state = true;
+            //fanControllerButton();
             break;
 
         case 'D':
-            fanOFF();
+            fan_state = false;
+            //fanControllerButton();
             break;
 
         case 'E':
-            drainValveOpen();
+            drain_valve_state = true;
+           // valveControllerButton();
             break;
 
         case 'F':
-            drainValveClosed();
+            drain_valve_state = false;
+            //valveControllerButton();
             break;
     }
 }

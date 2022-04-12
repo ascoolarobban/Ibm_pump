@@ -9,9 +9,9 @@
 #define flowSensor2_pin  A1
 #define flowSensor3_pin  A2
 
-extern int flowSensor_1;
-extern int flowSensor_2;
-extern int flowSensor_3;
+extern float flowSensor_1;
+extern float flowSensor_2;
+extern float flowSensor_3;
 
 extern int last_flowSensor_1;
 extern int last_flowSensor_2;

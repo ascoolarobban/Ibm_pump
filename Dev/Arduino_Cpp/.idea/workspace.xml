@@ -13,46 +13,54 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84157455-88e8-4aab-9df4-f36bf660231a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/breatheButton.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/breatheButton.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/buttonIsTriggered.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/buttonIsTriggered.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commandHandler.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commandHandler.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/debounce.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/debounce.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/declare.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/detect_change.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/detect_change.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pumpControl.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pumpControl.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pumpSerialCommand.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pumpSerialCommand.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/readButtons.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/readButtons.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/readPotentiometers.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/readPotentiometers.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/readSensors.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/readSensors.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/runTime.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/runTime.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sendJson.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sendJson.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sensors.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sensors.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/setPWM.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/setPWM.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/welcomeBlink.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/welcomeBlink.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Arduino/main/commandHandler.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Arduino/main/commandHandler.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Arduino/main/main.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../Arduino/main/main.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Arduino/main/pumpOnOff.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Arduino/main/pumpOnOff.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Python/arduino_control/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Python/arduino_control/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Python/pumpControlCenter/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Python/pumpControlCenter/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Python/pumpControlCenter/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Python/pumpControlCenter/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Python/pumpControlCenter/serialArduino.py" beforeDir="false" />
+    <list default="true" id="84157455-88e8-4aab-9df4-f36bf660231a" name="Changes" comment="Fixed ledRing on/off issue with state-checks!">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/.sconsign39.dblite" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/.sconsign39.dblite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/CDC.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/CDC.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/HardwareSerial.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/HardwareSerial.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/HardwareSerial0.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/HardwareSerial0.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/HardwareSerial1.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/HardwareSerial1.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/HardwareSerial2.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/HardwareSerial2.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/HardwareSerial3.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/HardwareSerial3.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/IPAddress.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/IPAddress.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/PluggableUSB.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/PluggableUSB.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/Print.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/Print.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/Stream.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/Stream.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/Tone.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/Tone.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/USBCore.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/USBCore.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/WInterrupts.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/WInterrupts.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/WMath.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/WMath.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/WString.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/WString.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/abi.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/abi.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/hooks.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/hooks.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/new.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/new.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/wiring.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/wiring.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/wiring_analog.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/wiring_analog.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/wiring_digital.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/wiring_digital.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/wiring_pulse.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/wiring_pulse.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/wiring_shift.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/FrameworkArduino/wiring_shift.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/firmware.elf" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/firmware.elf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/firmware.hex" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/firmware.hex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/libFrameworkArduino.a" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/libFrameworkArduino.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/liba6c/Wire/Wire.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/liba6c/Wire/Wire.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/liba6c/Wire/utility/twi.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/liba6c/Wire/utility/twi.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/liba6c/libWire.a" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/liba6c/libWire.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/src/buttonIsTriggered.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/src/buttonIsTriggered.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/src/commandHandler.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/src/commandHandler.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/src/debounce.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/src/debounce.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/src/detect_change.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/src/detect_change.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/src/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/src/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/src/pumpControl.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/src/pumpControl.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/src/readButtons.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/src/readButtons.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/src/readPotentiometers.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/src/readPotentiometers.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/src/runTime.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/src/runTime.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/src/sendJson.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/src/sendJson.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/src/setPWM.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/src/setPWM.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.pio/build/uno/src/welcomeBlink.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/.pio/build/uno/src/welcomeBlink.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-uno/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-uno/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/buttonLED.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/buttonLED.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commandHandler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/commandHandler.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +74,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="ProjectId" id="27K8VUiDsS5bFdMmanPAJZyyQSS" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -78,20 +94,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.advertisement.text.has.clang-format" value="true" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="cmake.loaded.for.project" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="serialMonitor.commands" value="POTB00&#10;POTB100&#10;POTB01&#10;POTB1&#10;POTB0&#10;POTB200&#10;F&#10;E&#10;C&#10;D" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunManager" selected="PlatformIO.PlatformIO Upload">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Z_DUMMY_TARGET" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Arduino_Cpp" TARGET_NAME="Z_DUMMY_TARGET" CONFIG_NAME="uno" RUN_TARGET_PROJECT_NAME="Arduino_Cpp" RUN_TARGET_NAME="Z_DUMMY_TARGET">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -128,8 +142,24 @@
       <updated>1649057440663</updated>
       <workItem from="1649057442593" duration="10475000" />
       <workItem from="1649069197256" duration="6361000" />
-      <workItem from="1649144231340" duration="10072000" />
+      <workItem from="1649144231340" duration="13607000" />
+      <workItem from="1649188455879" duration="9000" />
+      <workItem from="1649228007965" duration="4210000" />
+      <workItem from="1649233852933" duration="8145000" />
+      <workItem from="1649315325794" duration="2510000" />
+      <workItem from="1649317860907" duration="13664000" />
+      <workItem from="1649338853297" duration="23511000" />
+      <workItem from="1649540099199" duration="164000" />
+      <workItem from="1649747724143" duration="1562000" />
     </task>
+    <task id="LOCAL-00001" summary="Fixed ledRing on/off issue with state-checks!">
+      <created>1649418402882</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1649418402883</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,5 +176,13 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fixed ledRing on/off issue with state-checks!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed ledRing on/off issue with state-checks!" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

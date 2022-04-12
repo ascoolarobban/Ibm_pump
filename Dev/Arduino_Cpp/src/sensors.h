@@ -4,14 +4,11 @@
 
 #ifndef ARDUINO_CPP_SENSORS_H
 #define ARDUINO_CPP_SENSORS_H
-#define DHTTYPE DHT11
-#define DHTPIN A0
+
 
 
 //SENSORS
-extern int flowSensor_1;
-extern int flowSensor_2;
-extern int flowSensor_3;
+
 /*
 extern int last_flowSensor_1;
 extern int last_flowSensor_2;

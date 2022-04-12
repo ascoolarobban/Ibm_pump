@@ -57,10 +57,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/pumpdemo/Dev/Arduino_Cpp"
+CMAKE_SOURCE_DIR = "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/pumpdemo/Dev/Arduino_Cpp/cmake-build-uno"
+CMAKE_BINARY_DIR = "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/pumpdemo/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/pumpdemo/Dev/Arduino_Cpp/cmake-build-uno//CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno//CMakeFiles/progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/pumpdemo/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/robin/Library/Mobile Documents/com~apple~CloudDocs/IBM/Ibm_pump/Dev/Arduino_Cpp/cmake-build-uno/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -203,30 +203,6 @@ Production/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/uno/DHT/DHT.cpp.s
 .PHONY : .pio/libdeps/uno/DHT/DHT.cpp.s
 
-src/breatheButton.obj: src/breatheButton.cpp.obj
-.PHONY : src/breatheButton.obj
-
-# target to build an object file
-src/breatheButton.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/breatheButton.cpp.obj
-.PHONY : src/breatheButton.cpp.obj
-
-src/breatheButton.i: src/breatheButton.cpp.i
-.PHONY : src/breatheButton.i
-
-# target to preprocess a source file
-src/breatheButton.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/breatheButton.cpp.i
-.PHONY : src/breatheButton.cpp.i
-
-src/breatheButton.s: src/breatheButton.cpp.s
-.PHONY : src/breatheButton.s
-
-# target to generate assembly for a file
-src/breatheButton.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/breatheButton.cpp.s
-.PHONY : src/breatheButton.cpp.s
-
 src/buttonIsTriggered.obj: src/buttonIsTriggered.cpp.obj
 .PHONY : src/buttonIsTriggered.obj
 
@@ -251,6 +227,54 @@ src/buttonIsTriggered.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonIsTriggered.cpp.s
 .PHONY : src/buttonIsTriggered.cpp.s
 
+src/buttonLED.obj: src/buttonLED.cpp.obj
+.PHONY : src/buttonLED.obj
+
+# target to build an object file
+src/buttonLED.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonLED.cpp.obj
+.PHONY : src/buttonLED.cpp.obj
+
+src/buttonLED.i: src/buttonLED.cpp.i
+.PHONY : src/buttonLED.i
+
+# target to preprocess a source file
+src/buttonLED.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonLED.cpp.i
+.PHONY : src/buttonLED.cpp.i
+
+src/buttonLED.s: src/buttonLED.cpp.s
+.PHONY : src/buttonLED.s
+
+# target to generate assembly for a file
+src/buttonLED.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/buttonLED.cpp.s
+.PHONY : src/buttonLED.cpp.s
+
+src/checkHardwareStateChange.obj: src/checkHardwareStateChange.cpp.obj
+.PHONY : src/checkHardwareStateChange.obj
+
+# target to build an object file
+src/checkHardwareStateChange.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/checkHardwareStateChange.cpp.obj
+.PHONY : src/checkHardwareStateChange.cpp.obj
+
+src/checkHardwareStateChange.i: src/checkHardwareStateChange.cpp.i
+.PHONY : src/checkHardwareStateChange.i
+
+# target to preprocess a source file
+src/checkHardwareStateChange.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/checkHardwareStateChange.cpp.i
+.PHONY : src/checkHardwareStateChange.cpp.i
+
+src/checkHardwareStateChange.s: src/checkHardwareStateChange.cpp.s
+.PHONY : src/checkHardwareStateChange.s
+
+# target to generate assembly for a file
+src/checkHardwareStateChange.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/checkHardwareStateChange.cpp.s
+.PHONY : src/checkHardwareStateChange.cpp.s
+
 src/commandHandler.obj: src/commandHandler.cpp.obj
 .PHONY : src/commandHandler.obj
 
@@ -274,6 +298,30 @@ src/commandHandler.s: src/commandHandler.cpp.s
 src/commandHandler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/commandHandler.cpp.s
 .PHONY : src/commandHandler.cpp.s
+
+src/convertToLitres.obj: src/convertToLitres.cpp.obj
+.PHONY : src/convertToLitres.obj
+
+# target to build an object file
+src/convertToLitres.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/convertToLitres.cpp.obj
+.PHONY : src/convertToLitres.cpp.obj
+
+src/convertToLitres.i: src/convertToLitres.cpp.i
+.PHONY : src/convertToLitres.i
+
+# target to preprocess a source file
+src/convertToLitres.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/convertToLitres.cpp.i
+.PHONY : src/convertToLitres.cpp.i
+
+src/convertToLitres.s: src/convertToLitres.cpp.s
+.PHONY : src/convertToLitres.s
+
+# target to generate assembly for a file
+src/convertToLitres.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/convertToLitres.cpp.s
+.PHONY : src/convertToLitres.cpp.s
 
 src/debounce.obj: src/debounce.cpp.obj
 .PHONY : src/debounce.obj
@@ -323,6 +371,30 @@ src/detect_change.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/detect_change.cpp.s
 .PHONY : src/detect_change.cpp.s
 
+src/idleState.obj: src/idleState.cpp.obj
+.PHONY : src/idleState.obj
+
+# target to build an object file
+src/idleState.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/idleState.cpp.obj
+.PHONY : src/idleState.cpp.obj
+
+src/idleState.i: src/idleState.cpp.i
+.PHONY : src/idleState.i
+
+# target to preprocess a source file
+src/idleState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/idleState.cpp.i
+.PHONY : src/idleState.cpp.i
+
+src/idleState.s: src/idleState.cpp.s
+.PHONY : src/idleState.s
+
+# target to generate assembly for a file
+src/idleState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/idleState.cpp.s
+.PHONY : src/idleState.cpp.s
+
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
@@ -370,30 +442,6 @@ src/pumpControl.s: src/pumpControl.cpp.s
 src/pumpControl.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/pumpControl.cpp.s
 .PHONY : src/pumpControl.cpp.s
-
-src/pumpSerialCommand.obj: src/pumpSerialCommand.cpp.obj
-.PHONY : src/pumpSerialCommand.obj
-
-# target to build an object file
-src/pumpSerialCommand.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/pumpSerialCommand.cpp.obj
-.PHONY : src/pumpSerialCommand.cpp.obj
-
-src/pumpSerialCommand.i: src/pumpSerialCommand.cpp.i
-.PHONY : src/pumpSerialCommand.i
-
-# target to preprocess a source file
-src/pumpSerialCommand.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/pumpSerialCommand.cpp.i
-.PHONY : src/pumpSerialCommand.cpp.i
-
-src/pumpSerialCommand.s: src/pumpSerialCommand.cpp.s
-.PHONY : src/pumpSerialCommand.s
-
-# target to generate assembly for a file
-src/pumpSerialCommand.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/pumpSerialCommand.cpp.s
-.PHONY : src/pumpSerialCommand.cpp.s
 
 src/readButtons.obj: src/readButtons.cpp.obj
 .PHONY : src/readButtons.obj
@@ -466,6 +514,30 @@ src/readSensors.s: src/readSensors.cpp.s
 src/readSensors.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/readSensors.cpp.s
 .PHONY : src/readSensors.cpp.s
+
+src/readSerial.obj: src/readSerial.cpp.obj
+.PHONY : src/readSerial.obj
+
+# target to build an object file
+src/readSerial.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/readSerial.cpp.obj
+.PHONY : src/readSerial.cpp.obj
+
+src/readSerial.i: src/readSerial.cpp.i
+.PHONY : src/readSerial.i
+
+# target to preprocess a source file
+src/readSerial.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/readSerial.cpp.i
+.PHONY : src/readSerial.cpp.i
+
+src/readSerial.s: src/readSerial.cpp.s
+.PHONY : src/readSerial.s
+
+# target to generate assembly for a file
+src/readSerial.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/readSerial.cpp.s
+.PHONY : src/readSerial.cpp.s
 
 src/runTime.obj: src/runTime.cpp.obj
 .PHONY : src/runTime.obj
@@ -604,30 +676,36 @@ help:
 	@echo "... .pio/libdeps/uno/DHT/DHT.obj"
 	@echo "... .pio/libdeps/uno/DHT/DHT.i"
 	@echo "... .pio/libdeps/uno/DHT/DHT.s"
-	@echo "... src/breatheButton.obj"
-	@echo "... src/breatheButton.i"
-	@echo "... src/breatheButton.s"
 	@echo "... src/buttonIsTriggered.obj"
 	@echo "... src/buttonIsTriggered.i"
 	@echo "... src/buttonIsTriggered.s"
+	@echo "... src/buttonLED.obj"
+	@echo "... src/buttonLED.i"
+	@echo "... src/buttonLED.s"
+	@echo "... src/checkHardwareStateChange.obj"
+	@echo "... src/checkHardwareStateChange.i"
+	@echo "... src/checkHardwareStateChange.s"
 	@echo "... src/commandHandler.obj"
 	@echo "... src/commandHandler.i"
 	@echo "... src/commandHandler.s"
+	@echo "... src/convertToLitres.obj"
+	@echo "... src/convertToLitres.i"
+	@echo "... src/convertToLitres.s"
 	@echo "... src/debounce.obj"
 	@echo "... src/debounce.i"
 	@echo "... src/debounce.s"
 	@echo "... src/detect_change.obj"
 	@echo "... src/detect_change.i"
 	@echo "... src/detect_change.s"
+	@echo "... src/idleState.obj"
+	@echo "... src/idleState.i"
+	@echo "... src/idleState.s"
 	@echo "... src/main.obj"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
 	@echo "... src/pumpControl.obj"
 	@echo "... src/pumpControl.i"
 	@echo "... src/pumpControl.s"
-	@echo "... src/pumpSerialCommand.obj"
-	@echo "... src/pumpSerialCommand.i"
-	@echo "... src/pumpSerialCommand.s"
 	@echo "... src/readButtons.obj"
 	@echo "... src/readButtons.i"
 	@echo "... src/readButtons.s"
@@ -637,6 +715,9 @@ help:
 	@echo "... src/readSensors.obj"
 	@echo "... src/readSensors.i"
 	@echo "... src/readSensors.s"
+	@echo "... src/readSerial.obj"
+	@echo "... src/readSerial.i"
+	@echo "... src/readSerial.s"
 	@echo "... src/runTime.obj"
 	@echo "... src/runTime.i"
 	@echo "... src/runTime.s"

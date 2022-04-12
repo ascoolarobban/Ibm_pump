@@ -3,6 +3,7 @@
 //
 
 #include "pumpControl.h"
+#include "buttonLED.h"
 
 int pumpPin = 7;
 int buttonA_ledRing = 5;  //pump led ring
@@ -55,15 +56,15 @@ void pumpOFF() {
 
 }
 void fanON() {
+    fan_state = true;
     digitalWrite(fan_relay, HIGH);
     digitalWrite(buttonB_ledRing, HIGH);
-    fan_state = true;
     Serial.println("{FAN:ON}");
 }
 void fanOFF() {
+    fan_state = false;
     digitalWrite(fan_relay, LOW);
     digitalWrite(buttonB_ledRing, LOW);
-    fan_state = false;
     Serial.println("{FAN:OFF}");
 
 }
@@ -88,36 +89,39 @@ void drainValveClosed() {
 
 
 
-void pumpcontroller(char command) {
+void pumpcontroller(bool command) {
+    Serial.print("Command: ");
+    Serial.println(command);
+    if (command) {
 
-    if (command == 'A') {
         pumpON();
 
     }
-    else if (command == 'B') {
+    else if (!command) {
         pumpOFF();
     }
 
 }
 
-void fancontroller(char command) {
-    if (command == 'C') {
+void fancontroller(bool command) {
+    if (command) {
         fanON();
 
     }
-    else if (command == 'D') {
+    else if (!command) {
         fanOFF();
     }
 
 
 }
 
-void valvecontroller(char command) {
-    if (command == 'E') {
+void valvecontroller(bool command) {
+    if (command) {
+
         drainValveOpen();
 
     }
-    else if (command == 'F') {
+    else if (!command) {
         drainValveClosed();
     }
 

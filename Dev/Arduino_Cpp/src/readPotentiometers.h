@@ -12,6 +12,9 @@
 extern int pot_1;
 extern int pot_2;
 extern int pot_3;
+extern int new_pot_1;
+extern int new_pot_2;
+extern int new_pot_3;
 
 extern bool pot_1_change;
 extern bool pot_2_change;

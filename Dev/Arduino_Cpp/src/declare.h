@@ -34,6 +34,6 @@ unsigned long currentMillis;
 
 //LEDSHOW WAIT
 
-String startup = "The time traveling is just too dangerous. Better that I devote myself to study the other great mystery of the universe: women.";
+String startup = "The time traveling is just too dangerous. Better that I devote myself to study the other great mystery of the universe: c++ pointers.";
 
 #endif //ARDUINO_CPP_DECLARE_H
