@@ -60,17 +60,18 @@ void ibmLed_A(){
 void short_A() {
     for (int i = 0; i < 200; i++) {
         readButtons();
+        readSerialInput();
         A++;
         makeHigh(A, B, C);
         if (idleState() != true) {
             setLedsToZero();
             break;
         }
-        readSerialInput();
         delay(delay_time);
     }
     for (int i = 0; i < 200; i++) {
         readButtons();
+        readSerialInput();
         A--;
         makeHigh(A, B, C);
         //makeHighBreathe(A);
@@ -78,7 +79,6 @@ void short_A() {
             setLedsToZero();
             break;
         }
-        readSerialInput();
         delay(delay_time);
     }
 
@@ -86,16 +86,18 @@ void short_A() {
 void long_B(){
         for (int i = 0; i < 200; i++) {
             readButtons();
+            readSerialInput();
             B++;
             makeHigh(A, B, C);
             if (idleState() != true) {
                 setLedsToZero();
                 break;
             }
-            readSerialInput();
             delay(delay_time);
         }
         for (int x = 0; x < 500; x++) {
+            readButtons();
+            readSerialInput();
             makeHigh(A, 200, C);
             if (idleState() != true) {
                 setLedsToZero();
@@ -107,6 +109,7 @@ void long_B(){
 
         for (int i = 0; i < 200; i++) {
             readButtons();
+            readSerialInput();
             B--;
             makeHigh(A, B, C);
             //makeHighBreathe(A);
@@ -114,7 +117,6 @@ void long_B(){
                 setLedsToZero();
                 break;
             }
-            readSerialInput();
             delay(delay_time);
         }
 
@@ -133,6 +135,7 @@ void short_B() {
         }
         for (int i = 0; i < 200; i++) {
             readButtons();
+            readSerialInput();
             B--;
             makeHigh(A, B, C);
             //makeHighBreathe(A);
@@ -140,7 +143,6 @@ void short_B() {
                 setLedsToZero();
                 break;
             }
-            readSerialInput();
             delay(delay_time);
         }
 
@@ -160,13 +162,13 @@ void ibmLed_B() {
 void long_M(){
         for (int i = 0; i < 200; i++) {
             readButtons();
+            readSerialInput();
             C++;
             makeHigh(A, B, C);
             if (idleState() != true) {
                 setLedsToZero();
                 break;
             }
-            readSerialInput();
             delay(delay_time);
         }
         for (int x = 0; x < 500; x++) {
@@ -180,6 +182,7 @@ void long_M(){
 
         for (int i = 0; i < 200; i++) {
             readButtons();
+            readSerialInput();
             C--;
             makeHigh(A, B, C);
             //makeHighBreathe(A);
@@ -187,7 +190,6 @@ void long_M(){
                 setLedsToZero();
                 break;
             }
-            readSerialInput();
             delay(delay_time);
         }
 
@@ -216,50 +218,51 @@ void ledShow() {
 
     for (int i = 0; i < 200; i++) {
         readButtons();
+        readSerialInput();
         A++;
         makeHigh(A, B, C);
         if (idleState() != true) {
             setLedsToZero();
             break;
         }
-        readSerialInput();
         delay(delay_time);
     }
     for (int i = 0; i < 200; i++) {
         readButtons();
+        readSerialInput();
         A--;
         makeHigh(A, B, C);
         if (idleState() != true) {
             setLedsToZero();
             break;
         }
-        readSerialInput();
         delay(delay_time);
     }
     for (int i = 0; i < 200; i++) {
         readButtons();
+        readSerialInput();
         B++;
         makeHigh(A, B, C);
         if (idleState() != true) {
             setLedsToZero();
             break;
         }
-        readSerialInput();
         delay(delay_time);
     }
     for (int i = 0; i < 200; i++) {
         readButtons();
+        readSerialInput();
         B--;
         makeHigh(A, B, C);
         if (idleState() != true) {
             setLedsToZero();
             break;
         }
-        readSerialInput();
         delay(delay_time);
     }
     for (int i = 0; i < 200; i++) {
         readButtons();
+        readSerialInput();
         C++;
         makeHigh(A, B, C);
 
@@ -267,32 +270,20 @@ void ledShow() {
             setLedsToZero();
             break;
         }
-        readSerialInput();
         delay(delay_time);
 
     }
 
 
-    for (
-            int i = 0;
-            i < 200; i++) {
+    for (int i = 0;i < 200; i++) {
         readButtons();
-
+        readSerialInput();
         C--;
-        makeHigh(A, B, C
-        );
-        if (
-
-                idleState()
-
-                != true) {
+        makeHigh(A, B, C);
+        if (idleState()!= true) {
             setLedsToZero();
-
             break;
         }
-
-        readSerialInput();
-
         delay(delay_time);
     }
     if (idleState() != true) {

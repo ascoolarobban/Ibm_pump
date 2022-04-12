@@ -17,13 +17,13 @@ void commandHandler(char* comdata) {
     switch (*comdata) {
 
         case 'A': // A Starts pump
-
-            pumpControllerButton();
+                pump_state = true;
+            //pumpControllerButton();
             break;
 
         case 'B':
-
-            pumpControllerButton();
+                pump_state = false;
+            //pumpControllerButton();
             break;
 
         case 'C':
@@ -32,18 +32,18 @@ void commandHandler(char* comdata) {
             break;
 
         case 'D':
-
-            fanControllerButton();
+            fan_state = false;
+            //fanControllerButton();
             break;
 
         case 'E':
-
-            valveControllerButton();
+            drain_valve_state = true;
+           // valveControllerButton();
             break;
 
         case 'F':
-
-            valveControllerButton();
+            drain_valve_state = false;
+            //valveControllerButton();
             break;
     }
 }
