@@ -7,22 +7,16 @@ import { Provider } from 'react-redux';
 import { SensorMessage } from './features/sensors';
 import { HistoricData } from './features/historicData';
 import { PumpToggleState } from './features/pumpStateToggle';
-import { combineReducers } from 'redux';
 
-/* const rootReducer = combineReducers({
-  sensors: SensorMessage,
-  historicData: HistoricData,
-  pumpToggleState: PumpToggleState
-}) */
-
-
+//const store = createStore(combineReducers({SensorMessage, HistoricData, PumpToggleState}));
 
 const store = configureStore({
   reducer: {
-    sensors: SensorMessage,
-    historicData: HistoricData,
-    pumpToggleState: PumpToggleState
-  }});
+    sensor: SensorMessage,
+    pump: PumpToggleState,
+    history: HistoricData,
+  },
+});
 
 ReactDOM.render(
   <React.StrictMode>

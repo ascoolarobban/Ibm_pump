@@ -16,3 +16,4 @@ export const sensorSlice = createSlice({
 export const {SensorMessage} = sensorSlice.actions;
 
 export default sensorSlice.reducer;
+

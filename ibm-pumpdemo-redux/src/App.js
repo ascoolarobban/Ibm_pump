@@ -17,7 +17,7 @@ import {SensorMessage} from './features/sensors'
 import historicData from './features/historicData';
 import { PumpToggleState } from './features/pumpStateToggle';
 
-var ws = new WebSocket("ws://10.135.5.141:1880/ws/data");
+var ws = new WebSocket("ws://192.168.1.5:1880/ws/data");
 
 Toggle.defaultProps = {
   onToggle: () => {},
@@ -40,10 +40,10 @@ function App() {
   ws.onmessage = (event) => {
     console.log('Message from server ', event.data);
     const sensorObject = JSON.parse(event.data);
-
+    
     if (sensorObject.hasOwnProperty('ts')) {
-      var temp_history_date = sensorObject.data.ts
-      var temp_history_value = sensorObject.data.sv
+      var temp_history_date = sensorObject.ts
+      var temp_history_value = sensorObject.sv
       
       dispatch(historicData({historyDate: temp_history_date, 
         historyValue: temp_history_value}))
@@ -60,11 +60,11 @@ function App() {
       var PumpSpeed = sensorObject.data.pumpSpeed
       var DrainValveState = sensorObject.data.drainValveState
       var SafetyValveState = sensorObject.data.safetyValveState
-      var temperature = sensorObject.data.temp
+      var Temperature = sensorObject.data.temp
       var Location = sensorObject.data.location
       var Id = sensorObject.data.id
 
-      dispatch(SensorMessage({temp: temperature, flowrateOne: Waterflow1,
+      dispatch(SensorMessage({temp: Temperature, flowrateOne: Waterflow1,
         flowrateTwo: Waterflow2, flowrateThree: Waterflow3, fanspeed: FanSpeed,
         fanState: FanState, pumpspeed: PumpSpeed, pumpState: PumpState, 
         location: Location, id: Id, drainStateValve: DrainValveState, 

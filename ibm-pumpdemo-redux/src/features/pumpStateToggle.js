@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const PumpStateSlice = createSlice({
+export const pumpStateSlice = createSlice({
     name: "pumpToggleState",
     initialState: { value: {pumpStateValue: ""}},
     reducers: {
@@ -10,4 +10,6 @@ export const PumpStateSlice = createSlice({
     },
 });
 
-export const {PumpToggleState} = PumpStateSlice.actions;
+export const {PumpToggleState} = pumpStateSlice.actions;
+
+export default pumpStateSlice.reducer;

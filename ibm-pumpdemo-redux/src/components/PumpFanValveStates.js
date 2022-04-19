@@ -11,16 +11,21 @@ function sendButtonPressedMessage(buttonState){
   } 
 
 function PumpFanValveStates() {
-
+    
     const sensorValue = useSelector((state) => state.sensors.value);
     const pumpValue = useSelector((state) => state.pumpToggleState.value);
-    var pumpState = pumpValue.pumpStateValue
-
-    var location = sensorValue.location
-    var id = sensorValue.id
-    var fanState = sensorValue.fanState
-    var drainState = sensorValue.drainStateValve
-    var safetyState = sensorValue.safetyStateValve
+    
+    if (pumpValue !== 'undefined') {
+        console.log('sensorValue: %s', sensorValue);
+        console.log('pumpValue: %s', pumpValue);
+        var pumpState = pumpValue.pumpStateValue
+        var location = sensorValue.location
+        var id = sensorValue.id
+        var fanState = sensorValue.fanState
+        var drainState = sensorValue.drainStateValve
+        var safetyState = sensorValue.safetyStateValve
+        var fanSpeed = sensorValue.fanSpeed
+    } 
 
     return(
         <h3>Location:&nbsp;{location}&nbsp;&nbsp;&nbsp;Id&nbsp;:&nbsp;{id}&nbsp;&nbsp;
@@ -31,7 +36,20 @@ function PumpFanValveStates() {
             labelText="Pump"
             toggled={pumpState}          
             onToggle={Toggle => sendButtonPressedMessage(Toggle)}
-        /></div></h3>
+        /></div>
+        <div className="FanSpeedContainer">
+        <Slider
+            ariaLabelInput="1 - 100"
+            id="slider"
+            labelText="Fan Speed"
+            max={100}
+            min={1}
+            step={5}
+            stepMuliplier={4}
+            value={fanSpeed}
+        />
+        </div>
+        </h3>
     )};
 
 export default PumpFanValveStates;
