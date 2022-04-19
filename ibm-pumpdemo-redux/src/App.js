@@ -50,7 +50,7 @@ function App() {
 
     }
 
-    if (sensorObject.hasOwnProperty('location')) {
+    //if (sensorObject.hasOwnProperty('location')) {
       var PumpState = sensorObject.data.pumpState
       var FanSpeed = sensorObject.data.fanSpeed
       var Waterflow1 = sensorObject.data.flowSensor1
@@ -65,14 +65,14 @@ function App() {
       var Id = sensorObject.data.id
 
       dispatch(sensorDataReducer({temp: Temperature, flowrateOne: Waterflow1,
-        flowrateTwo: Waterflow2, flowrateThree: Waterflow3, fanspeed: FanSpeed,
-        fanState: FanState, pumpspeed: PumpSpeed, pumpState: PumpState, 
+        flowrateTwo: Waterflow2, flowrateThree: Waterflow3, fanSpeed: FanSpeed,
+        fanState: FanState, pumpSpeed: PumpSpeed, pumpState: PumpState, 
         location: Location, id: Id, drainStateValve: DrainValveState, 
         safetyStateValve: SafetyValveState}))
   
       dispatch(pumpToggleStateReducer({
         pumpStateValue: PumpState}))
-    }
+    //}
       
   }
   

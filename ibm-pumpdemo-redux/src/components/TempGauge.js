@@ -7,7 +7,8 @@ function TempGauge() {
 
     const sensorValue = useSelector((state) => state.sensors.value);
     var tempvalue = sensorValue.temp
-    
+    console.log('temp: %s', tempvalue);
+
     var state = {
 		data: [
 	    {
