@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const pumpStateSlice = createSlice({
     name: "pumpToggleState",
-    initialState: { value: {pumpStateValue: ""}},
+    initialState: { value: {pumpStateValue: false}},
     reducers: {
         pumpToggleStateReducer:(state, action) => {
             state.value = action.payload;

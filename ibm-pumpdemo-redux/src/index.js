@@ -4,18 +4,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux';
-import { sensorData } from './features/sensors';
-import { historicData } from './features/historicData';
-import { pumpToggleStateReducer } from './features/pumpStateToggle';
-
-/* const store = createStore(combineReducers({
-  sensorMessage, historicData, pumpToggleState})); */
+import sensorDataReducer from './features/sensors';
+import historicDataReducer from './features/historicData';
+import pumpToggleStateReducer from './features/pumpStateToggle';
 
 const store = configureStore({
   reducer: {
-    sensorData: sensorData,
-    pumpStateData: pumpToggleStateReducer,
-    historicData: historicData,
+    sensors: sensorDataReducer,
+    pumpState: pumpToggleStateReducer,
+    historic: historicDataReducer,
   },
 }); 
 

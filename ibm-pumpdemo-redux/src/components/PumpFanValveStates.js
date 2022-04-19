@@ -7,18 +7,17 @@ import pumpStateToggleReducer from '../features/pumpStateToggle';
 
 function PumpFanValveStates() {
     
-    const sensorValue = useSelector((state) => state.sensorData.value);
-    //const pumpValue = useSelector((state) => state.pumpToggleStateReducer.value);
+    const sensors = useSelector((state) => state.sensors.value);
     const dispatch = useDispatch();
 
-    if (sensorValue !== 'undefined') {
-        var pumpState = sensorValue.pumpState
-        var location = sensorValue.location
-        var id = sensorValue.id
-        var fanState = sensorValue.fanState
-        var drainState = sensorValue.drainStateValve
-        var safetyState = sensorValue.safetyStateValve
-        var fanSpeed = sensorValue.fanSpeed
+    if (sensors !== 'undefined') {
+        var pumpState = sensors.pumpState
+        var location = sensors.location
+        var id = sensors.id
+        var fanState = sensors.fanState
+        var drainState = sensors.drainStateValve
+        var safetyState = sensors.safetyStateValve
+        var fanSpeed = sensors.fanSpeed
     } 
 
     return(

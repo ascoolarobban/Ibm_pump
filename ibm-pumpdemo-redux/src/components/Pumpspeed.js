@@ -11,7 +11,7 @@ function PumpSpeed() {
 		data: [
 	    {
 		"group": "value",
-		"value": sensorValue.pumpspeed
+		"value": sensorValue.pumpSpeed
 	    },
     ],
 		options: {

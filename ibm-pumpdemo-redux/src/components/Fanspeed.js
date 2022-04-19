@@ -11,7 +11,7 @@ function FanSpeed() {
 		data: [
 	    {
 		"group": "value",
-		"value": sensorValue.fanspeed
+		"value": sensorValue.fanSpeed
 	    },
     ],
 		options: {
