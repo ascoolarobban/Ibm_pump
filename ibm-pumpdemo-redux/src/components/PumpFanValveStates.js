@@ -18,29 +18,45 @@ function PumpFanValveStates() {
         var drainState = sensors.drainStateValve
         var safetyState = sensors.safetyStateValve
         var fanSpeed = sensors.fanSpeed
+        var pumpSpeed = sensors.pumpSpeed
     } 
 
     return(
         <h3>Location:&nbsp;{location}&nbsp;&nbsp;&nbsp;Id&nbsp;:&nbsp;{id}&nbsp;&nbsp;
         Fan State: &nbsp;{fanState}&nbsp;&nbsp;Drain valve:&nbsp;{drainState}&nbsp;&nbsp;Safety valve:&nbsp;{safetyState}
-        <div><Toggle 
-            aria-label="toggle button"
-            id="toggle-1"
-            labelText="Pump"
-            toggled={pumpState}                
-            onToggle={Toggle => dispatch(pumpStateToggleReducer(Toggle))}
-        /></div>
-        <div className="FanSpeedContainer">
-        <Slider
-            ariaLabelInput="1 - 100"
-            id="slider"
-            labelText="Fan Speed"
-            max={100}
-            min={1}
-            step={5}
-            stepMuliplier={4}
-            value={fanSpeed}
-        />
+        <br></br><br></br>
+        <div className="grid-container">
+            
+            <div className="grid-item-hdrx"><Toggle 
+                aria-label="toggle button"
+                id="toggle-1"
+                labelText="Pump"
+                toggled={pumpState}                
+                onToggle={Toggle => dispatch(pumpStateToggleReducer(Toggle))}
+            /></div>
+            
+            <div className="grid-item-hdrx">
+            <Slider
+                ariaLabelInput="1 - 100"
+                id="slider"
+                labelText="Fan Speed"
+                max={100}
+                min={1}
+                step={5}
+                stepMuliplier={4}
+                value={fanSpeed}
+            /></div>
+            <div className="grid-item-hdrx">
+            <Slider
+                ariaLabelInput="1 - 100"
+                id="slider"
+                labelText="Pump Speed"
+                max={100}
+                min={1}
+                step={5}
+                stepMultiplier={4}
+                value={pumpSpeed}
+            /></div>
         </div>
         </h3>
     )};

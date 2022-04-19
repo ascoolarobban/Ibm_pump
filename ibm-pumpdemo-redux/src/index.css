@@ -22,7 +22,7 @@ code {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 300px 300px 300px;
+  grid-template-columns: 400px 400px 400px;
   background-color: #f8f6f6;
   padding: 10px;
 }
@@ -30,6 +30,21 @@ code {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 30px;
+  font-size: 20px;
+  text-align: left;
+}
+
+.grid-container-hdr {
+  display: grid;
+  grid-template-columns: 250px 250px 250px;
+  background-color: #f8f6f6;
+  padding: 20px;
+}
+
+.grid-item-hdr {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 10px;
   font-size: 20px;
   text-align: left;
 }
