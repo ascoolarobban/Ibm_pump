@@ -1,24 +1,18 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Toggle } from "carbon-components-react";
-
-//var ws_pumpState = new WebSocket("ws://10.135.5.141:1880/ws/pumpState");
-
-function sendButtonPressedMessage(buttonState){
-    var newButtonState = null;
-    buttonState = "ON" ? (newButtonState = 'OFF') : (newButtonState = 'ON'); 
-    // ws_pumpState.send("PUMP " + newButtonState);
-  } 
+import { Slider } from "carbon-components-react";
+import { useDispatch } from 'react-redux';
+import pumpStateToggleReducer from '../features/pumpStateToggle';
 
 function PumpFanValveStates() {
     
-    const sensorValue = useSelector((state) => state.sensors.value);
-    const pumpValue = useSelector((state) => state.pumpToggleState.value);
-    
-    if (pumpValue !== 'undefined') {
-        console.log('sensorValue: %s', sensorValue);
-        console.log('pumpValue: %s', pumpValue);
-        var pumpState = pumpValue.pumpStateValue
+    const sensorValue = useSelector((state) => state.sensorData.value);
+    //const pumpValue = useSelector((state) => state.pumpToggleStateReducer.value);
+    const dispatch = useDispatch();
+
+    if (sensorValue !== 'undefined') {
+        var pumpState = sensorValue.pumpState
         var location = sensorValue.location
         var id = sensorValue.id
         var fanState = sensorValue.fanState
@@ -34,8 +28,8 @@ function PumpFanValveStates() {
             aria-label="toggle button"
             id="toggle-1"
             labelText="Pump"
-            toggled={pumpState}          
-            onToggle={Toggle => sendButtonPressedMessage(Toggle)}
+            toggled={pumpState}                
+            onToggle={Toggle => dispatch(pumpStateToggleReducer(Toggle))}
         /></div>
         <div className="FanSpeedContainer">
         <Slider

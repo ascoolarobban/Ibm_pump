@@ -7,13 +7,13 @@ export const sensorSlice = createSlice({
     temp_history_date: 0, temp_history_value: 0, location: "", id: "",
     drainValveState: "", safetyValveState: ""}},
     reducers: {
-        SensorMessage:(state, action) => {
+        sensorData:(state, action) => {
             state.value = action.payload;
         },
     },
 });
 
-export const {SensorMessage} = sensorSlice.actions;
+export const {sensorData} = sensorSlice.actions;
 
 export default sensorSlice.reducer;
 

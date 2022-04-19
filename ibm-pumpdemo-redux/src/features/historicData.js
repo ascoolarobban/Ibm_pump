@@ -5,12 +5,12 @@ export const historicSlice = createSlice({
     initialState: { value: {historyDate: "",
         historyValue: 0}},
     reducers: {
-        HistoricData:(state, action) => {
+        historicData:(state, action) => {
             state.value = action.payload;
         },
     },
 });
 
-export const {HistoricData} = historicSlice.actions;
+export const {historicData} = historicSlice.actions;
 
 export default historicSlice.reducer;

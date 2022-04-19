@@ -13,9 +13,9 @@ import TinyDBGraph from './components/TinyDBGraph';
 import TempHistogram from './components/TempHistogram';
 import PumpFanValveStates from './components/PumpFanValveStates';
 import {useDispatch} from 'react-redux';
-import {SensorMessage} from './features/sensors'
-import historicData from './features/historicData';
-import { PumpToggleState } from './features/pumpStateToggle';
+import {sensorData} from './features/sensors'
+import {historicData} from './features/historicData';
+import { pumpToggleState, pumpToggleStateReducer } from './features/pumpStateToggle';
 
 var ws = new WebSocket("ws://192.168.1.5:1880/ws/data");
 
@@ -64,13 +64,13 @@ function App() {
       var Location = sensorObject.data.location
       var Id = sensorObject.data.id
 
-      dispatch(SensorMessage({temp: Temperature, flowrateOne: Waterflow1,
+      dispatch(sensorData({temp: Temperature, flowrateOne: Waterflow1,
         flowrateTwo: Waterflow2, flowrateThree: Waterflow3, fanspeed: FanSpeed,
         fanState: FanState, pumpspeed: PumpSpeed, pumpState: PumpState, 
         location: Location, id: Id, drainStateValve: DrainValveState, 
         safetyStateValve: SafetyValveState}))
   
-      dispatch(PumpToggleState({
+      dispatch(pumpToggleStateReducer({
         pumpStateValue: PumpState}))
     }
       

@@ -4,12 +4,12 @@ export const pumpStateSlice = createSlice({
     name: "pumpToggleState",
     initialState: { value: {pumpStateValue: ""}},
     reducers: {
-        PumpToggleState:(state, action) => {
+        pumpToggleStateReducer:(state, action) => {
             state.value = action.payload;
         },
     },
 });
 
-export const {PumpToggleState} = pumpStateSlice.actions;
+export const {pumpToggleStateReducer} = pumpStateSlice.actions;
 
 export default pumpStateSlice.reducer;
