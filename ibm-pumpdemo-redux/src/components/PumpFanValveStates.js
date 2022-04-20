@@ -43,33 +43,33 @@ function PumpFanValveStates() {
                 aria-label="toggle button"
                 id="toggle-1"
                 labelText="Fan"
-                toggled={pumpState}                
+                toggled={fanState}                
                 onToggle={Toggle => SendToDispatcher(Toggle)}
             /></div>          
             <div className="grid-item-hdrx"><Toggle 
                 aria-label="toggle button"
                 id="toggle-1"
                 labelText="Flush"
-                toggled={pumpState}                
+                toggled={drainState}                
                 onToggle={Toggle => SendToDispatcher(Toggle)}
             /></div>
             <div className="grid-item-hdrx">
             <Slider
-                ariaLabelInput="1 - 100"
+                ariaLabelInput="1 - 3000"
                 id="slider"
-                labelText="Pump Speed"
-                max={100}
+                labelText="Pump Speed r/pm"
+                max={3000}
                 min={1}
-                step={5}
-                stepMuliplier={4}
+                step={10}
+                stepMultiplier={4}
                 value={pumpSpeed}
             /></div>
             <div className="grid-item-hdrx">
             <Slider
-                ariaLabelInput="1 - 100"
+                ariaLabelInput="1 - 1900"
                 id="slider"
-                labelText="Fan Speed"
-                max={100}
+                labelText="Fan Speed r/pm"
+                max={1900}
                 min={1}
                 step={5}
                 stepMultiplier={4}

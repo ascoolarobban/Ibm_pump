@@ -15,7 +15,7 @@ function PumpSpeed() {
 	    },
     ],
 		options: {
-	    "title": "PumpSpeed",
+	    "title": "PumpSpeed r/pm",
 	    "resizable": true,
 	    "height": "200px",
 	    "gauge": {

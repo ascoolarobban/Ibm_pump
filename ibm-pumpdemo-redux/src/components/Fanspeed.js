@@ -15,7 +15,7 @@ function FanSpeed() {
 	    },
     ],
 		options: {
-	    "title": "Fanspeed ",
+	    "title": "Fanspeed r/pm",
 	    "resizable": true,
 	    "height": "200px",
 	    "gauge": {
