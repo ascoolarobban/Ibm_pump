@@ -98,6 +98,7 @@ function App() {
     <div className="App"><h2>Pump Demo</h2>
       <PumpFanValveStates />    
       <br></br>
+      
       <div>
         <div className="grid-container">
         <div className="grid-item"><TempGauge /></div>

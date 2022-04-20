@@ -5,16 +5,17 @@ import { Slider } from "carbon-components-react";
 import { useDispatch } from 'react-redux';
 import pumpStateToggleReducer from '../features/pumpStateToggle';
 
-function SendToDispatcher(toggledPumpState, newPumpSpeedValue, newFanSpeedValue) {
+function SendToDispatcher(toggledPumpState) {
     const dispatch = useDispatch();
-    dispatch(pumpStateToggleReducer({pumpStateValue: toggledPumpState, 
-        pumpSpeedValue: newPumpSpeedValue, fanSpeedValue: newFanSpeedValue}));
+    dispatch(pumpStateToggleReducer({pumpStateValue: toggledPumpState}));
+    console.log('Sent to pumpStateToggle: %s', toggledPumpState);
 }
 
 function PumpFanValveStates() {
     
     const sensors = useSelector((state) => state.sensors.value);
-    
+    //const dispatch = useDispatch();
+
     if (sensors !== 'undefined') {
         var pumpState = sensors.pumpState
         var location = sensors.location
@@ -26,17 +27,17 @@ function PumpFanValveStates() {
         var pumpSpeed = sensors.pumpSpeed
     } 
 
+    // toggled={pumpState}
+
     return(
         <h3>Location:&nbsp;{location}&nbsp;&nbsp;&nbsp;Id&nbsp;:&nbsp;{id}&nbsp;&nbsp;
         Fan State: &nbsp;{fanState}&nbsp;&nbsp;Drain valve:&nbsp;{drainState}&nbsp;&nbsp;Safety valve:&nbsp;{safetyState}
         <br></br><br></br>
         <div className="grid-container">
-            
             <div className="grid-item-hdrx"><Toggle 
                 aria-label="toggle button"
                 id="toggle-1"
                 labelText="Pump"
-                toggled={pumpState}                
                 onToggle={Toggle => SendToDispatcher(Toggle)}
             /></div>
             <div className="grid-item-hdrx"><Toggle 
