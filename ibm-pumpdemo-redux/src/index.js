@@ -11,7 +11,7 @@ import pumpToggleStateReducer from './features/pumpStateToggle';
 const store = configureStore({
   reducer: {
     sensors: sensorDataReducer,
-    pumpState: pumpToggleStateReducer,
+    pumpStateToggle: pumpToggleStateReducer,
     historic: historicDataReducer,
   },
 }); 

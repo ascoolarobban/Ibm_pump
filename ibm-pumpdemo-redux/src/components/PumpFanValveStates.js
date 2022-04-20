@@ -5,11 +5,16 @@ import { Slider } from "carbon-components-react";
 import { useDispatch } from 'react-redux';
 import pumpStateToggleReducer from '../features/pumpStateToggle';
 
+function SendToDispatcher(toggledPumpState, newPumpSpeedValue, newFanSpeedValue) {
+    const dispatch = useDispatch();
+    dispatch(pumpStateToggleReducer({pumpStateValue: toggledPumpState, 
+        pumpSpeedValue: newPumpSpeedValue, fanSpeedValue: newFanSpeedValue}));
+}
+
 function PumpFanValveStates() {
     
     const sensors = useSelector((state) => state.sensors.value);
-    const dispatch = useDispatch();
-
+    
     if (sensors !== 'undefined') {
         var pumpState = sensors.pumpState
         var location = sensors.location
@@ -32,19 +37,21 @@ function PumpFanValveStates() {
                 id="toggle-1"
                 labelText="Pump"
                 toggled={pumpState}                
-                onToggle={Toggle => dispatch(pumpStateToggleReducer(Toggle))}
+                onToggle={Toggle => SendToDispatcher(Toggle)}
             /></div>
-            
-            <div className="grid-item-hdrx">
-            <Slider
-                ariaLabelInput="1 - 100"
-                id="slider"
-                labelText="Fan Speed"
-                max={100}
-                min={1}
-                step={5}
-                stepMuliplier={4}
-                value={fanSpeed}
+            <div className="grid-item-hdrx"><Toggle 
+                aria-label="toggle button"
+                id="toggle-1"
+                labelText="Fan"
+                toggled={pumpState}                
+                onToggle={Toggle => SendToDispatcher(Toggle)}
+            /></div>          
+            <div className="grid-item-hdrx"><Toggle 
+                aria-label="toggle button"
+                id="toggle-1"
+                labelText="Flush"
+                toggled={pumpState}                
+                onToggle={Toggle => SendToDispatcher(Toggle)}
             /></div>
             <div className="grid-item-hdrx">
             <Slider
@@ -54,9 +61,30 @@ function PumpFanValveStates() {
                 max={100}
                 min={1}
                 step={5}
-                stepMultiplier={4}
+                stepMuliplier={4}
                 value={pumpSpeed}
             /></div>
+            <div className="grid-item-hdrx">
+            <Slider
+                ariaLabelInput="1 - 100"
+                id="slider"
+                labelText="Fan Speed"
+                max={100}
+                min={1}
+                step={5}
+                stepMultiplier={4}
+                value={fanSpeed}
+            /></div>
+             <Slider
+                ariaLabelInput="1 - 100"
+                id="slider"
+                labelText="Flush"
+                max={100}
+                min={1}
+                step={5}
+                stepMultiplier={4}
+                value= {0}
+            />
         </div>
         </h3>
     )};

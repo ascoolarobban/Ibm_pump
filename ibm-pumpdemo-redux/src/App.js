@@ -16,8 +16,10 @@ import {useDispatch} from 'react-redux';
 import { sensorDataReducer } from './features/sensors'
 import { historicDataReducer } from './features/historicData';
 import { pumpToggleStateReducer } from './features/pumpStateToggle';
+import { useSelector } from 'react-redux';
 
 var ws = new WebSocket("ws://192.168.1.5:1880/ws/data");
+var lastPumpState = false;
 
 Toggle.defaultProps = {
   onToggle: () => {},
@@ -25,10 +27,24 @@ Toggle.defaultProps = {
   labelB: 'on',
 };
 
+function sendButtonPressedMessage(buttonState){
+  var newButtonState = null;
+  newButtonState = buttonState != true ? 'ON' : 'OFF' ;
+  console.log('Pump: %s', newButtonState);
+  var newmsg = {"PUMP" : newButtonState };
+  ws.send(newmsg);
+
+}
+
 function App() {
   const dispatch = useDispatch();
   var sendMessage = false;
-    
+  const pumpStateToggle = useSelector((state) => state.pumpStateToggle.value);
+  var pumpStateToggled = pumpStateToggle.pumpStateValue;
+  if (lastPumpState !== pumpStateToggled) {
+    sendButtonPressedMessage(pumpStateToggled);
+  } 
+  
   ws.onopen = () => {
         
     if (sendMessage === false) {
@@ -39,6 +55,7 @@ function App() {
   
   ws.onmessage = (event) => {
     console.log('Message from server ', event.data);
+    console.log('Message Location: ', event.data.hasOwnProperty('location'));
     const sensorObject = JSON.parse(event.data);
     
     if (sensorObject.hasOwnProperty('ts')) {
@@ -52,6 +69,7 @@ function App() {
 
     //if (sensorObject.hasOwnProperty('location')) {
       var PumpState = sensorObject.data.pumpState
+      lastPumpState = PumpState
       var FanSpeed = sensorObject.data.fanSpeed
       var Waterflow1 = sensorObject.data.flowSensor1
       var Waterflow2 = sensorObject.data.flowSensor2
@@ -91,7 +109,6 @@ function App() {
         <div className="grid-item"><TempGraph /></div>
         <div className="grid-item"><TinyDBGraph /></div>
         <div className="grid-item"><TempHistogram /></div>
-
       </div>
     </div>
   </div>
