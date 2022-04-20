@@ -5,9 +5,11 @@ import { Slider } from "carbon-components-react";
 import { useDispatch } from 'react-redux';
 import pumpStateToggleReducer from '../features/pumpStateToggle';
 
+var toggled;
+
 function SendToDispatcher(toggledPumpState) {
     const dispatch = useDispatch();
-    dispatch(pumpStateToggleReducer({pumpStateValue: toggledPumpState}));
+    //dispatch(pumpStateToggleReducer({pumpStateValue: toggledPumpState}));
     console.log('Sent to pumpStateToggle: %s', toggledPumpState);
 }
 
@@ -16,8 +18,9 @@ function PumpFanValveStates() {
     const sensors = useSelector((state) => state.sensors.value);
     //const dispatch = useDispatch();
 
-    if (sensors !== 'undefined') {
+    if (sensors != 'undefined') {
         var pumpState = sensors.pumpState
+        toggled=pumpState
         var location = sensors.location
         var id = sensors.id
         var fanState = sensors.fanState
@@ -44,14 +47,12 @@ function PumpFanValveStates() {
                 aria-label="toggle button"
                 id="toggle-1"
                 labelText="Fan"
-                toggled={fanState}                
                 onToggle={Toggle => SendToDispatcher(Toggle)}
             /></div>          
             <div className="grid-item-hdrx"><Toggle 
                 aria-label="toggle button"
                 id="toggle-1"
                 labelText="Flush"
-                toggled={drainState}                
                 onToggle={Toggle => SendToDispatcher(Toggle)}
             /></div>
             <div className="grid-item-hdrx">
