@@ -6,7 +6,7 @@
 #include "pumpControl.h"
 #include "buttonIsTriggered.h"
 
-long debounceDelay = 700;
+long debounceDelay = 600;
 unsigned long buttonAStartMillis = 0;
 unsigned long buttonBStartMillis = 0;
 unsigned long buttonCStartMillis = 0;

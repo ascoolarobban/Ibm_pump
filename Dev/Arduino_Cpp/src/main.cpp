@@ -132,20 +132,19 @@ void loop() {
 
 
     if(detect_change_pot() || detect_change_onoff()){
-        Serial.println("Change detected");
-
+        //Serial.println("Change detected");
         send_json(flowSensor1,flowSensor2,flowSensor3);
     }
 
 
 
-    if(idleState()){
+/*    if(idleState()){
         if(millis() - nowTime >= delayTime){
             nowTime = millis();
             //ledShow();
             ibmLightShow();
         }
-    }
+    }*/
 
 
 }

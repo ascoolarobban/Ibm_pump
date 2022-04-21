@@ -10,10 +10,7 @@
 void setPWM(char x, int PWM);
 
 void commandHandler(char* comdata) {
-    Serial.println("*******************");
-    Serial.print("in commandHandler: ");
     Serial.println(comdata);
-    Serial.println("*******************");
     switch (*comdata) {
 
         case 'A': // A Starts pump
