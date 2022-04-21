@@ -18,6 +18,7 @@
 #include "convertToLitres.h"
 #include "checkHardwareStateChange.h"
 #include "idleState.h"
+#include <stdio.h>
 
 //FOR CODE QUESTIONS
 char linkedin[50] = "linkedin.com/in/iotrobban/";
@@ -88,7 +89,7 @@ void setup() {
 
 
     welcomeBlink();
-    Serial.println(startup);
+    //Serial.println(startup);
 
 
 
@@ -132,8 +133,9 @@ void loop() {
 
 
     if(detect_change_pot() || detect_change_onoff()){
-        //Serial.println("Change detected");
+
         send_json(flowSensor1,flowSensor2,flowSensor3);
+        Serial.println("\n");
     }
 
 

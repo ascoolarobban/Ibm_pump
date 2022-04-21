@@ -35,6 +35,6 @@ unsigned long currentMillis;
 
 //root["Pump"] = "Pump1";
 
-String startup = "{The time traveling is just too dangerous. Better that I devote myself to study the other great mystery of the universe: c++ pointers.}";
+String startup = "The time traveling is just too dangerous. Better that I devote myself to study the other great mystery of the universe: c++ pointers.";
 
 #endif //ARDUINO_CPP_DECLARE_H

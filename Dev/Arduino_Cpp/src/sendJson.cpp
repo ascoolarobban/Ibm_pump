@@ -22,7 +22,7 @@ int valve_level = 0;
 
 void send_json(Sensor flowSensor1,Sensor flowSensor2,Sensor flowSensor3) {
 
-    StaticJsonDocument<256> doc;
+    StaticJsonDocument<500> doc;
     JsonObject root = doc.to<JsonObject>();
     //root["Pump"] = "Pump1";
     JsonObject pump = root.createNestedObject("data");
