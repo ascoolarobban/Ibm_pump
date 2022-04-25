@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Toggle } from "carbon-components-react";
 import { Slider } from "carbon-components-react";
@@ -22,11 +22,11 @@ function PumpFanValveStates(props) {
     const handlePumpChange = (e) => {
         console.log("handle Pump change: %s", e.value);
         setValue(e.value);
+        props.changePumpSpeed(value);
     }
     
     return(
         <h3>Location:&nbsp;{location}&nbsp;&nbsp;&nbsp;Id&nbsp;:&nbsp;{id}&nbsp;&nbsp;
-        Fan State: &nbsp;{fanState}&nbsp;&nbsp;Drain valve:&nbsp;{drainState}&nbsp;&nbsp;Safety valve:&nbsp;{safetyState}
         <br></br><br></br>
         <div className="grid-container">
             <div className="grid-item-hdrx"><Toggle 

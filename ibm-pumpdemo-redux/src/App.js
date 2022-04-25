@@ -22,6 +22,7 @@ var ws = new WebSocket("ws://192.168.1.5:1880/ws/data");
 var lastPumpState = false;
 var lastFanState = false;
 var lastDrainState = false;
+var lastPumpSpeed = 0;
 
 Toggle.defaultProps = {
   onToggle: () => {},
@@ -38,11 +39,11 @@ function IsJsonString(str) {
   }
 }
 
-function sendButtonPressedMessage(buttonState,msgType){
+function sendButtonPressedMessage(inputState,msgType){
   var newButtonState = null;
   var newmsg;
-  console.log('incoming button state: %s',buttonState);
-  newButtonState = buttonState !== true ? 'OFF' : 'ON' ;
+  console.log('incoming button state: %s',inputState);
+  newButtonState = inputState !== true ? 'OFF' : 'ON' ;
   console.log('new button State: %s',newButtonState);
   switch (msgType) {
     case 'Pump':
@@ -54,10 +55,14 @@ function sendButtonPressedMessage(buttonState,msgType){
       console.log('%s', newmsg);
       break;
     case 'Drain':
-      newButtonState = buttonState !== true ? 'CLOSED' : 'OPEN' ;
+      newButtonState = inputState !== true ? 'CLOSED' : 'OPEN' ;
       newmsg = "{DRAIN_VALVE:" + newButtonState + "}" ;
       console.log('%s', newmsg);
       break;
+    case 'PumpSpeed':
+        newmsg = "POTA" + inputState ;
+        console.log('%s', newmsg);
+        break;
     default:
       console.log('unknown sensor type: %s', msgType);
   }
@@ -69,6 +74,8 @@ function App() {
   const [globalPumpState, setGlobalPumpState] = useState(false)
   const [globalFanState, setGlobalFanState] = useState(false)
   const [globalDrainState, setGlobalDrainState] = useState(false)
+  const [globalPumpSpeed, setGlobalPumpSpeed] = useState(0)
+
   var sendMessage = false;
   if (lastPumpState !== globalPumpState) {
     lastPumpState = globalPumpState;
@@ -81,6 +88,11 @@ function App() {
   if (lastDrainState !== globalDrainState) {
     lastDrainState = globalFanState;
     sendButtonPressedMessage(globalPumpState,"Drain");
+  }
+
+  if (lastPumpSpeed !== globalPumpSpeed) {
+    lastPumpSpeed = globalPumpSpeed;
+    sendButtonPressedMessage(globalPumpSpeed,"PumpSpeed");
   }
   
     
@@ -140,7 +152,8 @@ function App() {
     <div className="App"><h2>Pump Demo</h2>
       <PumpFanValveStates changePumpToggleState={toggled => setGlobalPumpState(toggled)}
       changeFanToggleState={toggled => setGlobalFanState(toggled)}
-      changeFlushToggleState={toggled => setGlobalDrainState(toggled)}/>    
+      changeFlushToggleState={toggled => setGlobalDrainState(toggled)}
+      changePumpSpeed={value => setGlobalPumpSpeed(value)}/>    
       <br></br>
       <div>
         <div className="grid-container">
