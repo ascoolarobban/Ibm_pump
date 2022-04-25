@@ -11,20 +11,35 @@ function PumpFanValveStates(props) {
         var pumpState = sensors.pumpState
         var location = sensors.location
         var id = sensors.id
-        var fanState = sensors.fanState
-        var drainState = sensors.drainStateValve
-        var safetyState = sensors.safetyStateValve
+        //var fanState = sensors.fanState
+        //var drainState = sensors.drainStateValve
+        //var safetyState = sensors.safetyStateValve
         var fanSpeed = sensors.fanSpeed
         var pumpSpeed = sensors.pumpSpeed
     } 
 
     const [value, setValue] = useState(pumpSpeed);
+    const [globalFanSpeed, setGlobalFanSpeed] = useState(fanSpeed);
+    const [globalDrainValue, setGlobalDrainValue] = useState(0);
+
     const handlePumpChange = (e) => {
         console.log("handle Pump change: %s", e.value);
         setValue(e.value);
         props.changePumpSpeed(value);
     }
-    
+
+    const handleFanChange = (e) => {
+        console.log("handle Fan change: %s", e.fanSpeed);
+        setGlobalFanSpeed(e.fanSpeed);
+        props.changeFanSpeed(fanSpeed);
+    }
+
+    const handleFlushChange = (e) => {
+        console.log("handle Flush change: %s", e.drainValue);
+        setGlobalDrainValue(e.drainValue);
+        props.changePumpSpeed(globalDrainValue);
+    }
+
     return(
         <h3>Location:&nbsp;{location}&nbsp;&nbsp;&nbsp;Id&nbsp;:&nbsp;{id}&nbsp;&nbsp;
         <br></br><br></br>
@@ -50,35 +65,37 @@ function PumpFanValveStates(props) {
             <div className="grid-item-hdrx">
             <Slider
                 ariaLabelInput="1 - 3000"
-                id="slider"
+                id="slider1"
                 labelText="Pump Speed r/pm"
                 max={3000}
                 min={1}
                 step={10}
                 stepMultiplier={4}
-                value={value}
+                value={pumpSpeed}
                 onChange={handlePumpChange}
             /></div>
             <div className="grid-item-hdrx">
             <Slider
                 ariaLabelInput="1 - 1900"
-                id="slider"
+                id="slider2"
                 labelText="Fan Speed r/pm"
                 max={1900}
                 min={1}
                 step={5}
                 stepMultiplier={4}
                 value={fanSpeed}
+                onChange={handleFanChange}
             /></div>
              <Slider
                 ariaLabelInput="1 - 100"
-                id="slider"
+                id="slider3"
                 labelText="Flush"
                 max={100}
                 min={1}
                 step={5}
                 stepMultiplier={4}
                 value= {0}
+                onChange={handleFlushChange}
             />
         </div>
         </h3>
