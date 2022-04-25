@@ -15,7 +15,7 @@ function FlowTwo() {
 	    },
     ],
 		options: {
-	    "title": "Out Flow litres/h",
+	    "title": "Flow out litres/h",
 	    "resizable": true,
 	    "height": "200px",
 	    "gauge": {

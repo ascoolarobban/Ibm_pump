@@ -15,7 +15,7 @@ function FlowOne() {
 	    },
     ],
 		options: {
-	    "title": "In Flow litres/h",
+	    "title": "Flow in litres/h",
 	    "resizable": true,
 	    "height": "200px",
 	    "gauge": {

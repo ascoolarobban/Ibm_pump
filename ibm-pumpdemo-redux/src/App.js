@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import './App.css';
 import './index.css';
 import 'carbon-components/css/carbon-components.min.css';
@@ -16,10 +17,11 @@ import {useDispatch} from 'react-redux';
 import { sensorDataReducer } from './features/sensors'
 import { historicDataReducer } from './features/historicData';
 import { pumpToggleStateReducer } from './features/pumpStateToggle';
-import { useSelector } from 'react-redux';
 
 var ws = new WebSocket("ws://192.168.1.5:1880/ws/data");
 var lastPumpState = false;
+var lastFanState = false;
+var lastDrainState = false;
 
 Toggle.defaultProps = {
   onToggle: () => {},
@@ -27,26 +29,63 @@ Toggle.defaultProps = {
   labelB: 'on',
 };
 
-function sendButtonPressedMessage(buttonState){
-  var newButtonState = null;
-  newButtonState = buttonState != true ? 'ON' : 'OFF' ;
-  console.log('Pump: %s', newButtonState);
-  var newmsg = {"PUMP" : newButtonState };
-  ws.send(newmsg);
+function IsJsonString(str) {
+  try {
+    var json = JSON.parse(str);
+    return (typeof json === "object");
+  } catch (e) {
+    return false;
+  }
+}
 
+function sendButtonPressedMessage(buttonState,msgType){
+  var newButtonState = null;
+  var newmsg;
+  console.log('incoming button state: %s',buttonState);
+  newButtonState = buttonState !== true ? 'OFF' : 'ON' ;
+  console.log('new button State: %s',newButtonState);
+  switch (msgType) {
+    case 'Pump':
+      newmsg = "{PUMP:" + newButtonState + "}" ;
+      console.log('%s', newmsg);
+      break;
+    case 'Fan':
+      newmsg = "{FAN:" + newButtonState + "}" ;
+      console.log('%s', newmsg);
+      break;
+    case 'Drain':
+      newButtonState = buttonState !== true ? 'CLOSED' : 'OPEN' ;
+      newmsg = "{DRAIN_VALVE:" + newButtonState + "}" ;
+      console.log('%s', newmsg);
+      break;
+    default:
+      console.log('unknown sensor type: %s', msgType);
+  }
+  ws.send(newmsg);
 }
 
 function App() {
   const dispatch = useDispatch();
+  const [globalPumpState, setGlobalPumpState] = useState(false)
+  const [globalFanState, setGlobalFanState] = useState(false)
+  const [globalDrainState, setGlobalDrainState] = useState(false)
   var sendMessage = false;
-  const pumpStateToggle = useSelector((state) => state.pumpStateToggle.value);
-  var pumpStateToggled = pumpStateToggle.pumpStateValue;
-  if (lastPumpState !== pumpStateToggled) {
-    sendButtonPressedMessage(pumpStateToggled);
-  } 
+  if (lastPumpState !== globalPumpState) {
+    lastPumpState = globalPumpState;
+    sendButtonPressedMessage(globalPumpState,"Pump");
+  }
+  if (lastFanState !== globalFanState) {
+    lastFanState = globalFanState;
+    sendButtonPressedMessage(globalPumpState,"Fan");
+  }
+  if (lastDrainState !== globalDrainState) {
+    lastDrainState = globalFanState;
+    sendButtonPressedMessage(globalPumpState,"Drain");
+  }
   
+    
   ws.onopen = () => {
-        
+    console.log('Connected to Websocket');  
     if (sendMessage === false) {
       ws.send("SendData");
       sendMessage = true;
@@ -55,9 +94,14 @@ function App() {
   
   ws.onmessage = (event) => {
     console.log('Message from server ', event.data);
-    console.log('Message Location: ', event.data.hasOwnProperty('location'));
+    //console.log('Message Location: ', event.data.hasOwnProperty('location'));
     const sensorObject = JSON.parse(event.data);
-    
+    if (IsJsonString(sensorObject.Location)) {
+      console.log("returned true: %s", )
+    } else {
+      console.log("Returned false:");
+    }
+
     if (sensorObject.hasOwnProperty('ts')) {
       var temp_history_date = sensorObject.ts
       var temp_history_value = sensorObject.sv
@@ -67,20 +111,20 @@ function App() {
 
     }
 
-    //if (sensorObject.hasOwnProperty('location')) {
-      var PumpState = sensorObject.data.pumpState
-      lastPumpState = PumpState
-      var FanSpeed = sensorObject.data.fanSpeed
-      var Waterflow1 = sensorObject.data.flowSensor1
-      var Waterflow2 = sensorObject.data.flowSensor2
-      var Waterflow3 = sensorObject.data.flowSensor3
-      var FanState = sensorObject.data.fanState
-      var PumpSpeed = sensorObject.data.pumpSpeed
-      var DrainValveState = sensorObject.data.drainValveState
-      var SafetyValveState = sensorObject.data.safetyValveState
-      var Temperature = sensorObject.data.temp
-      var Location = sensorObject.data.location
-      var Id = sensorObject.data.id
+      
+    var PumpState = sensorObject.data.pumpState
+    lastPumpState = PumpState
+    var FanSpeed = sensorObject.data.fanSpeed
+    var Waterflow1 = sensorObject.data.flowSensor1
+    var Waterflow2 = sensorObject.data.flowSensor2
+    var Waterflow3 = sensorObject.data.flowSensor3
+    var FanState = sensorObject.data.fanState
+    var PumpSpeed = sensorObject.data.pumpSpeed
+    var DrainValveState = sensorObject.data.drainValveState
+    var SafetyValveState = sensorObject.data.safetyValveState
+    var Temperature = sensorObject.data.temp
+    var Location = sensorObject.data.location
+    var Id = sensorObject.data.id
 
       dispatch(sensorDataReducer({temp: Temperature, flowrateOne: Waterflow1,
         flowrateTwo: Waterflow2, flowrateThree: Waterflow3, fanSpeed: FanSpeed,
@@ -90,15 +134,14 @@ function App() {
   
       dispatch(pumpToggleStateReducer({
         pumpStateValue: PumpState}))
-    //}
-      
   }
   
   return (
     <div className="App"><h2>Pump Demo</h2>
-      <PumpFanValveStates />    
+      <PumpFanValveStates changePumpToggleState={toggled => setGlobalPumpState(toggled)}
+      changeFanToggleState={toggled => setGlobalFanState(toggled)}
+      changeFlushToggleState={toggled => setGlobalDrainState(toggled)}/>    
       <br></br>
-      
       <div>
         <div className="grid-container">
         <div className="grid-item"><TempGauge /></div>

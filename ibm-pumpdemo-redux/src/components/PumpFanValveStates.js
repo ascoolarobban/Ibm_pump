@@ -1,26 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Toggle } from "carbon-components-react";
 import { Slider } from "carbon-components-react";
-import { useDispatch } from 'react-redux';
-import pumpStateToggleReducer from '../features/pumpStateToggle';
 
-var toggled;
+function PumpFanValveStates(props) {
 
-function SendToDispatcher(toggledPumpState) {
-    const dispatch = useDispatch();
-    //dispatch(pumpStateToggleReducer({pumpStateValue: toggledPumpState}));
-    console.log('Sent to pumpStateToggle: %s', toggledPumpState);
-}
-
-function PumpFanValveStates() {
-    
+    //const [toggled, setToggled] = useState(false)
     const sensors = useSelector((state) => state.sensors.value);
-    //const dispatch = useDispatch();
-
-    if (sensors != 'undefined') {
+    if (sensors !== 'undefined') {
         var pumpState = sensors.pumpState
-        toggled=pumpState
         var location = sensors.location
         var id = sensors.id
         var fanState = sensors.fanState
@@ -30,8 +18,12 @@ function PumpFanValveStates() {
         var pumpSpeed = sensors.pumpSpeed
     } 
 
-    // toggled={pumpState}
-
+    const [value, setValue] = useState(pumpSpeed);
+    const handlePumpChange = (e) => {
+        console.log("handle Pump change: %s", e.value);
+        setValue(e.value);
+    }
+    
     return(
         <h3>Location:&nbsp;{location}&nbsp;&nbsp;&nbsp;Id&nbsp;:&nbsp;{id}&nbsp;&nbsp;
         Fan State: &nbsp;{fanState}&nbsp;&nbsp;Drain valve:&nbsp;{drainState}&nbsp;&nbsp;Safety valve:&nbsp;{safetyState}
@@ -41,19 +33,19 @@ function PumpFanValveStates() {
                 aria-label="toggle button"
                 id="toggle-1"
                 labelText="Pump"
-                onToggle={Toggle => SendToDispatcher(Toggle)}
+                onToggle={(Toggle) => props.changePumpToggleState(Toggle)}
             /></div>
             <div className="grid-item-hdrx"><Toggle 
                 aria-label="toggle button"
-                id="toggle-1"
+                id="toggle-2"
                 labelText="Fan"
-                onToggle={Toggle => SendToDispatcher(Toggle)}
+                onToggle={(Toggle) => props.changeFanToggleState(Toggle)}
             /></div>          
             <div className="grid-item-hdrx"><Toggle 
                 aria-label="toggle button"
-                id="toggle-1"
+                id="toggle-3"
                 labelText="Flush"
-                onToggle={Toggle => SendToDispatcher(Toggle)}
+                onToggle={(Toggle) => props.changeFlushToggleState(Toggle)}
             /></div>
             <div className="grid-item-hdrx">
             <Slider
@@ -64,7 +56,8 @@ function PumpFanValveStates() {
                 min={1}
                 step={10}
                 stepMultiplier={4}
-                value={pumpSpeed}
+                value={value}
+                onChange={handlePumpChange}
             /></div>
             <div className="grid-item-hdrx">
             <Slider
