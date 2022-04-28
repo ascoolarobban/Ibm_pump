@@ -41,6 +41,9 @@ function PumpFanValveStates(props) {
         props.changePumpSpeed(globalDrainValue);
     }
 
+    // Trying onChange
+    //onToggle={(Toggle) => props.changePumpToggleState(Toggle)}
+
     return(
         <h3>Location:&nbsp;{location}&nbsp;&nbsp;&nbsp;Id&nbsp;:&nbsp;{id}&nbsp;&nbsp;
         <br></br><br></br>
@@ -49,7 +52,8 @@ function PumpFanValveStates(props) {
                 aria-label="toggle button"
                 id="toggle-1"
                 labelText="Pump"
-                onToggle={(Toggle) => props.changePumpToggleState(Toggle)}
+                toggled={pumpState}
+                onChange={(Toggle) => props.changePumpToggleState(Toggle)}
             /></div>
             <div className="grid-item-hdrx"><Toggle 
                 aria-label="toggle button"
