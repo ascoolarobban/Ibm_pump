@@ -22,7 +22,8 @@ var ws = new WebSocket("ws://192.168.1.5:1880/ws/data");
 var lastPumpState = false;
 var lastFanState = false;
 var lastDrainState = false;
-var lastPumpSpeed = 0;
+var lastPumpSpeed;
+var lastFanSpeed;
 
 Toggle.defaultProps = {
   onToggle: () => {},
@@ -37,6 +38,10 @@ function IsJsonString(str) {
   } catch (e) {
     return false;
   }
+}
+
+function convertInputToPWMValue(x, in_min, in_max, out_min, out_max) {
+  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
 
 function sendButtonPressedMessage(inputState,msgType){
@@ -60,8 +65,14 @@ function sendButtonPressedMessage(inputState,msgType){
       console.log('%s', newmsg);
       break;
     case 'PumpSpeed':
-        newmsg = "POTA" + inputState ;
-        console.log('%s', newmsg);
+        var pwmValue = convertInputToPWMValue(inputState,0,3000,0,255);
+        newmsg = "POTA" + pwmValue ;
+        console.log('%s', pwmValue);
+        break;
+    case 'FanSpeed':
+        var pwmValue = convertInputToPWMValue(inputState,0,1900,0,255);
+        newmsg = "POTB" + pwmValue ;
+        console.log('%s', pwmValue);
         break;
     default:
       console.log('unknown sensor type: %s', msgType);
@@ -75,6 +86,7 @@ function App() {
   const [globalFanState, setGlobalFanState] = useState(false)
   const [globalDrainState, setGlobalDrainState] = useState(false)
   const [globalPumpSpeed, setGlobalPumpSpeed] = useState(0)
+  const [globalFanSpeed, setGlobalFanSpeed] = useState(0)
 
   var sendMessage = false;
   if (lastPumpState !== globalPumpState) {
@@ -94,8 +106,12 @@ function App() {
     lastPumpSpeed = globalPumpSpeed;
     sendButtonPressedMessage(globalPumpSpeed,"PumpSpeed");
   }
-  
-    
+
+  if (lastFanSpeed !== globalFanSpeed) {
+    lastFanSpeed = globalFanSpeed;
+    sendButtonPressedMessage(globalPumpSpeed,"FanSpeed");
+  }
+
   ws.onopen = () => {
     console.log('Connected to Websocket');  
     if (sendMessage === false) {
@@ -148,24 +164,30 @@ function App() {
         pumpStateValue: PumpState}))
   }
   
+// <head><meta http-equiv="refresh" content="60"></meta></head>
+
   return (
-    <div className="App"><h2>Pump Demo</h2>
-      <PumpFanValveStates changePumpToggleState={toggled => setGlobalPumpState(toggled)}
-      changeFanToggleState={toggled => setGlobalFanState(toggled)}
-      changeFlushToggleState={toggled => setGlobalDrainState(toggled)}
-      changePumpSpeed={value => setGlobalPumpSpeed(value)}/>    
-      <br></br>
-      <div>
-        <div className="grid-container">
-        <div className="grid-item"><TempGauge /></div>
-        <div className="grid-item"><FanSpeed /></div>
-        <div className="grid-item"><PumpSpeed /></div>
-        <div className="grid-item"><FlowOne /></div>
-        <div className="grid-item"><FlowTwo /></div>
-        <div className="grid-item"><FlowThree /></div>
-        <div className="grid-item"><TempGraph /></div>
-        <div className="grid-item"><TinyDBGraph /></div>
-        <div className="grid-item"><TempHistogram /></div>
+    <div>
+      
+      <div className="App"><h2>Pump Demo</h2>
+        <PumpFanValveStates changePumpToggleState={toggled => setGlobalPumpState(toggled)}
+        changeFanToggleState={toggled => setGlobalFanState(toggled)}
+        changeFlushToggleState={toggled => setGlobalDrainState(toggled)}
+        changePumpSpeed={value => setGlobalPumpSpeed(value)}
+        changeFanSpeed={fanSpeed => setGlobalFanSpeed(fanSpeed)}/>    
+        <br></br>
+        <div>
+          <div className="grid-container">
+          <div className="grid-item"><TempGauge /></div>
+          <div className="grid-item"><FanSpeed /></div>
+          <div className="grid-item"><PumpSpeed /></div>
+          <div className="grid-item"><FlowOne /></div>
+          <div className="grid-item"><FlowTwo /></div>
+          <div className="grid-item"><FlowThree /></div>
+          <div className="grid-item"><TempGraph /></div>
+          <div className="grid-item"><TinyDBGraph /></div>
+          <div className="grid-item"><TempHistogram /></div>
+        </div>
       </div>
     </div>
   </div>

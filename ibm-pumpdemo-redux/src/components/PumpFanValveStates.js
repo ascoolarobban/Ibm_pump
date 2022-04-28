@@ -11,32 +11,33 @@ function PumpFanValveStates(props) {
         var pumpState = sensors.pumpState
         var location = sensors.location
         var id = sensors.id
-        //var fanState = sensors.fanState
-        //var drainState = sensors.drainStateValve
+        var fanState = sensors.fanState
+        var drainState = sensors.drainStateValve
         //var safetyState = sensors.safetyStateValve
         var fanSpeed = sensors.fanSpeed
         var pumpSpeed = sensors.pumpSpeed
     } 
 
     const [value, setValue] = useState(pumpSpeed);
-    const [globalFanSpeed, setGlobalFanSpeed] = useState(fanSpeed);
+    //const [globalFanSpeed, setGlobalFanSpeed] = useState(fanSpeed);
     const [globalDrainValue, setGlobalDrainValue] = useState(0);
 
+    
     const handlePumpChange = (e) => {
         console.log("handle Pump change: %s", e.value);
-        setValue(e.value);
+        //setValue(e.value);
         props.changePumpSpeed(value);
     }
 
     const handleFanChange = (e) => {
         console.log("handle Fan change: %s", e.fanSpeed);
-        setGlobalFanSpeed(e.fanSpeed);
-        props.changeFanSpeed(fanSpeed);
+        //setGlobalFanSpeed(e.fanSpeed);
+        props.changeFanSpeed(e.fanSpeed);
     }
 
     const handleFlushChange = (e) => {
         console.log("handle Flush change: %s", e.drainValue);
-        setGlobalDrainValue(e.drainValue);
+        //setGlobalDrainValue(e.drainValue);
         props.changePumpSpeed(globalDrainValue);
     }
 
