@@ -15,8 +15,6 @@ import TempHistogram from './components/TempHistogram';
 import PumpFanValveStates from './components/PumpFanValveStates';
 import {useDispatch} from 'react-redux';
 import { sensorDataReducer } from './features/sensors'
-import { historicDataReducer } from './features/historicData';
-import { pumpToggleStateReducer } from './features/pumpStateToggle';
 
 var ws = new WebSocket("ws://192.168.1.5:1880/ws/data");
 var lastPumpState = false;
@@ -47,6 +45,7 @@ function convertInputToPWMValue(x, in_min, in_max, out_min, out_max) {
 function sendButtonPressedMessage(inputState,msgType){
   var newButtonState = null;
   var newmsg;
+  var pwmValue=0;
   console.log('incoming button state: %s',inputState);
   newButtonState = inputState !== true ? 'OFF' : 'ON' ;
   console.log('new button State: %s',newButtonState);
@@ -65,12 +64,12 @@ function sendButtonPressedMessage(inputState,msgType){
       console.log('%s', newmsg);
       break;
     case 'PumpSpeed':
-        var pwmValue = convertInputToPWMValue(inputState,0,3000,0,255);
+        pwmValue = convertInputToPWMValue(inputState,0,3000,0,255);
         newmsg = "POTA" + pwmValue ;
         console.log('%s', pwmValue);
         break;
     case 'FanSpeed':
-        var pwmValue = convertInputToPWMValue(inputState,0,1900,0,255);
+        pwmValue = convertInputToPWMValue(inputState,0,1900,0,255);
         newmsg = "POTB" + pwmValue ;
         console.log('%s', pwmValue);
         break;
@@ -122,7 +121,6 @@ function App() {
   
   ws.onmessage = (event) => {
     console.log('Message from server ', event.data);
-    //console.log('Message Location: ', event.data.hasOwnProperty('location'));
     const sensorObject = JSON.parse(event.data);
     if (IsJsonString(sensorObject.Location)) {
       console.log("returned true: %s", )
@@ -130,14 +128,14 @@ function App() {
       console.log("Returned false:");
     }
 
-    if (sensorObject.hasOwnProperty('ts')) {
+    /* if (sensorObject.hasOwnProperty('ts')) {
       var temp_history_date = sensorObject.ts
       var temp_history_value = sensorObject.sv
       
       dispatch(historicDataReducer({historyDate: temp_history_date, 
         historyValue: temp_history_value}))
 
-    }
+    } */
 
       
     var PumpState = sensorObject.data.pumpState
@@ -160,8 +158,7 @@ function App() {
         location: Location, id: Id, drainStateValve: DrainValveState, 
         safetyStateValve: SafetyValveState}))
   
-      dispatch(pumpToggleStateReducer({
-        pumpStateValue: PumpState}))
+      
   }
   
 // <head><meta http-equiv="refresh" content="60"></meta></head>

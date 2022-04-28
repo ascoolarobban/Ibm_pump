@@ -5,7 +5,7 @@ import { Slider } from "carbon-components-react";
 
 function PumpFanValveStates(props) {
 
-    //const [toggled, setToggled] = useState(false)
+    const [toggled, setToggled] = useState(false)
     const sensors = useSelector((state) => state.sensors.value);
     if (sensors !== 'undefined') {
         var pumpState = sensors.pumpState
@@ -22,10 +22,15 @@ function PumpFanValveStates(props) {
     //const [globalFanSpeed, setGlobalFanSpeed] = useState(fanSpeed);
     const [globalDrainValue, setGlobalDrainValue] = useState(0);
 
+    const handlePumpState = (e) => {
+        console.log("handle pump state: %s", );
+        setToggled(e.Toggle);
+        props.changePumpState(e.Toggle);
+    }
     
     const handlePumpChange = (e) => {
         console.log("handle Pump change: %s", e.value);
-        //setValue(e.value);
+        setValue(e.value);
         props.changePumpSpeed(value);
     }
 
@@ -43,6 +48,7 @@ function PumpFanValveStates(props) {
 
     // Trying onChange
     //onToggle={(Toggle) => props.changePumpToggleState(Toggle)}
+    // toggled={pumpState}
 
     return(
         <h3>Location:&nbsp;{location}&nbsp;&nbsp;&nbsp;Id&nbsp;:&nbsp;{id}&nbsp;&nbsp;
@@ -52,20 +58,19 @@ function PumpFanValveStates(props) {
                 aria-label="toggle button"
                 id="toggle-1"
                 labelText="Pump"
-                toggled={pumpState}
-                onChange={(Toggle) => props.changePumpToggleState(Toggle)}
+                onToggle={(Toggle) => props.changePumpToggleState(Toggle)}
             /></div>
             <div className="grid-item-hdrx"><Toggle 
                 aria-label="toggle button"
                 id="toggle-2"
                 labelText="Fan"
-                onToggle={(Toggle) => props.changeFanToggleState(Toggle)}
+                onToggle={(FanToggle) => props.changeFanToggleState(FanToggle)}
             /></div>          
             <div className="grid-item-hdrx"><Toggle 
                 aria-label="toggle button"
                 id="toggle-3"
                 labelText="Flush"
-                onToggle={(Toggle) => props.changeFlushToggleState(Toggle)}
+                onToggle={(FlushToggle) => props.changeFlushToggleState(FlushToggle)}
             /></div>
             <div className="grid-item-hdrx">
             <Slider

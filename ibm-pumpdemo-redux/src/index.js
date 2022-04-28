@@ -5,16 +5,15 @@ import reportWebVitals from './reportWebVitals';
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux';
 import sensorDataReducer from './features/sensors';
-import historicDataReducer from './features/historicData';
-import pumpToggleStateReducer from './features/pumpStateToggle';
 
 const store = configureStore({
   reducer: {
     sensors: sensorDataReducer,
-    pumpStateToggle: pumpToggleStateReducer,
-    historic: historicDataReducer,
   },
 }); 
+
+// pumpStateToggle: pumpToggleStateReducer,
+// historic: historicDataReducer,
 
 ReactDOM.render(
   <React.StrictMode>
