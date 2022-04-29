@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Toggle } from "carbon-components-react";
 import { Slider } from "carbon-components-react";
+import ErrorBoundary from './ErrorBoundary';
 
 function PumpFanValveStates(props) {
 
@@ -54,24 +55,31 @@ function PumpFanValveStates(props) {
         <h3>Location:&nbsp;{location}&nbsp;&nbsp;&nbsp;Id&nbsp;:&nbsp;{id}&nbsp;&nbsp;
         <br></br><br></br>
         <div className="grid-container">
+            <ErrorBoundary>
             <div className="grid-item-hdrx"><Toggle 
                 aria-label="toggle button"
                 id="toggle-1"
                 labelText="Pump"
                 onToggle={(Toggle) => props.changePumpToggleState(Toggle)}
             /></div>
+            </ErrorBoundary>
+            <ErrorBoundary>
             <div className="grid-item-hdrx"><Toggle 
                 aria-label="toggle button"
                 id="toggle-2"
                 labelText="Fan"
                 onToggle={(FanToggle) => props.changeFanToggleState(FanToggle)}
-            /></div>          
+            /></div>   
+            </ErrorBoundary>
+            <ErrorBoundary>       
             <div className="grid-item-hdrx"><Toggle 
                 aria-label="toggle button"
                 id="toggle-3"
                 labelText="Flush"
                 onToggle={(FlushToggle) => props.changeFlushToggleState(FlushToggle)}
             /></div>
+            </ErrorBoundary>
+            <ErrorBoundary>
             <div className="grid-item-hdrx">
             <Slider
                 ariaLabelInput="1 - 3000"
@@ -84,6 +92,8 @@ function PumpFanValveStates(props) {
                 value={pumpSpeed}
                 onChange={handlePumpChange}
             /></div>
+            </ErrorBoundary>
+            <ErrorBoundary>
             <div className="grid-item-hdrx">
             <Slider
                 ariaLabelInput="1 - 1900"
@@ -96,17 +106,22 @@ function PumpFanValveStates(props) {
                 value={fanSpeed}
                 onChange={handleFanChange}
             /></div>
-             <Slider
-                ariaLabelInput="1 - 100"
-                id="slider3"
-                labelText="Flush"
-                max={100}
-                min={1}
-                step={5}
-                stepMultiplier={4}
-                value= {0}
-                onChange={handleFlushChange}
-            />
+            </ErrorBoundary>
+            <ErrorBoundary>
+                <div className='grid-item-hdrx'>
+                <Slider
+                    ariaLabelInput="1 - 100"
+                    id="slider3"
+                    labelText="Flush"
+                    max={100}
+                    min={1}
+                    step={5}
+                    stepMultiplier={4}
+                    value= {0}
+                    onChange={handleFlushChange}
+                />
+                </div>
+            </ErrorBoundary>
         </div>
         </h3>
     )};

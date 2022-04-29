@@ -15,8 +15,11 @@ import TempHistogram from './components/TempHistogram';
 import PumpFanValveStates from './components/PumpFanValveStates';
 import {useDispatch} from 'react-redux';
 import { sensorDataReducer } from './features/sensors'
+import ErrorBoundary from './components/ErrorBoundary';
+
 
 var ws = new WebSocket("ws://192.168.1.5:1880/ws/data");
+var isConnectedToWebSocket = false;
 var lastPumpState = false;
 var lastFanState = false;
 var lastDrainState = false;
@@ -76,7 +79,10 @@ function sendButtonPressedMessage(inputState,msgType){
     default:
       console.log('unknown sensor type: %s', msgType);
   }
-  ws.send(newmsg);
+
+  if (isConnectedToWebSocket) {
+    ws.send(newmsg);
+  }  // Add to queue until connected to Websocket is connected? 
 }
 
 function App() {
@@ -86,8 +92,7 @@ function App() {
   const [globalDrainState, setGlobalDrainState] = useState(false)
   const [globalPumpSpeed, setGlobalPumpSpeed] = useState(0)
   const [globalFanSpeed, setGlobalFanSpeed] = useState(0)
-
-  var sendMessage = false;
+    
   if (lastPumpState !== globalPumpState) {
     lastPumpState = globalPumpState;
     sendButtonPressedMessage(globalPumpState,"Pump");
@@ -113,33 +118,26 @@ function App() {
 
   ws.onopen = () => {
     console.log('Connected to Websocket');  
-    if (sendMessage === false) {
-      ws.send("SendData");
-      sendMessage = true;
-    }
+    isConnectedToWebSocket = true;
   };
   
   ws.onmessage = (event) => {
     console.log('Message from server ', event.data);
     const sensorObject = JSON.parse(event.data);
-    if (IsJsonString(sensorObject.Location)) {
+    if (IsJsonString(event.data)) {
       console.log("returned true: %s", )
     } else {
       console.log("Returned false:");
     }
 
-    /* if (sensorObject.hasOwnProperty('ts')) {
-      var temp_history_date = sensorObject.ts
-      var temp_history_value = sensorObject.sv
-      
-      dispatch(historicDataReducer({historyDate: temp_history_date, 
-        historyValue: temp_history_value}))
+    try {
+      var PumpState = sensorObject.data.pumpState
+      lastPumpState = PumpState
+    } catch (error) {
+      console.log('PumpState: %s', error);      
+    }
+    
 
-    } */
-
-      
-    var PumpState = sensorObject.data.pumpState
-    lastPumpState = PumpState
     var FanSpeed = sensorObject.data.fanSpeed
     var Waterflow1 = sensorObject.data.flowSensor1
     var Waterflow2 = sensorObject.data.flowSensor2
@@ -157,21 +155,20 @@ function App() {
         fanState: FanState, pumpSpeed: PumpSpeed, pumpState: PumpState, 
         location: Location, id: Id, drainStateValve: DrainValveState, 
         safetyStateValve: SafetyValveState}))
-  
-      
   }
   
 // <head><meta http-equiv="refresh" content="60"></meta></head>
 
   return (
     <div>
-      
       <div className="App"><h2>Pump Demo</h2>
-        <PumpFanValveStates changePumpToggleState={toggled => setGlobalPumpState(toggled)}
-        changeFanToggleState={toggled => setGlobalFanState(toggled)}
-        changeFlushToggleState={toggled => setGlobalDrainState(toggled)}
-        changePumpSpeed={value => setGlobalPumpSpeed(value)}
-        changeFanSpeed={fanSpeed => setGlobalFanSpeed(fanSpeed)}/>    
+        <ErrorBoundary>
+          <PumpFanValveStates changePumpToggleState={toggled => setGlobalPumpState(toggled)}
+          changeFanToggleState={toggled => setGlobalFanState(toggled)}
+          changeFlushToggleState={toggled => setGlobalDrainState(toggled)}
+          changePumpSpeed={value => setGlobalPumpSpeed(value)}
+          changeFanSpeed={fanSpeed => setGlobalFanSpeed(fanSpeed)}/>    
+        </ErrorBoundary>
         <br></br>
         <div>
           <div className="grid-container">
