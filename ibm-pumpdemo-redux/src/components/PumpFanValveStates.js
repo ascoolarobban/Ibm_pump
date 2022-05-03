@@ -6,14 +6,13 @@ import ErrorBoundary from './ErrorBoundary';
 
 function PumpFanValveStates(props) {
 
-    const [toggled, setToggled] = useState(false)
     const sensors = useSelector((state) => state.sensors.value);
     if (sensors !== 'undefined') {
         var pumpState = sensors.pumpState
         var location = sensors.location
         var id = sensors.id
-        var fanState = sensors.fanState
-        var drainState = sensors.drainStateValve
+        //var fanState = sensors.fanState
+        //var drainState = sensors.drainStateValve
         //var safetyState = sensors.safetyStateValve
         var fanSpeed = sensors.fanSpeed
         var pumpSpeed = sensors.pumpSpeed
@@ -21,13 +20,13 @@ function PumpFanValveStates(props) {
 
     const [value, setValue] = useState(pumpSpeed);
     //const [globalFanSpeed, setGlobalFanSpeed] = useState(fanSpeed);
-    const [globalDrainValue, setGlobalDrainValue] = useState(0);
-
-    const handlePumpState = (e) => {
+    //const [globalDrainValue, setGlobalDrainValue] = useState(0);
+    var globalDrainValue;
+    /*const handlePumpState = (e) => {
         console.log("handle pump state: %s", );
-        setToggled(e.Toggle);
+        //setToggled(e.Toggle);
         props.changePumpState(e.Toggle);
-    }
+    } */
     
     const handlePumpChange = (e) => {
         console.log("handle Pump change: %s", e.value);
@@ -47,10 +46,6 @@ function PumpFanValveStates(props) {
         props.changePumpSpeed(globalDrainValue);
     }
 
-    // Trying onChange
-    //onToggle={(Toggle) => props.changePumpToggleState(Toggle)}
-    // toggled={pumpState}
-
     return(
         <h3>Location:&nbsp;{location}&nbsp;&nbsp;&nbsp;Id&nbsp;:&nbsp;{id}&nbsp;&nbsp;
         <br></br><br></br>
@@ -60,6 +55,7 @@ function PumpFanValveStates(props) {
                 aria-label="toggle button"
                 id="toggle-1"
                 labelText="Pump"
+                toggled={pumpState}
                 onToggle={(Toggle) => props.changePumpToggleState(Toggle)}
             /></div>
             </ErrorBoundary>

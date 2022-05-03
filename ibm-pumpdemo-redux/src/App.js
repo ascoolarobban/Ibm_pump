@@ -17,7 +17,6 @@ import {useDispatch} from 'react-redux';
 import { sensorDataReducer } from './features/sensors'
 import ErrorBoundary from './components/ErrorBoundary';
 
-
 var ws = new WebSocket("ws://192.168.1.5:1880/ws/data");
 var isConnectedToWebSocket = false;
 var lastPumpState = false;
@@ -45,7 +44,7 @@ function convertInputToPWMValue(x, in_min, in_max, out_min, out_max) {
   return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
 
-function sendButtonPressedMessage(inputState,msgType){
+function SendButtonPressedMessage(inputState,msgType){
   var newButtonState = null;
   var newmsg;
   var pwmValue=0;
@@ -92,28 +91,28 @@ function App() {
   const [globalDrainState, setGlobalDrainState] = useState(false)
   const [globalPumpSpeed, setGlobalPumpSpeed] = useState(0)
   const [globalFanSpeed, setGlobalFanSpeed] = useState(0)
-    
+      
   if (lastPumpState !== globalPumpState) {
     lastPumpState = globalPumpState;
-    sendButtonPressedMessage(globalPumpState,"Pump");
+    SendButtonPressedMessage(globalPumpState,"Pump");
   }
   if (lastFanState !== globalFanState) {
     lastFanState = globalFanState;
-    sendButtonPressedMessage(globalPumpState,"Fan");
+    SendButtonPressedMessage(globalPumpState,"Fan");
   }
   if (lastDrainState !== globalDrainState) {
     lastDrainState = globalFanState;
-    sendButtonPressedMessage(globalPumpState,"Drain");
+    SendButtonPressedMessage(globalPumpState,"Drain");
   }
 
   if (lastPumpSpeed !== globalPumpSpeed) {
     lastPumpSpeed = globalPumpSpeed;
-    sendButtonPressedMessage(globalPumpSpeed,"PumpSpeed");
+    SendButtonPressedMessage(globalPumpSpeed,"PumpSpeed");
   }
 
   if (lastFanSpeed !== globalFanSpeed) {
     lastFanSpeed = globalFanSpeed;
-    sendButtonPressedMessage(globalPumpSpeed,"FanSpeed");
+    SendButtonPressedMessage(globalPumpSpeed,"FanSpeed");
   }
 
   ws.onopen = () => {
@@ -147,6 +146,7 @@ function App() {
     } catch (error) {
       console.log('Cannot parse incoming sensor data: %s ', error);      
     }
+
     
 
     
@@ -159,7 +159,9 @@ function App() {
   }
   
 // <head><meta http-equiv="refresh" content="60"></meta></head>
+//  <PumpFanValveStates changePumpToggleState={toggled => setGlobalPumpState(toggled)}
 
+  
   return (
     <div>
       <div className="App"><h2>Pump Demo</h2>
