@@ -133,22 +133,23 @@ function App() {
     try {
       var PumpState = sensorObject.data.pumpState
       lastPumpState = PumpState
+      var FanSpeed = sensorObject.data.fanSpeed
+      var Waterflow1 = sensorObject.data.flowSensor1
+      var Waterflow2 = sensorObject.data.flowSensor2
+      var Waterflow3 = sensorObject.data.flowSensor3
+      var FanState = sensorObject.data.fanState
+      var PumpSpeed = sensorObject.data.pumpSpeed
+      var DrainValveState = sensorObject.data.drainValveState
+      var SafetyValveState = sensorObject.data.safetyValveState
+      var Temperature = sensorObject.data.temp
+      var Location = sensorObject.data.location
+      var Id = sensorObject.data.id
     } catch (error) {
-      console.log('PumpState: %s', error);      
+      console.log('Cannot parse incoming sensor data: %s ', error);      
     }
     
 
-    var FanSpeed = sensorObject.data.fanSpeed
-    var Waterflow1 = sensorObject.data.flowSensor1
-    var Waterflow2 = sensorObject.data.flowSensor2
-    var Waterflow3 = sensorObject.data.flowSensor3
-    var FanState = sensorObject.data.fanState
-    var PumpSpeed = sensorObject.data.pumpSpeed
-    var DrainValveState = sensorObject.data.drainValveState
-    var SafetyValveState = sensorObject.data.safetyValveState
-    var Temperature = sensorObject.data.temp
-    var Location = sensorObject.data.location
-    var Id = sensorObject.data.id
+    
 
       dispatch(sensorDataReducer({temp: Temperature, flowrateOne: Waterflow1,
         flowrateTwo: Waterflow2, flowrateThree: Waterflow3, fanSpeed: FanSpeed,
