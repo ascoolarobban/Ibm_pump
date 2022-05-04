@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import './index.css';
 import 'carbon-components/css/carbon-components.min.css';
@@ -19,11 +19,6 @@ import ErrorBoundary from './components/ErrorBoundary';
 
 var ws = new WebSocket("ws://192.168.1.5:1880/ws/data");
 var isConnectedToWebSocket = false;
-var lastPumpState = false;
-var lastFanState = false;
-var lastDrainState = false;
-var lastPumpSpeed;
-var lastFanSpeed;
 
 Toggle.defaultProps = {
   onToggle: () => {},
@@ -66,14 +61,16 @@ function SendButtonPressedMessage(inputState,msgType){
       console.log('%s', newmsg);
       break;
     case 'PumpSpeed':
+        console.log('pump speed input: %s', inputState);
         pwmValue = convertInputToPWMValue(inputState,0,3000,0,255);
         newmsg = "POTA" + pwmValue ;
-        console.log('%s', pwmValue);
+        console.log('%s', newmsg);
         break;
     case 'FanSpeed':
+        console.log('fan speed input: %s', inputState);
         pwmValue = convertInputToPWMValue(inputState,0,1900,0,255);
         newmsg = "POTB" + pwmValue ;
-        console.log('%s', pwmValue);
+        console.log('%s', newmsg);
         break;
     default:
       console.log('unknown sensor type: %s', msgType);
@@ -91,29 +88,26 @@ function App() {
   const [globalDrainState, setGlobalDrainState] = useState(false)
   const [globalPumpSpeed, setGlobalPumpSpeed] = useState(0)
   const [globalFanSpeed, setGlobalFanSpeed] = useState(0)
-      
-  if (lastPumpState !== globalPumpState) {
-    lastPumpState = globalPumpState;
+  
+  useEffect(() => {
     SendButtonPressedMessage(globalPumpState,"Pump");
-  }
-  if (lastFanState !== globalFanState) {
-    lastFanState = globalFanState;
-    SendButtonPressedMessage(globalPumpState,"Fan");
-  }
-  if (lastDrainState !== globalDrainState) {
-    lastDrainState = globalFanState;
-    SendButtonPressedMessage(globalPumpState,"Drain");
-  }
+  }, [globalPumpState]);
 
-  if (lastPumpSpeed !== globalPumpSpeed) {
-    lastPumpSpeed = globalPumpSpeed;
+  useEffect(() => {
+    SendButtonPressedMessage(globalFanState,"Fan");
+  }, [globalFanState]);
+
+  useEffect(() => {
+    SendButtonPressedMessage(globalDrainState,"Drain");
+  }, [globalDrainState]);
+
+  useEffect(() => {
     SendButtonPressedMessage(globalPumpSpeed,"PumpSpeed");
-  }
+  }, [globalPumpSpeed]);
 
-  if (lastFanSpeed !== globalFanSpeed) {
-    lastFanSpeed = globalFanSpeed;
-    SendButtonPressedMessage(globalPumpSpeed,"FanSpeed");
-  }
+  useEffect(() => {
+    SendButtonPressedMessage(globalFanSpeed,"FanSpeed");
+  }, [globalFanSpeed]);
 
   ws.onopen = () => {
     console.log('Connected to Websocket');  
@@ -131,7 +125,6 @@ function App() {
 
     try {
       var PumpState = sensorObject.data.pumpState
-      lastPumpState = PumpState
       var FanSpeed = sensorObject.data.fanSpeed
       var Waterflow1 = sensorObject.data.flowSensor1
       var Waterflow2 = sensorObject.data.flowSensor2
@@ -146,10 +139,6 @@ function App() {
     } catch (error) {
       console.log('Cannot parse incoming sensor data: %s ', error);      
     }
-
-    
-
-    
 
       dispatch(sensorDataReducer({temp: Temperature, flowrateOne: Waterflow1,
         flowrateTwo: Waterflow2, flowrateThree: Waterflow3, fanSpeed: FanSpeed,
@@ -170,7 +159,7 @@ function App() {
           changeFanToggleState={toggled => setGlobalFanState(toggled)}
           changeFlushToggleState={toggled => setGlobalDrainState(toggled)}
           changePumpSpeed={value => setGlobalPumpSpeed(value)}
-          changeFanSpeed={fanSpeed => setGlobalFanSpeed(fanSpeed)}/>    
+          changeFanSpeed={value => setGlobalFanSpeed(value)}/>    
         </ErrorBoundary>
         <br></br>
         <div>

@@ -19,8 +19,7 @@ function PumpFanValveStates(props) {
     } 
 
     const [value, setValue] = useState(pumpSpeed);
-    //const [globalFanSpeed, setGlobalFanSpeed] = useState(fanSpeed);
-    //const [globalDrainValue, setGlobalDrainValue] = useState(0);
+   
     var globalDrainValue;
     /*const handlePumpState = (e) => {
         console.log("handle pump state: %s", );
@@ -86,7 +85,7 @@ function PumpFanValveStates(props) {
                 step={10}
                 stepMultiplier={4}
                 value={pumpSpeed}
-                onChange={handlePumpChange}
+                onChange={(e) => props.changePumpSpeed(e.value)}
             /></div>
             </ErrorBoundary>
             <ErrorBoundary>
@@ -100,7 +99,7 @@ function PumpFanValveStates(props) {
                 step={5}
                 stepMultiplier={4}
                 value={fanSpeed}
-                onChange={handleFanChange}
+                onChange={(e) => props.changeFanSpeed(e.value)}
             /></div>
             </ErrorBoundary>
             <ErrorBoundary>
@@ -114,7 +113,7 @@ function PumpFanValveStates(props) {
                     step={5}
                     stepMultiplier={4}
                     value= {0}
-                    onChange={handleFlushChange}
+                    onChange={(e) => props.changePumpSpeed(e.value)}
                 />
                 </div>
             </ErrorBoundary>
