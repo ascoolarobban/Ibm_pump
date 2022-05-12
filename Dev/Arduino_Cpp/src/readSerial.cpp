@@ -4,6 +4,7 @@
 
 #include "readSerial.h"
 #include "buttonLED.h"
+#include "readPotentiometers.h"
 
 #include "commandHandler.h"
 char buf[25];
@@ -17,8 +18,8 @@ void readSerialInput() {
 
         //send last 3 digit comdata to commandhandler.
         if ( count > 1) {
-            Serial.println("Potentiometer");
             setPot(cmd);
+
         }
         else if(count <=1) {
 

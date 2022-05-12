@@ -26,8 +26,8 @@ int readPotentiometers() {
     new_pot_2 = map(analogRead(potPin2), 200, 1000, 0, 255);
     new_pot_2 = constrain(new_pot_2, 0, 255);
 
-    new_pot_3 = map(analogRead(potPin3), 150, 1000, 0, 255);
-    new_pot_3 = constrain(new_pot_3, 0, 255);
+    new_pot_3 = map(analogRead(potPin3), 150, 1000, 0, 90);
+    new_pot_3 = constrain(new_pot_3, 10, 90);
 
     if (new_pot_1 < (pot_1 - 10) || new_pot_1 > (pot_1 + 10)) {
         setPWM('A', new_pot_1);
@@ -42,7 +42,7 @@ int readPotentiometers() {
         pot_2_change = true;
     }
 
-    else if (new_pot_3 < (pot_3 - 10) || new_pot_3 > (pot_3 + 10)) {
+    else if (new_pot_3 < (pot_3 - 3) || new_pot_3 > (pot_3 + 3)) {
         setPWM('C', new_pot_3);
         pot_3 = new_pot_3;
         pot_3_change = true;

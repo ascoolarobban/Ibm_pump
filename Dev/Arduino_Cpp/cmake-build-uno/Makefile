@@ -395,6 +395,30 @@ src/idleState.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/idleState.cpp.s
 .PHONY : src/idleState.cpp.s
 
+src/killAll.obj: src/killAll.cpp.obj
+.PHONY : src/killAll.obj
+
+# target to build an object file
+src/killAll.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/killAll.cpp.obj
+.PHONY : src/killAll.cpp.obj
+
+src/killAll.i: src/killAll.cpp.i
+.PHONY : src/killAll.i
+
+# target to preprocess a source file
+src/killAll.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/killAll.cpp.i
+.PHONY : src/killAll.cpp.i
+
+src/killAll.s: src/killAll.cpp.s
+.PHONY : src/killAll.s
+
+# target to generate assembly for a file
+src/killAll.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/killAll.cpp.s
+.PHONY : src/killAll.cpp.s
+
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
@@ -700,6 +724,9 @@ help:
 	@echo "... src/idleState.obj"
 	@echo "... src/idleState.i"
 	@echo "... src/idleState.s"
+	@echo "... src/killAll.obj"
+	@echo "... src/killAll.i"
+	@echo "... src/killAll.s"
 	@echo "... src/main.obj"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

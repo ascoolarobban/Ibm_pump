@@ -9,6 +9,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Z_DUMMY_TARGET.dir/src/debounce.cpp.obj"
   "CMakeFiles/Z_DUMMY_TARGET.dir/src/detect_change.cpp.obj"
   "CMakeFiles/Z_DUMMY_TARGET.dir/src/idleState.cpp.obj"
+  "CMakeFiles/Z_DUMMY_TARGET.dir/src/killAll.cpp.obj"
   "CMakeFiles/Z_DUMMY_TARGET.dir/src/main.cpp.obj"
   "CMakeFiles/Z_DUMMY_TARGET.dir/src/pumpControl.cpp.obj"
   "CMakeFiles/Z_DUMMY_TARGET.dir/src/readButtons.cpp.obj"

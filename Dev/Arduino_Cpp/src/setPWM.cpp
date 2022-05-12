@@ -6,6 +6,7 @@
 #include <Arduino.h>
 #include "sendJson.h"
 #include "pumpControl.h"
+#include <Servo.h>
 
 int pump_pwm_pin =  3;
 int fan_pwm_pin = 10;
@@ -23,7 +24,8 @@ void setPWM(char x, int PWM) {
             break;
 
         case 'C':
-            analogWrite(drain_valve_pwm_pin, PWM);
+            //servo.write(map(PWM, 1023, 0, 0, 100));
+            //analogWrite(drain_valve_pwm_pin, PWM);
             valve_level = PWM;
             break;
     }

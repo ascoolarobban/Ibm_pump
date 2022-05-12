@@ -19,6 +19,7 @@
 #include "checkHardwareStateChange.h"
 #include "idleState.h"
 #include <stdio.h>
+#include "killAll.h"
 
 //FOR CODE QUESTIONS
 char linkedin[50] = "linkedin.com/in/iotrobban/";
@@ -90,6 +91,7 @@ void setup() {
 
     welcomeBlink();
     //Serial.println(startup);
+    nowTime = millis();
 
 
 
@@ -107,7 +109,7 @@ void loop() {
     readButtons();
 
     //Read waterflowSensors
-    readSensors(flowSensor1,flowSensor2,flowSensor3);
+    readSensors(flowSensor1, flowSensor2, flowSensor3);
 
     //Read Potentiometer:
     readPotentiometers();
@@ -132,21 +134,27 @@ void loop() {
     runTime();
 
 
-    if(detect_change_pot() || detect_change_onoff()){
+    if (detect_change_pot() || detect_change_onoff()) {
 
-        send_json(flowSensor1,flowSensor2,flowSensor3);
+        send_json(flowSensor1, flowSensor2, flowSensor3);
         Serial.println("\n");
     }
 
 
-
-/*    if(idleState()){
-        if(millis() - nowTime >= delayTime){
+/*    if (idleState()) {
+        if (millis() - nowTime >= delayTime) {
             nowTime = millis();
             //ledShow();
             ibmLightShow();
         }
+
+    }
+    //KILL THE WHOLE PUMP IF IDLE IN MORE THAN 5 MIN
+    if (millis() - nowTime >= 300000) {
+        if (!detect_change_pot() || !detect_change_onoff()) {
+            killAll();
+            nowTime = millis();
+            ibmLightShow();
+        }
     }*/
-
-
 }

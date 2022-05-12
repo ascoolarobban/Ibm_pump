@@ -6,6 +6,7 @@
 #include "pumpControl.h"
 #include "Arduino.h"
 #include "buttonLED.h"
+#include "readPotentiometers.h"
 //Recieve command from serial, check what it should do:
 void setPWM(char x, int PWM);
 
@@ -49,6 +50,7 @@ void setPot(String potVal) {
     if (potVal.startsWith("POTA")) {
         int input = potVal.substring(4).toInt();
         if (input >= 1 && input < 256) {
+            pot_1_change = true;
             setPWM('A',input);
         }
 
@@ -56,12 +58,14 @@ void setPot(String potVal) {
     else if (potVal.startsWith("POTB")) {
         int input = potVal.substring(4).toInt();
         if (input >= 1 && input < 256) {
+            pot_2_change = true;
             setPWM('B',input);
         }
     }
     else if (potVal.startsWith("POTC")) {
         int input = potVal.substring(4).toInt();
         if (input >= 1 && input < 256) {
+            pot_3_change = true;
             setPWM('C',input);
         }
     }
