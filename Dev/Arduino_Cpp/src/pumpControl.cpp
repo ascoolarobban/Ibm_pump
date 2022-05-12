@@ -4,7 +4,7 @@
 
 #include "pumpControl.h"
 #include "buttonLED.h"
-
+#include "Servo.h"
 int pumpPin = 7;
 int buttonA_ledRing = 5;  //pump led ring
 int buttonB_ledRing = 6;//fan led ring
@@ -74,14 +74,20 @@ void fanOFF() {
 
 
 void drainValveOpen() {
-    analogWrite(drain_valve_pwm_pin, 255);
+    Servo servo;
+    servo.attach(drain_valve_pwm_pin);
+    servo.write(4);
+   // analogWrite(drain_valve_pwm_pin, 255);
     digitalWrite(buttonC_ledRing, HIGH);
     drain_valve_state = true;
     //Serial.println("{\"DRAIN_VALVE\":\"OPEN\"}");
 //  Serial.println(pot_1);
 }
 void drainValveClosed() {
-    analogWrite(drain_valve_pwm_pin, 0);
+    Servo servo;
+    servo.attach(drain_valve_pwm_pin);
+    servo.write(90);
+    //analogWrite(drain_valve_pwm_pin, 0);
     digitalWrite(buttonC_ledRing, LOW);
     drain_valve_state = false;
    // Serial.println("{\"DRAIN_VALVE\":\"CLOSED\"}");

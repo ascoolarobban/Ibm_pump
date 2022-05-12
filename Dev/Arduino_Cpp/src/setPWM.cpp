@@ -10,8 +10,12 @@
 
 int pump_pwm_pin =  3;
 int fan_pwm_pin = 10;
+Servo servo;
+
 
 void setPWM(char x, int PWM) {
+    servo.attach(drain_valve_pwm_pin);
+
     switch (x) {
         case 'A':
             analogWrite(pump_pwm_pin, PWM);
@@ -24,8 +28,9 @@ void setPWM(char x, int PWM) {
             break;
 
         case 'C':
-            //servo.write(map(PWM, 1023, 0, 0, 100));
+            servo.write(PWM);
             //analogWrite(drain_valve_pwm_pin, PWM);
+            Serial.println(PWM);
             valve_level = PWM;
             break;
     }
