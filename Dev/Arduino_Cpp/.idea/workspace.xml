@@ -14,25 +14,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84157455-88e8-4aab-9df4-f36bf660231a" name="Changes" comment="Sloppy servo first try">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-uno/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-uno/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/buttonIsTriggered.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/buttonIsTriggered.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/buttonLED.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/buttonLED.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/checkHardwareStateChange.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/checkHardwareStateChange.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commandHandler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/commandHandler.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/idleState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/idleState.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/killAll.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/killAll.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pumpControl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/pumpControl.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/readButtons.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/readButtons.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/readPotentiometers.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/readPotentiometers.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/readSensors.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/readSensors.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/readSerial.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/readSerial.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runTime.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/runTime.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sendJson.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/sendJson.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sensors.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/sensors.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/setPWM.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/setPWM.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/welcomeBlink.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/welcomeBlink.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +124,7 @@
       <workItem from="1652346367484" duration="383000" />
       <workItem from="1652350467755" duration="2595000" />
       <workItem from="1652389966204" duration="4434000" />
-      <workItem from="1652450935748" duration="2546000" />
+      <workItem from="1652450935748" duration="2837000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed ledRing on/off issue with state-checks!">
       <created>1649418402882</created>
