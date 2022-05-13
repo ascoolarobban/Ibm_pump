@@ -211,9 +211,10 @@ void setLedsToZero() {
     C = 0;
     makeHigh(0, 0, 0);
 }
-
+//IBM MORSE CODE BLINK
 void ibmBlink() {}
-
+//This is the breathing startup led effect.
+//from 0 up to 200 with some delay, to make it fade in and out.
 void ledShow() {
 
     for (int i = 0; i < 200; i++) {
@@ -293,7 +294,7 @@ void ledShow() {
 
 }
 
-
+//If needed, a function to turn off the lights, not used yet, all button leds turns on and off when pushed.
 void killallLights() {
     digitalWrite(buttonA_ledRing, LOW);
     digitalWrite(buttonB_ledRing, LOW);

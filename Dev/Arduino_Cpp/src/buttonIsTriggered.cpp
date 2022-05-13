@@ -8,7 +8,7 @@ bool trigger_B = false;
 bool trigger_C = false;
 // Trigger switch.
 
-
+//Cheks if the button is triggered, to later on be used by the debounce() function.
 void buttonAIsTriggered() {
     trigger_A = true;
 

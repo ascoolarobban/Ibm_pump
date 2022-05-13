@@ -8,6 +8,7 @@
 #include <Arduino.h>
 
 void readButtons() {
+    //If any button is triggered, corresponding button activates.
     if (digitalRead(button_A) == HIGH) {
         buttonAIsTriggered();
     }

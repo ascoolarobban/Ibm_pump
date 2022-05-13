@@ -28,10 +28,12 @@ void readSensors (Sensor &flowSensor1,Sensor &flowSensor2,Sensor &flowSensor3){
     f1 = analogRead(flowSensor1_pin);
     f2 = analogRead(flowSensor2_pin);
     f3 = analogRead(flowSensor3_pin);
+    //Sends the flow value to sensor class to set new value.
+    flowSensor1.setFlowSensorValue(f1);
+    flowSensor2.setFlowSensorValue(f2);
+    flowSensor3.setFlowSensorValue(f3);
 
-    flowSensor1.setFlowSensorValue(flowSensor_1);
-    flowSensor2.setFlowSensorValue(flowSensor_2);
-    flowSensor3.setFlowSensorValue(flowSensor_3);
+    //this works but is unnecessary because of node red conversion.
     /*flowSensor2.setFlowSensorValue(s2.convertToLitres(f2));
     flowSensor3.setFlowSensorValue(s3.convertToLitres(f3));*/
 

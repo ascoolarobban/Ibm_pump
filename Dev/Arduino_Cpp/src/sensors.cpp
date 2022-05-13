@@ -5,29 +5,16 @@
 #include "sensors.h"
 #include <Arduino.h>
 
-
-//VARIABLES
-
-/*float humidity = 62.0;
-float temperature = 23.0;
-
-int temp = random(5, 32);
-int flowSensor_1 = random(5, 200);
-int flowSensor_2 = random(5, 200);
-int flowSensor_3 = random(5, 200);
-
-int last_flowSensor_1 = 0;
-int last_flowSensor_2 = 0;
-int last_flowSensor_3 = 0;*/
-
+//FLOW SENSOR GALLORE.
+//sets the flowSensor value
 void Sensor::setFlowSensorValue(float s){
     this -> flowSensor = s;
 }
-
+//Gets the flowSensor value
 float Sensor::getFlowSensorValue() const {
     return this -> flowSensor;
 }
-
+//Sets last value so we know if the new value indicates a change. if its the same value the json wont be sent later on.
 void Sensor::setLastFlowSensorValue(float s) {
     this -> lastFlowSensor = s;
 }

@@ -32,7 +32,8 @@ unsigned long startMillis;
 unsigned long currentMillis;
 
 
-//LEDSHOW WAIT
+
+//root["Pump"] = "Pump1";
 
 String startup = "The time traveling is just too dangerous. Better that I devote myself to study the other great mystery of the universe: c++ pointers.";
 

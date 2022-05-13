@@ -5,7 +5,7 @@
 #include "idleState.h"
 #include "pumpControl.h"
 #include "buttonIsTriggered.h"
-
+//checks if everything is off, if so, we can activate the idle state lightshow after a few min.
 bool idleState() {
     if (trigger_A == false &&
         trigger_B == false &&

@@ -18,6 +18,8 @@
 #include "convertToLitres.h"
 #include "checkHardwareStateChange.h"
 #include "idleState.h"
+#include <stdio.h>
+#include "killAll.h"
 
 //FOR CODE QUESTIONS
 char linkedin[50] = "linkedin.com/in/iotrobban/";
@@ -88,13 +90,15 @@ void setup() {
 
 
     welcomeBlink();
-    Serial.println(startup);
+    //Serial.println(startup);
+    nowTime = millis();
 
 
 
 }
 
 void loop() {
+    //All three flow sensors connected to the main pipes
     Sensor flowSensor1;
     Sensor flowSensor2;
     Sensor flowSensor3;
@@ -106,46 +110,45 @@ void loop() {
     readButtons();
 
     //Read waterflowSensors
-    readSensors(flowSensor1,flowSensor2,flowSensor3);
+    readSensors(flowSensor1, flowSensor2, flowSensor3);
 
     //Read Potentiometer:
     readPotentiometers();
 
-
-    //Send sensor data
-    //sensorReading();
-
-
-
     //debouncing button
     debounce();
-
 
     //check for incomming char
     readSerialInput();
 
-
+    //Checks if any buttons or potentiometers has changed
     checkHardwareStateChange();
 
     //Get the time machine has been running
     runTime();
 
+    //If any change has been made such as somebody turning a potentiometer. If so, it sends json over serial to raspberry pi.
+    if (detect_change_pot() || detect_change_onoff()) {
 
-    if(detect_change_pot() || detect_change_onoff()){
-        Serial.println("Change detected");
-
-        send_json(flowSensor1,flowSensor2,flowSensor3);
+        send_json(flowSensor1, flowSensor2, flowSensor3);
+        Serial.println("\n");
     }
 
-
-
-    if(idleState()){
-        if(millis() - nowTime >= delayTime){
+// Here we'll make a program that only runs if nothing has changed for X minutes, then the buttons will start blinking IBM in morse.
+/*    if (idleState()) {
+        if (millis() - nowTime >= delayTime) {
             nowTime = millis();
             //ledShow();
             ibmLightShow();
         }
+
     }
-
-
+    //KILL THE WHOLE PUMP IF IDLE IN MORE THAN 5 MIN
+    if (millis() - nowTime >= 300000) {
+        if (!detect_change_pot() || !detect_change_onoff()) {
+            killAll();
+            nowTime = millis();
+            ibmLightShow();
+        }
+    }*/
 }
