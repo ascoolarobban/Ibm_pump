@@ -14,19 +14,22 @@ Servo servo;
 
 
 void setPWM(char x, int PWM) {
+    //using the servo library to determine what pin the servo is attached to
     servo.attach(drain_valve_pwm_pin);
 
     switch (x) {
+        //if setPWM recieves an A, the pump PWM is controlled
         case 'A':
             analogWrite(pump_pwm_pin, PWM);
             pump_speed = PWM;
             break;
-
+        //B for FAN
         case 'B':
             analogWrite(fan_pwm_pin, PWM);
             fan_speed = PWM;
             break;
-
+        //C for servo, pwm in this case will be 0 for closed and 100 for fully open.
+        //its not completely stepless but functionally stepless...
         case 'C':
             servo.write(PWM);
             //analogWrite(drain_valve_pwm_pin, PWM);

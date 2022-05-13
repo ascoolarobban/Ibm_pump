@@ -23,66 +23,64 @@ bool last_fan_state = false;
 bool last_drain_valve_state = false;
 
 
-
+//old safetyvalve, probably not gonna be used at all since new design.
+/*
 void safetyValveOFF() {
     digitalWrite(safety_valve_relay, LOW);
-   // Serial.println("{\"SAFETY_VALVE\":\"CLOSED\"}");
     safety_valve_state = false;
 }
 
 void safetyValveON() {
     digitalWrite(safety_valve_relay, HIGH);
-  //  Serial.println("{\"SAFETY_VALVE\":\"OPEN\"}");
     safety_valve_state = true;
 
 
 }
-
+*/
+//turns the pump on.
 void pumpON() {
     safetyValveON();
     digitalWrite(pumpPin, HIGH);
     digitalWrite(buttonA_ledRing, HIGH);
     pump_state = true;
-    //Serial.println("{\"PUMP\":\"ON\"}");
     // send_warning(warning(1));
 
 }
+// turns the pump off.
 void pumpOFF() {
     safetyValveOFF();
     digitalWrite(pumpPin, LOW);
     digitalWrite(buttonA_ledRing, LOW);
     pump_state = false;
-    //Serial.println("{\"PUMP\":\"OFF\"}");
 
 }
+//
 void fanON() {
     fan_state = true;
     digitalWrite(fan_relay, HIGH);
     digitalWrite(buttonB_ledRing, HIGH);
-    //Serial.println("{\"FAN\":\"ON\"}");
+
 }
 void fanOFF() {
     fan_state = false;
     digitalWrite(fan_relay, LOW);
     digitalWrite(buttonB_ledRing, LOW);
-    //Serial.println("{\"FAN\":\"OFF\"}");
 
 }
 
 
 
 
-
+//Opens up the drain valve with a servo connected under the table
 void drainValveOpen() {
     Servo servo;
     servo.attach(drain_valve_pwm_pin);
     servo.write(4);
-   // analogWrite(drain_valve_pwm_pin, 255);
     digitalWrite(buttonC_ledRing, HIGH);
     drain_valve_state = true;
-    //Serial.println("{\"DRAIN_VALVE\":\"OPEN\"}");
 //  Serial.println(pot_1);
 }
+//Closes the drain valve with a servo connected under the table
 void drainValveClosed() {
     Servo servo;
     servo.attach(drain_valve_pwm_pin);
@@ -94,7 +92,7 @@ void drainValveClosed() {
 }
 
 
-
+//Gets serial command and turns the pump off or on.
 void pumpcontroller(bool command) {
     if (command) {
 
@@ -106,7 +104,7 @@ void pumpcontroller(bool command) {
     }
 
 }
-
+//Gets serial command and turns the fan off or on.
 void fancontroller(bool command) {
     if (command) {
         fanON();
@@ -118,7 +116,7 @@ void fancontroller(bool command) {
 
 
 }
-
+//Gets serial command and turns the valve off or on.
 void valvecontroller(bool command) {
     if (command) {
 
@@ -131,7 +129,7 @@ void valvecontroller(bool command) {
 
 
 }
-
+//Gets button push command and turns the valve off or on.
 void valveControllerButton() {
     if (drain_valve_state == true) {
         drainValveClosed();
@@ -140,7 +138,7 @@ void valveControllerButton() {
         drainValveOpen();
     }
 }
-
+//Gets button push command and turns the fan off or on.
 void fanControllerButton() {
     if (fan_state == true) {
         fanOFF();
@@ -149,6 +147,7 @@ void fanControllerButton() {
         fanON();
     }
 }
+//Gets button push command and turns the pump off or on.
 void pumpControllerButton() {
     if (pump_state == true) {
         pumpOFF();

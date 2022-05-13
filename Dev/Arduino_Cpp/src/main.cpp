@@ -98,6 +98,7 @@ void setup() {
 }
 
 void loop() {
+    //All three flow sensors connected to the main pipes
     Sensor flowSensor1;
     Sensor flowSensor2;
     Sensor flowSensor3;
@@ -114,33 +115,26 @@ void loop() {
     //Read Potentiometer:
     readPotentiometers();
 
-
-    //Send sensor data
-    //sensorReading();
-
-
-
     //debouncing button
     debounce();
-
 
     //check for incomming char
     readSerialInput();
 
-
+    //Checks if any buttons or potentiometers has changed
     checkHardwareStateChange();
 
     //Get the time machine has been running
     runTime();
 
-
+    //If any change has been made such as somebody turning a potentiometer. If so, it sends json over serial to raspberry pi.
     if (detect_change_pot() || detect_change_onoff()) {
 
         send_json(flowSensor1, flowSensor2, flowSensor3);
         Serial.println("\n");
     }
 
-
+// Here we'll make a program that only runs if nothing has changed for X minutes, then the buttons will start blinking IBM in morse.
 /*    if (idleState()) {
         if (millis() - nowTime >= delayTime) {
             nowTime = millis();

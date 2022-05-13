@@ -7,6 +7,8 @@
 bool old_pump_state= false;
 bool old_fan_state= false;
 bool old_drain_valve_state= false;
+//so if the state changes, we can use this information to know it the buttons have been pressed.
+//good for knowing idle states or sending json messages
 void checkHardwareStateChange(){
     if(pump_state != old_pump_state){
         //pumpON();

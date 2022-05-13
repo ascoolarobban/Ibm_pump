@@ -7,8 +7,9 @@
 #include "Arduino.h"
 #include "buttonLED.h"
 #include "readPotentiometers.h"
-//Recieve command from serial, check what it should do:
 void setPWM(char x, int PWM);
+//Takes a char from readSerial() and switches the state to true,
+//If the states are true the debounce will handle the switch.
 
 void commandHandler(char* comdata) {
     Serial.println(comdata);
