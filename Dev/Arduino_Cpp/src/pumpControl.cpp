@@ -54,13 +54,14 @@ void pumpOFF() {
     pump_state = false;
 
 }
-//
+//Turns the fan on.
 void fanON() {
     fan_state = true;
     digitalWrite(fan_relay, HIGH);
     digitalWrite(buttonB_ledRing, HIGH);
 
 }
+//Turns the fan off
 void fanOFF() {
     fan_state = false;
     digitalWrite(fan_relay, LOW);
