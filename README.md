@@ -109,6 +109,9 @@ Postions and planes with AutoCAD
     
     AutoCAD:
     Youssef Abdalahad
+    
+    3d-prints & 3d blueprints:
+    Robin Ellingsen
 ---
 ## Contact
 
