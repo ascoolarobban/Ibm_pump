@@ -7,6 +7,7 @@
 
 
 #include "setPWM.h"
+#include "pumpControl.h"
 int new_pot_1 = 0;
 int new_pot_2 = 0;
 int new_pot_3 = 0;
@@ -29,8 +30,10 @@ int readPotentiometers() {
     new_pot_2 = constrain(new_pot_2, 0, 255);
 
     //This is the servo value, it goes from five because at zero it acts weird, 5 seem to be a good start. 100 is straight up aka fully opened.
-    new_pot_3 = map(analogRead(potPin3), 150, 1000, 0, 90);
-    new_pot_3 = constrain(new_pot_3, 5, 100);
+
+
+    new_pot_3 = map(analogRead(potPin3), 15, 1023, 0, 90);
+    //new_pot_3 = constrain(new_pot_3, , 5);
 //Difference between - + 10, otherwise the shitty hardwares sends signals constantly and it will flood the raspberry with jsons.
     if (new_pot_1 < (pot_1 - 10) || new_pot_1 > (pot_1 + 10)) {
         setPWM('A', new_pot_1);
@@ -45,11 +48,12 @@ int readPotentiometers() {
         pot_2_change = true;
     }
 //Difference between - + 3, otherwise the shitty hardwares sends signals constantly and it will flood the raspberry with jsons.
-    else if (new_pot_3 < (pot_3 - 3) || new_pot_3 > (pot_3 + 3)) {
-        setPWM('C', new_pot_3);
-        pot_3 = new_pot_3;
-        pot_3_change = true;
-
+    if (new_pot_3 < (pot_3 - 10) || new_pot_3 > (pot_3 + 10)) {
+            setPWM('C', new_pot_3);
+            pot_3 = new_pot_3;
+            pot_3_change = true;
+            Serial.println(new_pot_3);
+            Serial.print("tjo");
     }
     return 0;
 

@@ -20,7 +20,7 @@
 #include "idleState.h"
 #include <stdio.h>
 #include "killAll.h"
-
+#include "Servo.h"
 //FOR CODE QUESTIONS
 char linkedin[50] = "linkedin.com/in/iotrobban/";
 
@@ -29,11 +29,11 @@ char linkedin[50] = "linkedin.com/in/iotrobban/";
 unsigned long nowTime;
 unsigned long delayTime = 10000;
 unsigned long previousMillis;
-
+Servo servoSetup;
 
 
 void setup() {
-    Serial.begin(9600);
+    Serial.begin(115200);
 
     /**BUTTONS**/
     //BUTTON A
@@ -84,6 +84,9 @@ void setup() {
     pinMode(flowSensor2_pin, INPUT);
     pinMode(flowSensor3_pin, INPUT);
 
+    //SERVO FOR setup
+    servoSetup.attach(drain_valve_pwm_pin);
+    servoSetup.write(90);
 
     //TURN OFF PUMP JUST FOR SAFETY
     pumpOFF();

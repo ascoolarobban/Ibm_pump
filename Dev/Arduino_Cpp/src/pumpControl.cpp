@@ -24,7 +24,7 @@ bool last_drain_valve_state = false;
 
 
 //old safetyvalve, probably not gonna be used at all since new design.
-/*
+
 void safetyValveOFF() {
     digitalWrite(safety_valve_relay, LOW);
     safety_valve_state = false;
@@ -36,14 +36,14 @@ void safetyValveON() {
 
 
 }
-*/
+
 //turns the pump on.
 void pumpON() {
     safetyValveON();
     digitalWrite(pumpPin, HIGH);
     digitalWrite(buttonA_ledRing, HIGH);
     pump_state = true;
-    // send_warning(warning(1));
+    //send_warning(warning(1));
 
 }
 // turns the pump off.
