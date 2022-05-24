@@ -3,26 +3,25 @@ import { GaugeChart } from "@carbon/charts-react";
 import "@carbon/charts/styles.css";
 import { useSelector } from 'react-redux';
 
-function TempGauge() {
+function FlowTwo() {
 
     const sensorValue = useSelector((state) => state.sensors.value);
-    var tempvalue = sensorValue.temp
     
     var state = {
 		data: [
 	    {
 		"group": "value",
-		"value": tempvalue
+		"value": sensorValue.flowrateTwo
 	    },
     ],
 		options: {
-	    "title": "Temperature °C",
+	    "title": "Flow in 2, litres/h",
 	    "resizable": true,
 	    "height": "200px",
 	    "gauge": {
 		"status": "warning",
         showPercentageSymbol: false,
-		"type": "semi"
+		"type": "full"
 	        }   
         }
 	};
@@ -36,4 +35,4 @@ function TempGauge() {
     );
 }
 
-export default TempGauge;
+export default FlowTwo;
