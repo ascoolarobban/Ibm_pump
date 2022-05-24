@@ -74,18 +74,18 @@ void fanOFF() {
 
 //Opens up the drain valve with a servo connected under the table
 void drainValveOpen() {
-    Servo servo;
+/*    Servo servo;
     servo.attach(drain_valve_pwm_pin);
-    servo.write(4);
+    servo.write(4);*/
     digitalWrite(buttonC_ledRing, HIGH);
     drain_valve_state = true;
 //  Serial.println(pot_1);
 }
 //Closes the drain valve with a servo connected under the table
 void drainValveClosed() {
-    Servo servo;
+/*    Servo servo;
     servo.attach(drain_valve_pwm_pin);
-    servo.write(90);
+    servo.write(90);*/
     //analogWrite(drain_valve_pwm_pin, 0);
     digitalWrite(buttonC_ledRing, LOW);
     drain_valve_state = false;

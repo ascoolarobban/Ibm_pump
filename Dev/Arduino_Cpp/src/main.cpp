@@ -29,7 +29,7 @@ char linkedin[50] = "linkedin.com/in/iotrobban/";
 unsigned long nowTime;
 unsigned long delayTime = 10000;
 unsigned long previousMillis;
-Servo servoSetup;
+
 
 
 void setup() {
@@ -84,9 +84,6 @@ void setup() {
     pinMode(flowSensor2_pin, INPUT);
     pinMode(flowSensor3_pin, INPUT);
 
-    //SERVO FOR setup
-    servoSetup.attach(drain_valve_pwm_pin);
-    servoSetup.write(90);
 
     //TURN OFF PUMP JUST FOR SAFETY
     pumpOFF();

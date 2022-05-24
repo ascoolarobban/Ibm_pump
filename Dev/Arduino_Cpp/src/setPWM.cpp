@@ -25,15 +25,16 @@ void setPWM(char x, int PWM) {
             break;
         //B for FAN
         case 'B':
+            Serial.println(PWM);
             analogWrite(fan_pwm_pin, PWM);
             fan_speed = PWM;
+
             break;
         //C for servo, pwm in this case will be 0 for closed and 100 for fully open.
         //its not completely stepless but functionally stepless...
         case 'C':
             servo.write(PWM);
             //analogWrite(drain_valve_pwm_pin, PWM);
-            Serial.println(PWM);
             valve_level = PWM;
             break;
     }

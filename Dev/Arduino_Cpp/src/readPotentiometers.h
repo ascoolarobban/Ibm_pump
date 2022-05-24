@@ -19,7 +19,6 @@ extern int new_pot_3;
 extern bool pot_1_change;
 extern bool pot_2_change;
 extern bool pot_3_change;
-
 int readPotentiometers();
 
 #endif //ARDUINO_CPP_READPOTENTIOMETERS_H
