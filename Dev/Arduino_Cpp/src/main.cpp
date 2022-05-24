@@ -20,7 +20,7 @@
 #include "idleState.h"
 #include <stdio.h>
 #include "killAll.h"
-
+#include "Servo.h"
 //FOR CODE QUESTIONS
 char linkedin[50] = "linkedin.com/in/iotrobban/";
 
@@ -33,7 +33,7 @@ unsigned long previousMillis;
 
 
 void setup() {
-    Serial.begin(9600);
+    Serial.begin(115200);
 
     /**BUTTONS**/
     //BUTTON A

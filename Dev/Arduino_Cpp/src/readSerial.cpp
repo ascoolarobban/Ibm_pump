@@ -26,8 +26,8 @@ void readSerialInput() {
         else if(count <=1) {
             //If the incomming data is less than 1 char, it sends it to the commandHandler.
             //pumpON/OFF fanON/OFF or Valve Open/Closed.
-            Serial.print("cmd2: ");
-            Serial.println(buf);
+            Serial.print("INCHAR: ");
+            Serial.print(buf);
             commandHandler(buf);
         }
     }
