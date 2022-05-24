@@ -1,117 +1,200 @@
-import { index } from "d3";
-import React, { Component } from "react";
-import ChildComponent from "./child";
+import React, { useState, useEffect } from 'react';
+import './App.css';
+import './index.css';
+import 'carbon-components/css/carbon-components.min.css';
+import { Toggle } from "carbon-components-react";
+import TempGauge from './components/TempGauge';
+import FlowOne from './components/FlowOne'
+import FlowTwo from './components/FlowTwo';
+import FlowThree from './components/FlowThree';
+import FanSpeed from './components/Fanspeed';
+import PumpSpeed from './components/Pumpspeed';
+import PumpFanValveStates from './components/PumpFanValveStates';
+import {useDispatch} from 'react-redux';
+import { sensorDataReducer } from './features/sensors'
+import ErrorBoundary from './components/ErrorBoundary';
 
-class App extends Component {
-  constructor(props) {
-      super(props);
+//var ws = new WebSocket("ws://192.168.1.2:1880/ws/data");
+var ws = new WebSocket("ws://raspberrypi:1880/ws/data");
+var isConnectedToWebSocket = false;
 
-      this.state = {
-          ws: null,
-          pumpState: 'OFF',
-          fanState: 'OFF',
-          valveState: 'OFF',
-		  temp: null,
-          flow: null,
-          data: [
-            {
-                "group": "value",
-                "value": null
-            },
-          ]}
-       
-  }
- 
+Toggle.defaultProps = {
+  onToggle: () => {},
+  labelA: 'off',
+  labelB: 'on',
+};
 
-  // single websocket instance for the own application and constantly trying to reconnect.
-
-  componentDidMount() {
-      this.connect();
-  }
-
-  timeout = 250; // Initial timeout duration as a class variable
-
-  /**
-   * @function connect
-   * This function establishes the connect with the websocket and also ensures constant reconnection if connection closes
-   */
-  connect = () => {
-      var ws = new WebSocket("ws://9.246.252.249:1880/ws/simple");
-      //var ws = new WebSocket("ws://localhost:1880/ws/simple");
-      let that = this; // cache the this
-      var connectInterval;
-
-      console.log('ws: %s', ws);
-
-
-      // websocket onopen event listener
-      ws.onopen = () => {
-          console.log("connected websocket main component");
-
-          this.setState({ ws: ws });
-
-          console.log(this.state);
-          ws.send("React Message");
-          that.timeout = 250; // reset timer to 250 on open of websocket connection 
-          clearTimeout(connectInterval); // clear Interval on on open of websocket connection
-      };
-
-      
-
-      ws.onmessage = (event) => {
-        console.log('Message from server ', event.data);
-        const sensorObject = JSON.parse(event.data);
-        var pumpState = sensorObject["Pump"]["pumpstatus"]
-        var temp = sensorObject["Pump"]["temp"]
-        var flow = sensorObject["Pump"]["flow"]
-        var fanState = sensorObject["Pump"]["fanstatus"]
-        var valveState = sensorObject["Pump"]["valvestatus"]
-        
-        this.setState({ pumpState: pumpState});
-        this.setState({ fanState: fanState});
-        this.setState({ valveState: valveState});
-        this.setState({ temp: temp});
-        this.setState({ flow: flow});
-         
-      }
-
-      // websocket onclose 
-      ws.onclose = e => {
-          console.log(
-              `Socket is closed. Reconnect will be attempted in ${Math.min(
-                  10000 / 1000,
-                  (that.timeout + that.timeout) / 1000
-              )} second.`,
-              e.reason
-          );
-
-          that.timeout = that.timeout + that.timeout; //increment retry interval
-          connectInterval = setTimeout(this.check, Math.min(10000, that.timeout)); //call check function after timeout
-      };
-
-      // websocket onerror event listener
-      ws.onerror = err => {
-          console.error(
-              "Socket encountered error: ",
-              err.message,
-              "Closing socket"
-          );
-
-          ws.close();
-      };
-  };
-
-  /**
-   * utilited by the @function connect to check if the connection is close, if so attempts to reconnect
-   */
-  check = () => {
-      const { ws } = this.state;
-      if (!ws || ws.readyState === WebSocket.CLOSED) this.connect(); //check if websocket instance is closed, if so call `connect` function.
-  };
-
-  render() {
-      return <ChildComponent websocket={this.state.ws} temp={this.state.temp} pumpState={this.state.pumpState} />;
+function IsJsonString(str) {
+  try {
+    var json = JSON.parse(str);
+    return (typeof json === "object");
+  } catch (e) {
+    return false;
   }
 }
-export default App;
 
+function convertInputToPWMValue(x, in_min, in_max, out_min, out_max) {
+  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+
+function SendButtonPressedMessage(inputState,msgType){
+  var newButtonState = null;
+  var newmsg;
+  var pwmValue=0;
+  newButtonState = inputState !== true ? 'OFF' : 'ON' ;
+  if (inputState === null) {
+    return
+  }
+  switch (msgType) {
+    case 'Pump':
+      newmsg = "{PUMP:" + newButtonState + "}" ;
+      console.log('%s', newmsg);
+      break;
+    case 'Fan':
+      newmsg = "{FAN:" + newButtonState + "}" ;
+      console.log('%s', newmsg);
+      break;
+    case 'Drain':
+      newButtonState = inputState !== true ? 'CLOSED' : 'OPEN' ;
+      newmsg = "{DRAIN_VALVE:" + newButtonState + "}" ;
+      console.log('%s', newmsg);
+      break;
+    case 'PumpSpeed':
+        console.log('pump speed input: %s', inputState);
+        pwmValue = convertInputToPWMValue(inputState,0,3000,0,255);
+        pwmValue = pwmValue.toFixed(0);
+        newmsg = "POTA" + pwmValue ;
+        console.log('%s', newmsg);
+        break;
+    case 'FanSpeed':
+        console.log('fan speed input: %s', inputState);
+        pwmValue = convertInputToPWMValue(inputState,0,1900,0,255);
+        pwmValue = pwmValue.toFixed(0);
+        newmsg = "POTB" + pwmValue ;
+        console.log('%s', newmsg);
+        break;
+    case 'Servo':
+        console.log('Servo input: %s', inputState);
+        pwmValue = convertInputToPWMValue(inputState,0,100,4,95);
+        pwmValue = pwmValue.toFixed(0);
+        newmsg = "POTC" + pwmValue ;
+        console.log('%s', newmsg);
+        break;
+    default:
+      console.log('unknown sensor type: %s', msgType);
+  }
+
+  if (isConnectedToWebSocket) {
+    ws.send(newmsg);
+  }   
+}
+
+function App() {
+  const dispatch = useDispatch();
+  const [globalPumpState, setGlobalPumpState] = useState(false)
+  const [globalFanState, setGlobalFanState] = useState(false)
+  const [globalDrainState, setGlobalDrainState] = useState(false)
+  const [globalPumpSpeed, setGlobalPumpSpeed] = useState(0)
+  const [globalFanSpeed, setGlobalFanSpeed] = useState(0)
+  const [globalServo, setGlobalServo] = useState(0)
+  
+  useEffect(() => {
+    SendButtonPressedMessage(globalPumpState,"Pump");
+  }, [globalPumpState]);
+
+  useEffect(() => {
+    SendButtonPressedMessage(globalFanState,"Fan");
+  }, [globalFanState]);
+
+  useEffect(() => {
+    SendButtonPressedMessage(globalDrainState,"Drain");
+  }, [globalDrainState]);
+
+  useEffect(() => {
+    SendButtonPressedMessage(globalPumpSpeed,"PumpSpeed");
+  }, [globalPumpSpeed]);
+
+  useEffect(() => {
+    SendButtonPressedMessage(globalFanSpeed,"FanSpeed");
+  }, [globalFanSpeed]);
+
+  useEffect(() => {
+    SendButtonPressedMessage(globalServo,"Servo");
+  }, [globalServo]);  
+
+  ws.onopen = () => {
+    console.log('Connected to Websocket');  
+    isConnectedToWebSocket = true;
+  };
+  
+  ws.onmessage = (event) => {
+    console.log('Message from server ', event.data);
+    const sensorObject = JSON.parse(event.data);
+    if (IsJsonString(event.data)) {
+      //console.log("returned true: %s", event.data )
+    } else {
+      //console.log("Returned false:");
+    }
+
+    try {
+      var PumpState = sensorObject.data.pumpState
+      var FanSpeed = sensorObject.data.fanSpeed
+      var Waterflow1 = sensorObject.data.flowSensor1
+      var Waterflow2 = sensorObject.data.flowSensor2
+      var Waterflow3 = sensorObject.data.flowSensor3
+      var FanState = sensorObject.data.fanState
+      var PumpSpeed = sensorObject.data.pumpSpeed
+      var DrainValveState = sensorObject.data.drainValveState
+      var DrainValveLevel = sensorObject.data.DrainValveLevel
+      var SafetyValveState = sensorObject.data.safetyValveState
+      var Temperature = sensorObject.data.temp
+      var Location = sensorObject.data.location
+      var Id = sensorObject.data.id
+    
+      dispatch(sensorDataReducer({temp: Temperature, flowrateOne: Waterflow1,
+        flowrateTwo: Waterflow2, flowrateThree: Waterflow3, fanSpeed: FanSpeed,
+        fanState: FanState, pumpSpeed: PumpSpeed, pumpState: PumpState, 
+        location: Location, id: Id, drainStateValve: DrainValveState, 
+        drainValveLevel: DrainValveLevel, safetyStateValve: SafetyValveState}))
+    
+    
+    } catch (error) {
+      try {
+        const warningMessage = JSON.parse(event.data);
+        var TempWarning = warningMessage.payload.tempNormal;
+      } catch (e) {
+        console.log('unknown message %s', e);
+      }
+      console.log('Cannot parse incoming sensor data: %s ', error);
+    }
+  }
+ 
+  return (
+
+    <div>
+      <div className="App"><h2>Pump Demo</h2>
+        <ErrorBoundary>
+          <PumpFanValveStates changePumpToggleState={toggled => setGlobalPumpState(toggled)}
+          changeFanToggleState={toggled => setGlobalFanState(toggled)}
+          changeFlushToggleState={toggled => setGlobalDrainState(toggled)}
+          changePumpSpeed={value => setGlobalPumpSpeed(value)}
+          changeFanSpeed={value => setGlobalFanSpeed(value)}
+          changeServo={value => setGlobalServo(value)}/>    
+        </ErrorBoundary>
+        <br></br>
+        <div>
+          <div className="grid-container">
+          <div className="grid-item"><PumpSpeed /></div>
+          <div className="grid-item"><FanSpeed /></div>
+          <div className="grid-item"><TempGauge /></div>
+          <div className="grid-item"><FlowOne /></div>
+          <div className="grid-item"><FlowTwo /></div>
+          <div className="grid-item"><FlowThree /></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  );
+}
+ 
+export default App;
